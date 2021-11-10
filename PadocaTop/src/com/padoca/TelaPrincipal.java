@@ -27,62 +27,206 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        header = new javax.swing.JPanel();
+        tabs = new javax.swing.JTabbedPane();
+        tabFunc = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listaFunc = new javax.swing.JTable();
+        pesquisaNome = new javax.swing.JTextField();
+        pesquisaId = new javax.swing.JTextField();
+        pesquisaSelect = new javax.swing.JComboBox<>();
+        funcID = new javax.swing.JLabel();
+        funcNome = new javax.swing.JLabel();
+        funcSelect = new javax.swing.JLabel();
+        funcHeader = new javax.swing.JLabel();
+        pesquisaBotao = new javax.swing.JButton();
+        botaoAddFunc = new javax.swing.JButton();
+        botaoAltFunc = new javax.swing.JButton();
+        botaoDelFunc = new javax.swing.JButton();
+        tabProd = new javax.swing.JPanel();
+        tabVenda = new javax.swing.JPanel();
+        buttonPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 204, 204));
+        setMaximizedBounds(new java.awt.Rectangle(0, 0, 1146, 804));
+        setMaximumSize(new java.awt.Dimension(1146, 804));
+        setMinimumSize(null);
+        setName("telaPrincipal"); // NOI18N
+        setSize(new java.awt.Dimension(1146, 804));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+        header.setBackground(new java.awt.Color(238, 197, 182));
+        header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 150));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        tabFunc.setBackground(new java.awt.Color(204, 255, 204));
+
+        listaFunc.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nome", "Idade", "Cargo", "Data de Admissão"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(listaFunc);
+        if (listaFunc.getColumnModel().getColumnCount() > 0) {
+            listaFunc.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        pesquisaSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        funcID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        funcID.setText("ID:");
+
+        funcNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        funcNome.setText("Nome:");
+
+        funcSelect.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        funcSelect.setText("Funcionário:");
+
+        funcHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        funcHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        funcHeader.setText("Funcionários");
+
+        pesquisaBotao.setBackground(new java.awt.Color(255, 204, 204));
+        pesquisaBotao.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        pesquisaBotao.setText("Pesquisar");
+
+        botaoAddFunc.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        botaoAddFunc.setForeground(new java.awt.Color(0, 153, 0));
+        botaoAddFunc.setText("Adicionar");
+
+        botaoAltFunc.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        botaoAltFunc.setText("Alterar");
+
+        botaoDelFunc.setFont(new java.awt.Font("Verdana", 3, 14)); // NOI18N
+        botaoDelFunc.setForeground(new java.awt.Color(255, 51, 51));
+        botaoDelFunc.setText("Excluir");
+
+        javax.swing.GroupLayout tabFuncLayout = new javax.swing.GroupLayout(tabFunc);
+        tabFunc.setLayout(tabFuncLayout);
+        tabFuncLayout.setHorizontalGroup(
+            tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabFuncLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabFuncLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(botaoAltFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botaoAddFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                            .addComponent(botaoDelFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(tabFuncLayout.createSequentialGroup()
+                            .addGap(38, 38, 38)
+                            .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(funcNome)
+                                .addComponent(funcID)
+                                .addComponent(funcSelect))
+                            .addGap(36, 36, 36)
+                            .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(pesquisaSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(pesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(tabFuncLayout.createSequentialGroup()
+                                    .addComponent(pesquisaId, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(pesquisaBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(funcHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
+        tabFuncLayout.setVerticalGroup(
+            tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFuncLayout.createSequentialGroup()
+                .addGap(177, 177, 177)
+                .addComponent(funcHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pesquisaSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(funcSelect))
+                .addGap(11, 11, 11)
+                .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(funcNome))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(pesquisaId, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(funcID))
+                    .addComponent(pesquisaBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFuncLayout.createSequentialGroup()
+                        .addComponent(botaoAddFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addComponent(botaoAltFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(botaoDelFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(38, 38, 38))
+        );
+
+        tabs.addTab("tab3", tabFunc);
+
+        tabProd.setBackground(new java.awt.Color(255, 204, 204));
+        tabs.addTab("tab1", tabProd);
+
+        tabVenda.setBackground(new java.awt.Color(255, 255, 204));
+
+        javax.swing.GroupLayout tabVendaLayout = new javax.swing.GroupLayout(tabVenda);
+        tabVenda.setLayout(tabVendaLayout);
+        tabVendaLayout.setHorizontalGroup(
+            tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 915, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        tabVendaLayout.setVerticalGroup(
+            tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 812, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab1", jPanel1);
+        tabs.addTab("tab2", tabVenda);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 204));
+        getContentPane().add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, -29, 920, 840));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 915, Short.MAX_VALUE)
+        buttonPanel.setBackground(new java.awt.Color(247, 234, 234));
+
+        javax.swing.GroupLayout buttonPanelLayout = new javax.swing.GroupLayout(buttonPanel);
+        buttonPanel.setLayout(buttonPanelLayout);
+        buttonPanelLayout.setHorizontalGroup(
+            buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 230, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 812, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("tab2", jPanel2);
-
-        jPanel3.setBackground(new java.awt.Color(204, 255, 204));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 915, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 812, Short.MAX_VALUE)
+        buttonPanelLayout.setVerticalGroup(
+            buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 690, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab3", jPanel3);
-
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, -29, 920, 840));
+        getContentPane().add(buttonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 230, 690));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -121,9 +265,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton botaoAddFunc;
+    private javax.swing.JButton botaoAltFunc;
+    private javax.swing.JButton botaoDelFunc;
+    private javax.swing.JPanel buttonPanel;
+    private javax.swing.JLabel funcHeader;
+    private javax.swing.JLabel funcID;
+    private javax.swing.JLabel funcNome;
+    private javax.swing.JLabel funcSelect;
+    private javax.swing.JPanel header;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable listaFunc;
+    private javax.swing.JButton pesquisaBotao;
+    private javax.swing.JTextField pesquisaId;
+    private javax.swing.JTextField pesquisaNome;
+    private javax.swing.JComboBox<String> pesquisaSelect;
+    private javax.swing.JPanel tabFunc;
+    private javax.swing.JPanel tabProd;
+    private javax.swing.JPanel tabVenda;
+    private javax.swing.JTabbedPane tabs;
     // End of variables declaration//GEN-END:variables
 }
