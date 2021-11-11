@@ -30,7 +30,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         header = new javax.swing.JPanel();
         tabs = new javax.swing.JTabbedPane();
         tabFunc = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        funcScroll = new javax.swing.JScrollPane();
         listaFunc = new javax.swing.JTable();
         pesquisaNomeFunc = new javax.swing.JTextField();
         pesquisaIdFunc = new javax.swing.JTextField();
@@ -49,7 +49,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         funcHeader2 = new javax.swing.JLabel();
         tabProd = new javax.swing.JPanel();
         prodHeader = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        prodScroll = new javax.swing.JScrollPane();
         listaProd = new javax.swing.JTable();
         botaoAddProd = new javax.swing.JButton();
         botaoAltProd = new javax.swing.JButton();
@@ -62,6 +62,35 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pesquisaIdProd = new javax.swing.JTextField();
         pesquisaBotaoProd = new javax.swing.JButton();
         tabVenda = new javax.swing.JPanel();
+        vendHeader = new javax.swing.JLabel();
+        tabForn = new javax.swing.JPanel();
+        fornScroll = new javax.swing.JScrollPane();
+        listaForn = new javax.swing.JTable();
+        pesquisaNomeForn = new javax.swing.JTextField();
+        pesquisaIdForn = new javax.swing.JTextField();
+        pesquisaSelectForn = new javax.swing.JComboBox<>();
+        fornID = new javax.swing.JLabel();
+        fornNome = new javax.swing.JLabel();
+        fornSelect = new javax.swing.JLabel();
+        fornHeader = new javax.swing.JLabel();
+        pesquisaBotaoForn = new javax.swing.JButton();
+        botaoAddForn = new javax.swing.JButton();
+        botaoAltForn = new javax.swing.JButton();
+        botaoDelForn = new javax.swing.JButton();
+        tabEstq = new javax.swing.JPanel();
+        estqScroll = new javax.swing.JScrollPane();
+        listaEstq = new javax.swing.JTable();
+        pesquisaNomeEstq = new javax.swing.JTextField();
+        pesquisaIdEstq = new javax.swing.JTextField();
+        pesquisaSelectEstq = new javax.swing.JComboBox<>();
+        estqID = new javax.swing.JLabel();
+        estqNome = new javax.swing.JLabel();
+        estqSelect = new javax.swing.JLabel();
+        estqHeader = new javax.swing.JLabel();
+        pesquisaBotaoEstq = new javax.swing.JButton();
+        botaoAddEstq = new javax.swing.JButton();
+        botaoAltEstq = new javax.swing.JButton();
+        botaoDelEstq = new javax.swing.JButton();
         buttonPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -107,11 +136,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(listaFunc);
+        funcScroll.setViewportView(listaFunc);
         if (listaFunc.getColumnModel().getColumnCount() > 0) {
             listaFunc.getColumnModel().getColumn(0).setResizable(false);
         }
 
+        pesquisaNomeFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        pesquisaIdFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        pesquisaSelectFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pesquisaSelectFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         funcID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -158,7 +192,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(tabFuncLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1))
+                        .addComponent(funcScroll))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tabFuncLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -208,8 +242,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                 .addComponent(funcID))
                             .addComponent(pesquisaBotaoFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(botaoDelFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(funcScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
 
@@ -287,7 +321,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(listaProd);
+        prodScroll.setViewportView(listaProd);
 
         botaoAddProd.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         botaoAddProd.setForeground(new java.awt.Color(0, 153, 0));
@@ -311,13 +345,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         prodSelect.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         prodSelect.setText("Produto:");
 
+        pesquisaSelectProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pesquisaSelectProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         prodNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         prodNome.setText("Nome:");
 
+        pesquisaNomeProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
         prodID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         prodID.setText("ID:");
+
+        pesquisaIdProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         pesquisaBotaoProd.setBackground(new java.awt.Color(255, 204, 204));
         pesquisaBotaoProd.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -350,7 +389,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                 .addComponent(botaoAddProd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(botaoAltProd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(botaoDelProd, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 832, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(prodScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 832, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         tabProdLayout.setVerticalGroup(
@@ -383,7 +422,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                 .addComponent(prodID))
                             .addComponent(pesquisaBotaoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(prodScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -391,18 +430,317 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         tabVenda.setBackground(new java.awt.Color(255, 255, 204));
 
+        vendHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        vendHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        vendHeader.setText("Vendas");
+
         javax.swing.GroupLayout tabVendaLayout = new javax.swing.GroupLayout(tabVenda);
         tabVenda.setLayout(tabVendaLayout);
         tabVendaLayout.setHorizontalGroup(
             tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 915, Short.MAX_VALUE)
+            .addGroup(tabVendaLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(vendHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 841, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         tabVendaLayout.setVerticalGroup(
             tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 812, Short.MAX_VALUE)
+            .addGroup(tabVendaLayout.createSequentialGroup()
+                .addGap(176, 176, 176)
+                .addComponent(vendHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(596, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab2", tabVenda);
+
+        tabForn.setBackground(new java.awt.Color(204, 255, 204));
+
+        listaForn.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nome", "Idade", "Cargo", "Data de Admissão"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        fornScroll.setViewportView(listaForn);
+        if (listaForn.getColumnModel().getColumnCount() > 0) {
+            listaForn.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        pesquisaNomeForn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        pesquisaIdForn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        pesquisaSelectForn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pesquisaSelectForn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        fornID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fornID.setText("ID:");
+
+        fornNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fornNome.setText("Nome:");
+
+        fornSelect.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fornSelect.setText("Fornecedor:");
+
+        fornHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        fornHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fornHeader.setText("Fornecedores");
+
+        pesquisaBotaoForn.setBackground(new java.awt.Color(255, 204, 204));
+        pesquisaBotaoForn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        pesquisaBotaoForn.setText("Pesquisar");
+
+        botaoAddForn.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        botaoAddForn.setForeground(new java.awt.Color(0, 153, 0));
+        botaoAddForn.setText("Adicionar");
+
+        botaoAltForn.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        botaoAltForn.setText("Alterar");
+        botaoAltForn.setOpaque(false);
+        botaoAltForn.setPreferredSize(new java.awt.Dimension(105, 27));
+        botaoAltForn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAltFornActionPerformed(evt);
+            }
+        });
+
+        botaoDelForn.setFont(new java.awt.Font("Verdana", 3, 14)); // NOI18N
+        botaoDelForn.setForeground(new java.awt.Color(255, 51, 51));
+        botaoDelForn.setText("Excluir");
+        botaoDelForn.setPreferredSize(new java.awt.Dimension(105, 27));
+
+        javax.swing.GroupLayout tabFornLayout = new javax.swing.GroupLayout(tabForn);
+        tabForn.setLayout(tabFornLayout);
+        tabFornLayout.setHorizontalGroup(
+            tabFornLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabFornLayout.createSequentialGroup()
+                .addGroup(tabFornLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(tabFornLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(fornScroll))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tabFornLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addGroup(tabFornLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(fornHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(tabFornLayout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addGroup(tabFornLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(fornNome)
+                                    .addComponent(fornID)
+                                    .addComponent(fornSelect))
+                                .addGap(36, 36, 36)
+                                .addGroup(tabFornLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(pesquisaSelectForn, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pesquisaNomeForn, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(tabFornLayout.createSequentialGroup()
+                                        .addComponent(pesquisaIdForn, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(pesquisaBotaoForn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                                .addGroup(tabFornLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(botaoAddForn, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                                    .addComponent(botaoAltForn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(botaoDelForn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+        tabFornLayout.setVerticalGroup(
+            tabFornLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFornLayout.createSequentialGroup()
+                .addGap(177, 177, 177)
+                .addComponent(fornHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(tabFornLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pesquisaSelectForn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fornSelect)
+                    .addComponent(botaoAddForn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(tabFornLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(tabFornLayout.createSequentialGroup()
+                        .addGroup(tabFornLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pesquisaNomeForn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fornNome)
+                            .addComponent(botaoAltForn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(tabFornLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(tabFornLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(pesquisaIdForn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fornID))
+                            .addComponent(pesquisaBotaoForn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(botaoDelForn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(fornScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
+        );
+
+        tabs.addTab("tab3", tabForn);
+
+        tabEstq.setBackground(new java.awt.Color(204, 255, 255));
+
+        listaEstq.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nome", "Idade", "Cargo", "Data de Admissão"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        estqScroll.setViewportView(listaEstq);
+        if (listaEstq.getColumnModel().getColumnCount() > 0) {
+            listaEstq.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        pesquisaNomeEstq.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        pesquisaIdEstq.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        pesquisaSelectEstq.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pesquisaSelectEstq.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        estqID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        estqID.setText("ID:");
+
+        estqNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        estqNome.setText("Nome:");
+
+        estqSelect.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        estqSelect.setText("Ingrediente/Produto:");
+
+        estqHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        estqHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        estqHeader.setText("Estoque");
+
+        pesquisaBotaoEstq.setBackground(new java.awt.Color(255, 204, 204));
+        pesquisaBotaoEstq.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        pesquisaBotaoEstq.setText("Pesquisar");
+
+        botaoAddEstq.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        botaoAddEstq.setForeground(new java.awt.Color(0, 153, 0));
+        botaoAddEstq.setText("Adicionar");
+
+        botaoAltEstq.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        botaoAltEstq.setText("Alterar");
+        botaoAltEstq.setOpaque(false);
+        botaoAltEstq.setPreferredSize(new java.awt.Dimension(105, 27));
+        botaoAltEstq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAltEstqActionPerformed(evt);
+            }
+        });
+
+        botaoDelEstq.setFont(new java.awt.Font("Verdana", 3, 14)); // NOI18N
+        botaoDelEstq.setForeground(new java.awt.Color(255, 51, 51));
+        botaoDelEstq.setText("Excluir");
+        botaoDelEstq.setPreferredSize(new java.awt.Dimension(105, 27));
+
+        javax.swing.GroupLayout tabEstqLayout = new javax.swing.GroupLayout(tabEstq);
+        tabEstq.setLayout(tabEstqLayout);
+        tabEstqLayout.setHorizontalGroup(
+            tabEstqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabEstqLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(tabEstqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(estqScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 834, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tabEstqLayout.createSequentialGroup()
+                        .addGroup(tabEstqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(estqNome)
+                            .addComponent(estqID)
+                            .addComponent(estqSelect))
+                        .addGap(36, 36, 36)
+                        .addGroup(tabEstqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(pesquisaSelectEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pesquisaNomeEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(tabEstqLayout.createSequentialGroup()
+                                .addComponent(pesquisaIdEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pesquisaBotaoEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(50, 50, 50)
+                        .addGroup(tabEstqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(botaoAddEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaoAltEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaoDelEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabEstqLayout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addComponent(estqHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 888, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        tabEstqLayout.setVerticalGroup(
+            tabEstqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabEstqLayout.createSequentialGroup()
+                .addGap(177, 177, 177)
+                .addComponent(estqHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(tabEstqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabEstqLayout.createSequentialGroup()
+                        .addComponent(botaoAddEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(tabEstqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(tabEstqLayout.createSequentialGroup()
+                                .addComponent(botaoAltEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(47, 47, 47))
+                            .addComponent(botaoDelEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(tabEstqLayout.createSequentialGroup()
+                        .addGroup(tabEstqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pesquisaSelectEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(estqSelect))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(tabEstqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pesquisaNomeEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(estqNome))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(tabEstqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(tabEstqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(pesquisaIdEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(estqID))
+                            .addComponent(pesquisaBotaoEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(estqScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
+        );
+
+        tabs.addTab("tab3", tabEstq);
 
         getContentPane().add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, -29, 920, 840));
 
@@ -432,6 +770,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void botaoAltProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAltProdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoAltProdActionPerformed
+
+    private void botaoAltFornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAltFornActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoAltFornActionPerformed
+
+    private void botaoAltEstqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAltEstqActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoAltEstqActionPerformed
 
     /**
      * @param args the command line arguments
@@ -469,41 +815,70 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoAddEstq;
+    private javax.swing.JButton botaoAddForn;
     private javax.swing.JButton botaoAddFunc;
     private javax.swing.JButton botaoAddProd;
+    private javax.swing.JButton botaoAltEstq;
+    private javax.swing.JButton botaoAltForn;
     private javax.swing.JButton botaoAltFunc;
     private javax.swing.JButton botaoAltProd;
+    private javax.swing.JButton botaoDelEstq;
+    private javax.swing.JButton botaoDelForn;
     private javax.swing.JButton botaoDelFunc;
     private javax.swing.JButton botaoDelProd;
     private javax.swing.JPanel buttonPanel;
+    private javax.swing.JLabel estqHeader;
+    private javax.swing.JLabel estqID;
+    private javax.swing.JLabel estqNome;
+    private javax.swing.JScrollPane estqScroll;
+    private javax.swing.JLabel estqSelect;
+    private javax.swing.JLabel fornHeader;
+    private javax.swing.JLabel fornID;
+    private javax.swing.JLabel fornNome;
+    private javax.swing.JScrollPane fornScroll;
+    private javax.swing.JLabel fornSelect;
     private javax.swing.JLabel funcHeader;
     private javax.swing.JLabel funcHeader1;
     private javax.swing.JLabel funcHeader2;
     private javax.swing.JLabel funcID;
     private javax.swing.JLabel funcNome;
+    private javax.swing.JScrollPane funcScroll;
     private javax.swing.JLabel funcSelect;
     private javax.swing.JPanel header;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable listaEstq;
+    private javax.swing.JTable listaForn;
     private javax.swing.JTable listaFunc;
     private javax.swing.JTable listaProd;
+    private javax.swing.JButton pesquisaBotaoEstq;
+    private javax.swing.JButton pesquisaBotaoForn;
     private javax.swing.JButton pesquisaBotaoFunc;
     private javax.swing.JButton pesquisaBotaoProd;
+    private javax.swing.JTextField pesquisaIdEstq;
+    private javax.swing.JTextField pesquisaIdForn;
     private javax.swing.JTextField pesquisaIdFunc;
     private javax.swing.JTextField pesquisaIdProd;
+    private javax.swing.JTextField pesquisaNomeEstq;
+    private javax.swing.JTextField pesquisaNomeForn;
     private javax.swing.JTextField pesquisaNomeFunc;
     private javax.swing.JTextField pesquisaNomeProd;
+    private javax.swing.JComboBox<String> pesquisaSelectEstq;
+    private javax.swing.JComboBox<String> pesquisaSelectForn;
     private javax.swing.JComboBox<String> pesquisaSelectFunc;
     private javax.swing.JComboBox<String> pesquisaSelectProd;
     private javax.swing.JLabel prodHeader;
     private javax.swing.JLabel prodID;
     private javax.swing.JLabel prodNome;
+    private javax.swing.JScrollPane prodScroll;
     private javax.swing.JLabel prodSelect;
+    private javax.swing.JPanel tabEstq;
+    private javax.swing.JPanel tabForn;
     private javax.swing.JPanel tabFunc;
     private javax.swing.JPanel tabFuncAlt;
     private javax.swing.JPanel tabFuncCad;
     private javax.swing.JPanel tabProd;
     private javax.swing.JPanel tabVenda;
     private javax.swing.JTabbedPane tabs;
+    private javax.swing.JLabel vendHeader;
     // End of variables declaration//GEN-END:variables
 }
