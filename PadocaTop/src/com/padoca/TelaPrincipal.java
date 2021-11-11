@@ -32,18 +32,35 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabFunc = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaFunc = new javax.swing.JTable();
-        pesquisaNome = new javax.swing.JTextField();
-        pesquisaId = new javax.swing.JTextField();
-        pesquisaSelect = new javax.swing.JComboBox<>();
+        pesquisaNomeFunc = new javax.swing.JTextField();
+        pesquisaIdFunc = new javax.swing.JTextField();
+        pesquisaSelectFunc = new javax.swing.JComboBox<>();
         funcID = new javax.swing.JLabel();
         funcNome = new javax.swing.JLabel();
         funcSelect = new javax.swing.JLabel();
         funcHeader = new javax.swing.JLabel();
-        pesquisaBotao = new javax.swing.JButton();
+        pesquisaBotaoFunc = new javax.swing.JButton();
         botaoAddFunc = new javax.swing.JButton();
         botaoAltFunc = new javax.swing.JButton();
         botaoDelFunc = new javax.swing.JButton();
+        tabFuncCad = new javax.swing.JPanel();
+        funcHeader1 = new javax.swing.JLabel();
+        tabFuncAlt = new javax.swing.JPanel();
+        funcHeader2 = new javax.swing.JLabel();
         tabProd = new javax.swing.JPanel();
+        prodHeader = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        listaProd = new javax.swing.JTable();
+        botaoAddProd = new javax.swing.JButton();
+        botaoAltProd = new javax.swing.JButton();
+        botaoDelProd = new javax.swing.JButton();
+        prodSelect = new javax.swing.JLabel();
+        pesquisaSelectProd = new javax.swing.JComboBox<>();
+        prodNome = new javax.swing.JLabel();
+        pesquisaNomeProd = new javax.swing.JTextField();
+        prodID = new javax.swing.JLabel();
+        pesquisaIdProd = new javax.swing.JTextField();
+        pesquisaBotaoProd = new javax.swing.JButton();
         tabVenda = new javax.swing.JPanel();
         buttonPanel = new javax.swing.JPanel();
 
@@ -60,7 +77,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 150));
 
-        tabFunc.setBackground(new java.awt.Color(204, 255, 204));
+        tabFunc.setBackground(new java.awt.Color(244, 232, 225));
 
         listaFunc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,7 +112,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             listaFunc.getColumnModel().getColumn(0).setResizable(false);
         }
 
-        pesquisaSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pesquisaSelectFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         funcID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         funcID.setText("ID:");
@@ -110,9 +127,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         funcHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         funcHeader.setText("Funcionários");
 
-        pesquisaBotao.setBackground(new java.awt.Color(255, 204, 204));
-        pesquisaBotao.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        pesquisaBotao.setText("Pesquisar");
+        pesquisaBotaoFunc.setBackground(new java.awt.Color(255, 204, 204));
+        pesquisaBotaoFunc.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        pesquisaBotaoFunc.setText("Pesquisar");
 
         botaoAddFunc.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         botaoAddFunc.setForeground(new java.awt.Color(0, 153, 0));
@@ -120,41 +137,51 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         botaoAltFunc.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         botaoAltFunc.setText("Alterar");
+        botaoAltFunc.setOpaque(false);
+        botaoAltFunc.setPreferredSize(new java.awt.Dimension(105, 27));
+        botaoAltFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAltFuncActionPerformed(evt);
+            }
+        });
 
         botaoDelFunc.setFont(new java.awt.Font("Verdana", 3, 14)); // NOI18N
         botaoDelFunc.setForeground(new java.awt.Color(255, 51, 51));
         botaoDelFunc.setText("Excluir");
+        botaoDelFunc.setPreferredSize(new java.awt.Dimension(105, 27));
 
         javax.swing.GroupLayout tabFuncLayout = new javax.swing.GroupLayout(tabFunc);
         tabFunc.setLayout(tabFuncLayout);
         tabFuncLayout.setHorizontalGroup(
             tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabFuncLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(tabFuncLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tabFuncLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
                         .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(botaoAltFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(botaoAddFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                            .addComponent(botaoDelFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(tabFuncLayout.createSequentialGroup()
-                            .addGap(38, 38, 38)
-                            .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(funcNome)
-                                .addComponent(funcID)
-                                .addComponent(funcSelect))
-                            .addGap(36, 36, 36)
-                            .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(pesquisaSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(pesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(tabFuncLayout.createSequentialGroup()
-                                    .addComponent(pesquisaId, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(pesquisaBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addComponent(funcHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(funcHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(tabFuncLayout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(funcNome)
+                                    .addComponent(funcID)
+                                    .addComponent(funcSelect))
+                                .addGap(36, 36, 36)
+                                .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(pesquisaSelectFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pesquisaNomeFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(tabFuncLayout.createSequentialGroup()
+                                        .addComponent(pesquisaIdFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(pesquisaBotaoFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                                .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(botaoAddFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                                    .addComponent(botaoAltFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(botaoDelFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
         tabFuncLayout.setVerticalGroup(
@@ -164,33 +191,202 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(funcHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pesquisaSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(funcSelect))
-                .addGap(11, 11, 11)
-                .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(funcNome))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(pesquisaId, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(funcID))
-                    .addComponent(pesquisaBotao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFuncLayout.createSequentialGroup()
-                        .addComponent(botaoAddFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48)
-                        .addComponent(botaoAltFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addComponent(botaoDelFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(pesquisaSelectFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(funcSelect)
+                    .addComponent(botaoAddFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(tabFuncLayout.createSequentialGroup()
+                        .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pesquisaNomeFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(funcNome)
+                            .addComponent(botaoAltFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(pesquisaIdFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(funcID))
+                            .addComponent(pesquisaBotaoFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(botaoDelFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
 
         tabs.addTab("tab3", tabFunc);
 
+        tabFuncCad.setBackground(new java.awt.Color(244, 232, 225));
+
+        funcHeader1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        funcHeader1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        funcHeader1.setText("Funcionários");
+
+        javax.swing.GroupLayout tabFuncCadLayout = new javax.swing.GroupLayout(tabFuncCad);
+        tabFuncCad.setLayout(tabFuncCadLayout);
+        tabFuncCadLayout.setHorizontalGroup(
+            tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabFuncCadLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(funcHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
+        tabFuncCadLayout.setVerticalGroup(
+            tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFuncCadLayout.createSequentialGroup()
+                .addGap(177, 177, 177)
+                .addComponent(funcHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(590, Short.MAX_VALUE))
+        );
+
+        tabs.addTab("tab3", tabFuncCad);
+
+        tabFuncAlt.setBackground(new java.awt.Color(244, 232, 225));
+
+        funcHeader2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        funcHeader2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        funcHeader2.setText("Funcionários");
+
+        javax.swing.GroupLayout tabFuncAltLayout = new javax.swing.GroupLayout(tabFuncAlt);
+        tabFuncAlt.setLayout(tabFuncAltLayout);
+        tabFuncAltLayout.setHorizontalGroup(
+            tabFuncAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabFuncAltLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(funcHeader2, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
+        tabFuncAltLayout.setVerticalGroup(
+            tabFuncAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFuncAltLayout.createSequentialGroup()
+                .addGap(177, 177, 177)
+                .addComponent(funcHeader2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(590, Short.MAX_VALUE))
+        );
+
+        tabs.addTab("tab3", tabFuncAlt);
+
         tabProd.setBackground(new java.awt.Color(255, 204, 204));
+
+        prodHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        prodHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        prodHeader.setText("Produtos");
+
+        listaProd.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nome", "Validade", "Preço", "Quant.", "Fornecedor"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(listaProd);
+
+        botaoAddProd.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        botaoAddProd.setForeground(new java.awt.Color(0, 153, 0));
+        botaoAddProd.setText("Adicionar");
+
+        botaoAltProd.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        botaoAltProd.setText("Alterar");
+        botaoAltProd.setOpaque(false);
+        botaoAltProd.setPreferredSize(new java.awt.Dimension(105, 27));
+        botaoAltProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAltProdActionPerformed(evt);
+            }
+        });
+
+        botaoDelProd.setFont(new java.awt.Font("Verdana", 3, 14)); // NOI18N
+        botaoDelProd.setForeground(new java.awt.Color(255, 51, 51));
+        botaoDelProd.setText("Excluir");
+        botaoDelProd.setPreferredSize(new java.awt.Dimension(105, 27));
+
+        prodSelect.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        prodSelect.setText("Produto:");
+
+        pesquisaSelectProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        prodNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        prodNome.setText("Nome:");
+
+        prodID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        prodID.setText("ID:");
+
+        pesquisaBotaoProd.setBackground(new java.awt.Color(255, 204, 204));
+        pesquisaBotaoProd.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        pesquisaBotaoProd.setText("Pesquisar");
+
+        javax.swing.GroupLayout tabProdLayout = new javax.swing.GroupLayout(tabProd);
+        tabProd.setLayout(tabProdLayout);
+        tabProdLayout.setHorizontalGroup(
+            tabProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabProdLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(tabProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(prodHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 841, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tabProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(tabProdLayout.createSequentialGroup()
+                            .addGroup(tabProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(prodNome)
+                                .addComponent(prodID)
+                                .addComponent(prodSelect))
+                            .addGap(36, 36, 36)
+                            .addGroup(tabProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(pesquisaSelectProd, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(pesquisaNomeProd, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(tabProdLayout.createSequentialGroup()
+                                    .addComponent(pesquisaIdProd, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(pesquisaBotaoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(67, 67, 67)
+                            .addGroup(tabProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(botaoAddProd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botaoAltProd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botaoDelProd, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 832, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+        tabProdLayout.setVerticalGroup(
+            tabProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabProdLayout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(prodHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(tabProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabProdLayout.createSequentialGroup()
+                        .addComponent(botaoAddProd, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(tabProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(tabProdLayout.createSequentialGroup()
+                                .addComponent(botaoAltProd, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46))
+                            .addComponent(botaoDelProd, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(tabProdLayout.createSequentialGroup()
+                        .addGroup(tabProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pesquisaSelectProd, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(prodSelect))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(tabProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pesquisaNomeProd, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(prodNome))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(tabProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(tabProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(pesquisaIdProd, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(prodID))
+                            .addComponent(pesquisaBotaoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
         tabs.addTab("tab1", tabProd);
 
         tabVenda.setBackground(new java.awt.Color(255, 255, 204));
@@ -229,6 +425,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botaoAltFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAltFuncActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoAltFuncActionPerformed
+
+    private void botaoAltProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAltProdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoAltProdActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -266,21 +470,38 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoAddFunc;
+    private javax.swing.JButton botaoAddProd;
     private javax.swing.JButton botaoAltFunc;
+    private javax.swing.JButton botaoAltProd;
     private javax.swing.JButton botaoDelFunc;
+    private javax.swing.JButton botaoDelProd;
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JLabel funcHeader;
+    private javax.swing.JLabel funcHeader1;
+    private javax.swing.JLabel funcHeader2;
     private javax.swing.JLabel funcID;
     private javax.swing.JLabel funcNome;
     private javax.swing.JLabel funcSelect;
     private javax.swing.JPanel header;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable listaFunc;
-    private javax.swing.JButton pesquisaBotao;
-    private javax.swing.JTextField pesquisaId;
-    private javax.swing.JTextField pesquisaNome;
-    private javax.swing.JComboBox<String> pesquisaSelect;
+    private javax.swing.JTable listaProd;
+    private javax.swing.JButton pesquisaBotaoFunc;
+    private javax.swing.JButton pesquisaBotaoProd;
+    private javax.swing.JTextField pesquisaIdFunc;
+    private javax.swing.JTextField pesquisaIdProd;
+    private javax.swing.JTextField pesquisaNomeFunc;
+    private javax.swing.JTextField pesquisaNomeProd;
+    private javax.swing.JComboBox<String> pesquisaSelectFunc;
+    private javax.swing.JComboBox<String> pesquisaSelectProd;
+    private javax.swing.JLabel prodHeader;
+    private javax.swing.JLabel prodID;
+    private javax.swing.JLabel prodNome;
+    private javax.swing.JLabel prodSelect;
     private javax.swing.JPanel tabFunc;
+    private javax.swing.JPanel tabFuncAlt;
+    private javax.swing.JPanel tabFuncCad;
     private javax.swing.JPanel tabProd;
     private javax.swing.JPanel tabVenda;
     private javax.swing.JTabbedPane tabs;
