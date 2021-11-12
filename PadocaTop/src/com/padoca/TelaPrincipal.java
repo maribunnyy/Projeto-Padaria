@@ -97,7 +97,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 204, 204));
         setMaximizedBounds(new java.awt.Rectangle(0, 0, 1146, 804));
         setMaximumSize(new java.awt.Dimension(1146, 804));
-        setMinimumSize(null);
         setName("telaPrincipal"); // NOI18N
         setSize(new java.awt.Dimension(1146, 804));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -171,7 +170,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         botaoAltFunc.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         botaoAltFunc.setText("Alterar");
-        botaoAltFunc.setOpaque(false);
         botaoAltFunc.setPreferredSize(new java.awt.Dimension(105, 27));
         botaoAltFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -329,7 +327,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         botaoAltProd.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         botaoAltProd.setText("Alterar");
-        botaoAltProd.setOpaque(false);
         botaoAltProd.setPreferredSize(new java.awt.Dimension(105, 27));
         botaoAltProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -518,7 +515,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         botaoAltForn.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         botaoAltForn.setText("Alterar");
-        botaoAltForn.setOpaque(false);
         botaoAltForn.setPreferredSize(new java.awt.Dimension(105, 27));
         botaoAltForn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -661,7 +657,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         botaoAltEstq.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         botaoAltEstq.setText("Alterar");
-        botaoAltEstq.setOpaque(false);
         botaoAltEstq.setPreferredSize(new java.awt.Dimension(105, 27));
         botaoAltEstq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
