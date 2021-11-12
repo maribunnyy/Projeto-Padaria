@@ -44,6 +44,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
         botaoAddFunc = new javax.swing.JButton();
         botaoAltFunc = new javax.swing.JButton();
         botaoDelFunc = new javax.swing.JButton();
+        tabFuncCad = new javax.swing.JPanel();
+        funcHeader1 = new javax.swing.JLabel();
+        nomeCadFunc = new javax.swing.JTextField();
+        idadeCadFunc = new javax.swing.JTextField();
+        nomeLabel = new javax.swing.JLabel();
+        idadeLabel = new javax.swing.JLabel();
+        sexoLabel = new javax.swing.JLabel();
+        femButton = new javax.swing.JRadioButton();
+        mascButton = new javax.swing.JRadioButton();
+        outroButton = new javax.swing.JRadioButton();
+        cargoLabel = new javax.swing.JLabel();
+        cargoCadFunc = new javax.swing.JComboBox<>();
+        addCargo = new javax.swing.JButton();
+        salarioLabel = new javax.swing.JLabel();
+        salarioCadFunc = new javax.swing.JFormattedTextField();
+        cpfLabel = new javax.swing.JLabel();
+        cpfCadFunc = new javax.swing.JFormattedTextField();
+        cadastrarCadFunc = new javax.swing.JButton();
+        limparCadFunc = new javax.swing.JButton();
+        voltarCadFunc = new javax.swing.JButton();
         tabFuncAlt = new javax.swing.JPanel();
         funcHeader2 = new javax.swing.JLabel();
         tabProd = new javax.swing.JPanel();
@@ -90,26 +110,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
         botaoAddEstq = new javax.swing.JButton();
         botaoAltEstq = new javax.swing.JButton();
         botaoDelEstq = new javax.swing.JButton();
-        tabFuncCad = new javax.swing.JPanel();
-        funcHeader1 = new javax.swing.JLabel();
-        nomeCadFunc = new javax.swing.JTextField();
-        idadeCadFunc = new javax.swing.JTextField();
-        nomeLabel = new javax.swing.JLabel();
-        idadeLabel = new javax.swing.JLabel();
-        sexoLabel = new javax.swing.JLabel();
-        femButton = new javax.swing.JRadioButton();
-        mascButton = new javax.swing.JRadioButton();
-        outroButton = new javax.swing.JRadioButton();
-        cargoLabel = new javax.swing.JLabel();
-        cargoCadFunc = new javax.swing.JComboBox<>();
-        addCargo = new javax.swing.JButton();
-        salarioLabel = new javax.swing.JLabel();
-        salarioCadFunc = new javax.swing.JFormattedTextField();
-        cpfLabel = new javax.swing.JLabel();
-        cpfCadFunc = new javax.swing.JFormattedTextField();
-        cadastrarCadFunc = new javax.swing.JButton();
-        limparCadFunc = new javax.swing.JButton();
-        voltarCadFunc = new javax.swing.JButton();
+        tabProdCad = new javax.swing.JPanel();
+        prodCadHeader = new javax.swing.JLabel();
+        nomeCadProd = new javax.swing.JTextField();
+        nomeLabelProd = new javax.swing.JLabel();
+        cadastrarCadProd = new javax.swing.JButton();
+        limparCadProd = new javax.swing.JButton();
+        voltarCadProd = new javax.swing.JButton();
+        tipoLabelPod = new javax.swing.JLabel();
+        fornLabel = new javax.swing.JLabel();
+        tipoCadProd = new javax.swing.JComboBox<>();
+        fornCadProd = new javax.swing.JComboBox<>();
+        precoLabel = new javax.swing.JLabel();
+        precoCadProd = new javax.swing.JFormattedTextField();
+        valLabel = new javax.swing.JLabel();
+        quantLabel = new javax.swing.JLabel();
+        quantCadProd = new javax.swing.JTextField();
+        valCadProd = new javax.swing.JFormattedTextField();
         buttonPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -265,6 +282,168 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
 
         tabs.addTab("tab3", tabFunc);
+
+        tabFuncCad.setBackground(new java.awt.Color(244, 232, 225));
+
+        funcHeader1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        funcHeader1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        funcHeader1.setText("Funcionários");
+
+        nomeCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
+
+        idadeCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
+
+        nomeLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        nomeLabel.setText("Nome:");
+
+        idadeLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        idadeLabel.setText("Idade:");
+
+        sexoLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sexoLabel.setText("Sexo:");
+
+        genButtons.add(femButton);
+        femButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        femButton.setText("Feminino");
+
+        genButtons.add(mascButton);
+        mascButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mascButton.setText("Masculino");
+
+        genButtons.add(outroButton);
+        outroButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        outroButton.setText("Outro");
+
+        cargoLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cargoLabel.setText("Cargo:");
+
+        cargoCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cargoCadFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        addCargo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        addCargo.setText("+ Adicionar cargo");
+
+        salarioLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        salarioLabel.setText("Salário:");
+
+        salarioCadFunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
+        salarioCadFunc.setMinimumSize(new java.awt.Dimension(7, 23));
+        salarioCadFunc.setName(""); // NOI18N
+        salarioCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
+
+        cpfLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cpfLabel.setText("CPF:");
+
+        cpfCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
+
+        cadastrarCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cadastrarCadFunc.setText("Cadastrar");
+
+        limparCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        limparCadFunc.setText("Limpar");
+
+        voltarCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        voltarCadFunc.setText("Voltar");
+
+        javax.swing.GroupLayout tabFuncCadLayout = new javax.swing.GroupLayout(tabFuncCad);
+        tabFuncCad.setLayout(tabFuncCadLayout);
+        tabFuncCadLayout.setHorizontalGroup(
+            tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabFuncCadLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(funcHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
+            .addGroup(tabFuncCadLayout.createSequentialGroup()
+                .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabFuncCadLayout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(sexoLabel))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFuncCadLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(salarioLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cargoLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cpfLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(voltarCadFunc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idadeLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(nomeLabel, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addGap(59, 59, 59)
+                .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabFuncCadLayout.createSequentialGroup()
+                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nomeCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idadeCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(tabFuncCadLayout.createSequentialGroup()
+                                .addComponent(femButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(mascButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(outroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(tabFuncCadLayout.createSequentialGroup()
+                                .addComponent(cargoCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(addCargo))
+                            .addComponent(salarioCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cpfCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFuncCadLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(cadastrarCadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                            .addComponent(limparCadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(129, 129, 129))))
+        );
+        tabFuncCadLayout.setVerticalGroup(
+            tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFuncCadLayout.createSequentialGroup()
+                .addGap(177, 177, 177)
+                .addComponent(funcHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nomeLabel)
+                    .addComponent(nomeCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(tabFuncCadLayout.createSequentialGroup()
+                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(idadeCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idadeLabel))
+                        .addGap(18, 18, 18)
+                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(mascButton, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                            .addComponent(sexoLabel)
+                            .addComponent(femButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(outroButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(tabFuncCadLayout.createSequentialGroup()
+                                .addComponent(addCargo, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                                .addGap(4, 4, 4))
+                            .addComponent(cargoLabel)
+                            .addGroup(tabFuncCadLayout.createSequentialGroup()
+                                .addComponent(cargoCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2)))
+                        .addGap(24, 24, 24)
+                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(salarioLabel)
+                            .addComponent(salarioCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(25, 25, 25)
+                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cpfLabel)
+                            .addComponent(cpfCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(106, 106, 106))
+                    .addGroup(tabFuncCadLayout.createSequentialGroup()
+                        .addComponent(cadastrarCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(voltarCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(tabFuncCadLayout.createSequentialGroup()
+                                .addComponent(limparCadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                                .addGap(4, 4, 4)))))
+                .addContainerGap(96, Short.MAX_VALUE))
+        );
+
+        tabs.addTab("tab3", tabFuncCad);
 
         tabFuncAlt.setBackground(new java.awt.Color(244, 232, 225));
 
@@ -731,164 +910,131 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         tabs.addTab("tab3", tabEstq);
 
-        tabFuncCad.setBackground(new java.awt.Color(244, 232, 225));
+        tabProdCad.setBackground(new java.awt.Color(244, 232, 225));
 
-        funcHeader1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        funcHeader1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        funcHeader1.setText("Funcionários");
+        prodCadHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        prodCadHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        prodCadHeader.setText("Produtos");
 
-        nomeCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
+        nomeCadProd.setPreferredSize(new java.awt.Dimension(7, 23));
 
-        idadeCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
+        nomeLabelProd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        nomeLabelProd.setText("Nome:");
 
-        nomeLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        nomeLabel.setText("Nome:");
+        cadastrarCadProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cadastrarCadProd.setText("Cadastrar");
 
-        idadeLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        idadeLabel.setText("Idade:");
+        limparCadProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        limparCadProd.setText("Limpar");
 
-        sexoLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        sexoLabel.setText("Sexo:");
+        voltarCadProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        voltarCadProd.setText("Voltar");
 
-        genButtons.add(femButton);
-        femButton.setText("Feminino");
+        tipoLabelPod.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tipoLabelPod.setText("Tipo:");
 
-        genButtons.add(mascButton);
-        mascButton.setText("Masculino");
+        fornLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fornLabel.setText("Fornecedor:");
 
-        genButtons.add(outroButton);
-        outroButton.setText("Outro");
+        tipoCadProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        cargoLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        cargoLabel.setText("Cargo:");
+        fornCadProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        cargoCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cargoCadFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        precoLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        precoLabel.setText("Preço:");
 
-        addCargo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        addCargo.setText("+ Adicionar cargo");
+        precoCadProd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
 
-        salarioLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        salarioLabel.setText("Salário:");
+        valLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        valLabel.setText("Validade:");
 
-        salarioCadFunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
-        salarioCadFunc.setMinimumSize(new java.awt.Dimension(7, 23));
-        salarioCadFunc.setName(""); // NOI18N
-        salarioCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
+        quantLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        quantLabel.setText("Quantidade:");
 
-        cpfLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        cpfLabel.setText("CPF:");
+        valCadProd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
 
-        cpfCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
-
-        cadastrarCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cadastrarCadFunc.setText("Cadastrar");
-
-        limparCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        limparCadFunc.setText("Limpar");
-
-        voltarCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        voltarCadFunc.setText("Voltar");
-
-        javax.swing.GroupLayout tabFuncCadLayout = new javax.swing.GroupLayout(tabFuncCad);
-        tabFuncCad.setLayout(tabFuncCadLayout);
-        tabFuncCadLayout.setHorizontalGroup(
-            tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabFuncCadLayout.createSequentialGroup()
+        javax.swing.GroupLayout tabProdCadLayout = new javax.swing.GroupLayout(tabProdCad);
+        tabProdCad.setLayout(tabProdCadLayout);
+        tabProdCadLayout.setHorizontalGroup(
+            tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabProdCadLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
-                .addComponent(funcHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(prodCadHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(48, Short.MAX_VALUE))
-            .addGroup(tabFuncCadLayout.createSequentialGroup()
-                .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabFuncCadLayout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addComponent(sexoLabel))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFuncCadLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(salarioLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cargoLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cpfLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(voltarCadFunc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(idadeLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(nomeLabel, javax.swing.GroupLayout.Alignment.TRAILING))))
+            .addGroup(tabProdCadLayout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(voltarCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(fornLabel)
+                        .addComponent(tipoLabelPod)
+                        .addComponent(nomeLabelProd)
+                        .addComponent(precoLabel)))
                 .addGap(59, 59, 59)
-                .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabFuncCadLayout.createSequentialGroup()
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nomeCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(idadeCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(tabFuncCadLayout.createSequentialGroup()
-                                .addComponent(femButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(mascButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(outroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(tabFuncCadLayout.createSequentialGroup()
-                                .addComponent(cargoCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37)
-                                .addComponent(addCargo))
-                            .addComponent(salarioCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cpfCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFuncCadLayout.createSequentialGroup()
+                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabProdCadLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(cadastrarCadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                            .addComponent(limparCadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(129, 129, 129))))
+                        .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(cadastrarCadProd, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                            .addComponent(limparCadProd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(129, 129, 129))
+                    .addGroup(tabProdCadLayout.createSequentialGroup()
+                        .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(precoCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(tabProdCadLayout.createSequentialGroup()
+                                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nomeCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(fornCadProd, javax.swing.GroupLayout.Alignment.LEADING, 0, 161, Short.MAX_VALUE)
+                                        .addComponent(tipoCadProd, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(31, 31, 31)
+                                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(valLabel)
+                                    .addComponent(quantLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(valCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(quantCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
-        tabFuncCadLayout.setVerticalGroup(
-            tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFuncCadLayout.createSequentialGroup()
+        tabProdCadLayout.setVerticalGroup(
+            tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabProdCadLayout.createSequentialGroup()
                 .addGap(177, 177, 177)
-                .addComponent(funcHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomeLabel)
-                    .addComponent(nomeCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(tabFuncCadLayout.createSequentialGroup()
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(idadeCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(idadeLabel))
-                        .addGap(18, 18, 18)
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(mascButton, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                            .addComponent(sexoLabel)
-                            .addComponent(femButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(outroButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(tabFuncCadLayout.createSequentialGroup()
-                                .addComponent(addCargo, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                                .addGap(4, 4, 4))
-                            .addComponent(cargoLabel)
-                            .addGroup(tabFuncCadLayout.createSequentialGroup()
-                                .addComponent(cargoCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(2, 2, 2)))
-                        .addGap(24, 24, 24)
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(salarioLabel)
-                            .addComponent(salarioCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25)
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cpfLabel)
-                            .addComponent(cpfCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(106, 106, 106))
-                    .addGroup(tabFuncCadLayout.createSequentialGroup()
-                        .addComponent(cadastrarCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(voltarCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(tabFuncCadLayout.createSequentialGroup()
-                                .addComponent(limparCadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                                .addGap(4, 4, 4)))))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(tabProdCadLayout.createSequentialGroup()
+                        .addComponent(prodCadHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70)
+                        .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nomeLabelProd)
+                            .addComponent(nomeCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(quantLabel)
+                            .addComponent(quantCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tipoLabelPod)
+                            .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(tipoCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(valLabel)
+                                .addComponent(valCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(50, 50, 50)
+                        .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(precoLabel)
+                            .addComponent(precoCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(52, 52, 52)
+                        .addComponent(fornLabel))
+                    .addComponent(fornCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addComponent(cadastrarCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(voltarCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tabProdCadLayout.createSequentialGroup()
+                        .addComponent(limparCadProd, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                        .addContainerGap(100, Short.MAX_VALUE))))
         );
 
-        tabs.addTab("tab3", tabFuncCad);
+        tabs.addTab("tab3", tabProdCad);
 
         getContentPane().add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, -29, 920, 840));
 
@@ -978,6 +1124,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton botaoDelProd;
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JButton cadastrarCadFunc;
+    private javax.swing.JButton cadastrarCadProd;
     private javax.swing.JComboBox<String> cargoCadFunc;
     private javax.swing.JLabel cargoLabel;
     private javax.swing.JFormattedTextField cpfCadFunc;
@@ -988,8 +1135,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane estqScroll;
     private javax.swing.JLabel estqSelect;
     private javax.swing.JRadioButton femButton;
+    private javax.swing.JComboBox<String> fornCadProd;
     private javax.swing.JLabel fornHeader;
     private javax.swing.JLabel fornID;
+    private javax.swing.JLabel fornLabel;
     private javax.swing.JLabel fornNome;
     private javax.swing.JScrollPane fornScroll;
     private javax.swing.JLabel fornSelect;
@@ -1005,13 +1154,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField idadeCadFunc;
     private javax.swing.JLabel idadeLabel;
     private javax.swing.JButton limparCadFunc;
+    private javax.swing.JButton limparCadProd;
     private javax.swing.JTable listaEstq;
     private javax.swing.JTable listaForn;
     private javax.swing.JTable listaFunc;
     private javax.swing.JTable listaProd;
     private javax.swing.JRadioButton mascButton;
     private javax.swing.JTextField nomeCadFunc;
+    private javax.swing.JTextField nomeCadProd;
     private javax.swing.JLabel nomeLabel;
+    private javax.swing.JLabel nomeLabelProd;
     private javax.swing.JRadioButton outroButton;
     private javax.swing.JButton pesquisaBotaoEstq;
     private javax.swing.JButton pesquisaBotaoForn;
@@ -1029,11 +1181,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> pesquisaSelectForn;
     private javax.swing.JComboBox<String> pesquisaSelectFunc;
     private javax.swing.JComboBox<String> pesquisaSelectProd;
+    private javax.swing.JFormattedTextField precoCadProd;
+    private javax.swing.JLabel precoLabel;
+    private javax.swing.JLabel prodCadHeader;
     private javax.swing.JLabel prodHeader;
     private javax.swing.JLabel prodID;
     private javax.swing.JLabel prodNome;
     private javax.swing.JScrollPane prodScroll;
     private javax.swing.JLabel prodSelect;
+    private javax.swing.JTextField quantCadProd;
+    private javax.swing.JLabel quantLabel;
     private javax.swing.JFormattedTextField salarioCadFunc;
     private javax.swing.JLabel salarioLabel;
     private javax.swing.JLabel sexoLabel;
@@ -1043,9 +1200,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel tabFuncAlt;
     private javax.swing.JPanel tabFuncCad;
     private javax.swing.JPanel tabProd;
+    private javax.swing.JPanel tabProdCad;
     private javax.swing.JPanel tabVenda;
     private javax.swing.JTabbedPane tabs;
+    private javax.swing.JComboBox<String> tipoCadProd;
+    private javax.swing.JLabel tipoLabelPod;
+    private javax.swing.JFormattedTextField valCadProd;
+    private javax.swing.JLabel valLabel;
     private javax.swing.JLabel vendHeader;
     private javax.swing.JButton voltarCadFunc;
+    private javax.swing.JButton voltarCadProd;
     // End of variables declaration//GEN-END:variables
 }
