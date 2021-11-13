@@ -1072,7 +1072,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void botaoAltEstqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAltEstqActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoAltEstqActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
