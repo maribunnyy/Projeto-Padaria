@@ -45,12 +45,23 @@
     <Container class="javax.swing.JPanel" name="header">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="b6" green="c5" red="ee" type="rgb"/>
+          <Color blue="5d" green="6f" red="f9" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+            <BevelBorder>
+              <Color PropertyName="highlightInner" blue="e1" green="e1" red="ff" type="rgb"/>
+              <Color PropertyName="shadowOuter" blue="4a" green="4a" red="7a" type="rgb"/>
+            </BevelBorder>
+          </Border>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="ff" type="rgb"/>
         </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="0" width="1150" height="150"/>
+          <AbsoluteConstraints x="-10" y="-10" width="1160" height="160"/>
         </Constraint>
       </Constraints>
 
@@ -70,7 +81,7 @@
         <Container class="javax.swing.JPanel" name="tabFunc">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e1" green="e8" red="f4" type="rgb"/>
+              <Color blue="d4" green="f2" red="fb" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -121,7 +132,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="48" max="32767" attributes="0"/>
+                      <EmptySpace pref="45" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -337,7 +348,7 @@
         <Container class="javax.swing.JPanel" name="tabFuncCad">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e1" green="e8" red="f4" type="rgb"/>
+              <Color blue="d4" green="f2" red="fb" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -682,7 +693,7 @@
         <Container class="javax.swing.JPanel" name="tabFuncAlt">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e1" green="e8" red="f4" type="rgb"/>
+              <Color blue="d4" green="f2" red="fb" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -728,7 +739,7 @@
         <Container class="javax.swing.JPanel" name="tabProd">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="cc" red="ff" type="rgb"/>
+              <Color blue="d4" green="f2" red="fb" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -1003,7 +1014,7 @@
         <Container class="javax.swing.JPanel" name="tabProdCad">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e1" green="e8" red="f4" type="rgb"/>
+              <Color blue="d4" green="f2" red="fb" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -1259,7 +1270,7 @@
         <Container class="javax.swing.JPanel" name="tabVenda">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="ff" red="ff" type="rgb"/>
+              <Color blue="d4" green="f2" red="fb" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -1305,7 +1316,7 @@
         <Container class="javax.swing.JPanel" name="tabForn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="ff" red="cc" type="rgb"/>
+              <Color blue="d4" green="f2" red="fb" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -1572,7 +1583,7 @@
         <Container class="javax.swing.JPanel" name="tabFornCad">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e1" green="e8" red="f4" type="rgb"/>
+              <Color blue="d4" green="f2" red="fb" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -1696,7 +1707,7 @@
         <Container class="javax.swing.JPanel" name="tabEstq">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="cc" type="rgb"/>
+              <Color blue="d4" green="f2" red="fb" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -1969,7 +1980,7 @@
     <Container class="javax.swing.JPanel" name="buttonPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f1" green="f1" red="fd" type="rgb"/>
+          <Color blue="c0" green="f2" red="fb" type="rgb"/>
         </Property>
       </Properties>
       <Constraints>

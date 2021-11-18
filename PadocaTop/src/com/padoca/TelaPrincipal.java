@@ -158,11 +158,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1146, 804));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        header.setBackground(new java.awt.Color(238, 197, 182));
+        header.setBackground(new java.awt.Color(249, 111, 93));
+        header.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 225, 225), new java.awt.Color(122, 74, 74), null));
+        header.setForeground(new java.awt.Color(255, 204, 204));
         header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 150));
+        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 1160, 160));
 
-        tabFunc.setBackground(new java.awt.Color(244, 232, 225));
+        tabFunc.setBackground(new java.awt.Color(251, 242, 212));
 
         listaFunc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -271,7 +273,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                     .addComponent(botaoAddFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
                                     .addComponent(botaoAltFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(botaoDelFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         tabFuncLayout.setVerticalGroup(
             tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,7 +306,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         tabs.addTab("tab3", tabFunc);
 
-        tabFuncCad.setBackground(new java.awt.Color(244, 232, 225));
+        tabFuncCad.setBackground(new java.awt.Color(251, 242, 212));
 
         funcHeader1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         funcHeader1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -480,7 +482,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         tabs.addTab("tab3", tabFuncCad);
 
-        tabFuncAlt.setBackground(new java.awt.Color(244, 232, 225));
+        tabFuncAlt.setBackground(new java.awt.Color(251, 242, 212));
 
         funcHeader2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         funcHeader2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -505,7 +507,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         tabs.addTab("tab3", tabFuncAlt);
 
-        tabProd.setBackground(new java.awt.Color(255, 204, 204));
+        tabProd.setBackground(new java.awt.Color(251, 242, 212));
 
         prodHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         prodHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -633,7 +635,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         tabs.addTab("tab1", tabProd);
 
-        tabProdCad.setBackground(new java.awt.Color(244, 232, 225));
+        tabProdCad.setBackground(new java.awt.Color(251, 242, 212));
 
         prodCadHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         prodCadHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -759,7 +761,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         tabs.addTab("tab3", tabProdCad);
 
-        tabVenda.setBackground(new java.awt.Color(255, 255, 204));
+        tabVenda.setBackground(new java.awt.Color(251, 242, 212));
 
         vendHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         vendHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -784,7 +786,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         tabs.addTab("tab2", tabVenda);
 
-        tabForn.setBackground(new java.awt.Color(204, 255, 204));
+        tabForn.setBackground(new java.awt.Color(251, 242, 212));
 
         listaForn.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -926,7 +928,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         tabs.addTab("tab3", tabForn);
 
-        tabFornCad.setBackground(new java.awt.Color(244, 232, 225));
+        tabFornCad.setBackground(new java.awt.Color(251, 242, 212));
 
         fornCadHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         fornCadHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -994,7 +996,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         tabs.addTab("tab3", tabFornCad);
 
-        tabEstq.setBackground(new java.awt.Color(204, 255, 255));
+        tabEstq.setBackground(new java.awt.Color(251, 242, 212));
 
         listaEstq.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1141,7 +1143,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         getContentPane().add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, -29, 920, 840));
 
-        buttonPanel.setBackground(new java.awt.Color(253, 241, 241));
+        buttonPanel.setBackground(new java.awt.Color(251, 242, 192));
 
         panVendas.setBackground(new java.awt.Color(248, 242, 208));
         panVendas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -1402,12 +1404,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel idadeLabel;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JButton limparCadForn;
     private javax.swing.JButton limparCadFunc;
     private javax.swing.JButton limparCadProd;
@@ -1424,9 +1420,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel nomeLabelProd;
     private javax.swing.JRadioButton outroButton;
     private javax.swing.JPanel panEstq;
-    private javax.swing.JPanel panEstq1;
-    private javax.swing.JPanel panEstq2;
-    private javax.swing.JPanel panEstq3;
     private javax.swing.JPanel panForn;
     private javax.swing.JPanel panFunc;
     private javax.swing.JPanel panProd;
