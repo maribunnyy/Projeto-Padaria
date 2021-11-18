@@ -5,6 +5,9 @@
  */
 package com.padoca;
 
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author maria.coregio
@@ -30,20 +33,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         genButtons = new javax.swing.ButtonGroup();
         header = new javax.swing.JPanel();
         tabs = new javax.swing.JTabbedPane();
-        tabFunc = new javax.swing.JPanel();
-        funcScroll = new javax.swing.JScrollPane();
-        listaFunc = new javax.swing.JTable();
-        pesquisaNomeFunc = new javax.swing.JTextField();
-        pesquisaIdFunc = new javax.swing.JTextField();
-        pesquisaSelectFunc = new javax.swing.JComboBox<>();
-        funcID = new javax.swing.JLabel();
-        funcNome = new javax.swing.JLabel();
-        funcSelect = new javax.swing.JLabel();
-        funcHeader = new javax.swing.JLabel();
-        pesquisaBotaoFunc = new javax.swing.JButton();
-        botaoAddFunc = new javax.swing.JButton();
-        botaoAltFunc = new javax.swing.JButton();
-        botaoDelFunc = new javax.swing.JButton();
         tabFuncCad = new javax.swing.JPanel();
         funcHeader1 = new javax.swing.JLabel();
         nomeCadFunc = new javax.swing.JTextField();
@@ -64,6 +53,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cadastrarCadFunc = new javax.swing.JButton();
         limparCadFunc = new javax.swing.JButton();
         voltarCadFunc = new javax.swing.JButton();
+        tabFunc = new javax.swing.JPanel();
+        funcScroll = new javax.swing.JScrollPane();
+        listaFunc = new javax.swing.JTable();
+        pesquisaNomeFunc = new javax.swing.JTextField();
+        pesquisaIdFunc = new javax.swing.JTextField();
+        pesquisaSelectFunc = new javax.swing.JComboBox<>();
+        funcID = new javax.swing.JLabel();
+        funcNome = new javax.swing.JLabel();
+        funcSelect = new javax.swing.JLabel();
+        funcHeader = new javax.swing.JLabel();
+        pesquisaBotaoFunc = new javax.swing.JButton();
+        botaoAddFunc = new javax.swing.JButton();
+        botaoAltFunc = new javax.swing.JButton();
+        botaoDelFunc = new javax.swing.JButton();
         tabFuncAlt = new javax.swing.JPanel();
         funcHeader2 = new javax.swing.JLabel();
         tabProd = new javax.swing.JPanel();
@@ -140,6 +143,178 @@ public class TelaPrincipal extends javax.swing.JFrame {
         header.setBackground(new java.awt.Color(238, 197, 182));
         header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 150));
+
+        tabFuncCad.setBackground(new java.awt.Color(244, 232, 225));
+
+        funcHeader1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        funcHeader1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        funcHeader1.setText("Funcionários");
+
+        nomeCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
+
+        idadeCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
+
+        nomeLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        nomeLabel.setText("Nome:");
+
+        idadeLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        idadeLabel.setText("Idade:");
+
+        sexoLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sexoLabel.setText("Sexo:");
+
+        genButtons.add(femButton);
+        femButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        femButton.setText("Feminino");
+        femButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                femButtonActionPerformed(evt);
+            }
+        });
+
+        genButtons.add(mascButton);
+        mascButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mascButton.setText("Masculino");
+
+        genButtons.add(outroButton);
+        outroButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        outroButton.setText("Outro");
+
+        cargoLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cargoLabel.setText("Cargo:");
+
+        cargoCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cargoCadFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        addCargo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        addCargo.setText("+ Adicionar cargo");
+
+        salarioLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        salarioLabel.setText("Salário:");
+
+        salarioCadFunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
+        salarioCadFunc.setMinimumSize(new java.awt.Dimension(7, 23));
+        salarioCadFunc.setName(""); // NOI18N
+        salarioCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
+
+        cpfLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cpfLabel.setText("CPF:");
+
+        cpfCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
+
+        cadastrarCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cadastrarCadFunc.setText("Cadastrar");
+        cadastrarCadFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarCadFuncActionPerformed(evt);
+            }
+        });
+
+        limparCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        limparCadFunc.setText("Limpar");
+
+        voltarCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        voltarCadFunc.setText("Voltar");
+
+        javax.swing.GroupLayout tabFuncCadLayout = new javax.swing.GroupLayout(tabFuncCad);
+        tabFuncCad.setLayout(tabFuncCadLayout);
+        tabFuncCadLayout.setHorizontalGroup(
+            tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabFuncCadLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(funcHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
+            .addGroup(tabFuncCadLayout.createSequentialGroup()
+                .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabFuncCadLayout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addComponent(sexoLabel))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFuncCadLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(salarioLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cargoLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cpfLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(voltarCadFunc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idadeLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(nomeLabel, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addGap(59, 59, 59)
+                .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabFuncCadLayout.createSequentialGroup()
+                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nomeCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idadeCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(tabFuncCadLayout.createSequentialGroup()
+                                .addComponent(femButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(mascButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(outroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(tabFuncCadLayout.createSequentialGroup()
+                                .addComponent(cargoCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(addCargo))
+                            .addComponent(salarioCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cpfCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFuncCadLayout.createSequentialGroup()
+                        .addGap(0, 462, Short.MAX_VALUE)
+                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(cadastrarCadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                            .addComponent(limparCadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(129, 129, 129))))
+        );
+        tabFuncCadLayout.setVerticalGroup(
+            tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFuncCadLayout.createSequentialGroup()
+                .addGap(177, 177, 177)
+                .addComponent(funcHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nomeLabel)
+                    .addComponent(nomeCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(tabFuncCadLayout.createSequentialGroup()
+                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(idadeCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idadeLabel))
+                        .addGap(18, 18, 18)
+                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(mascButton, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                            .addComponent(sexoLabel)
+                            .addComponent(femButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(outroButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(tabFuncCadLayout.createSequentialGroup()
+                                .addComponent(addCargo, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                                .addGap(4, 4, 4))
+                            .addComponent(cargoLabel)
+                            .addGroup(tabFuncCadLayout.createSequentialGroup()
+                                .addComponent(cargoCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2)))
+                        .addGap(24, 24, 24)
+                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(salarioLabel)
+                            .addComponent(salarioCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(25, 25, 25)
+                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cpfLabel)
+                            .addComponent(cpfCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(106, 106, 106))
+                    .addGroup(tabFuncCadLayout.createSequentialGroup()
+                        .addComponent(cadastrarCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(voltarCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(tabFuncCadLayout.createSequentialGroup()
+                                .addComponent(limparCadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                                .addGap(4, 4, 4)))))
+                .addContainerGap(96, Short.MAX_VALUE))
+        );
+
+        tabs.addTab("tab3", tabFuncCad);
 
         tabFunc.setBackground(new java.awt.Color(244, 232, 225));
 
@@ -282,168 +457,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
 
         tabs.addTab("tab3", tabFunc);
-
-        tabFuncCad.setBackground(new java.awt.Color(244, 232, 225));
-
-        funcHeader1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        funcHeader1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        funcHeader1.setText("Funcionários");
-
-        nomeCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
-
-        idadeCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
-
-        nomeLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        nomeLabel.setText("Nome:");
-
-        idadeLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        idadeLabel.setText("Idade:");
-
-        sexoLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        sexoLabel.setText("Sexo:");
-
-        genButtons.add(femButton);
-        femButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        femButton.setText("Feminino");
-
-        genButtons.add(mascButton);
-        mascButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        mascButton.setText("Masculino");
-
-        genButtons.add(outroButton);
-        outroButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        outroButton.setText("Outro");
-
-        cargoLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        cargoLabel.setText("Cargo:");
-
-        cargoCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cargoCadFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        addCargo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        addCargo.setText("+ Adicionar cargo");
-
-        salarioLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        salarioLabel.setText("Salário:");
-
-        salarioCadFunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
-        salarioCadFunc.setMinimumSize(new java.awt.Dimension(7, 23));
-        salarioCadFunc.setName(""); // NOI18N
-        salarioCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
-
-        cpfLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        cpfLabel.setText("CPF:");
-
-        cpfCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
-
-        cadastrarCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cadastrarCadFunc.setText("Cadastrar");
-
-        limparCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        limparCadFunc.setText("Limpar");
-
-        voltarCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        voltarCadFunc.setText("Voltar");
-
-        javax.swing.GroupLayout tabFuncCadLayout = new javax.swing.GroupLayout(tabFuncCad);
-        tabFuncCad.setLayout(tabFuncCadLayout);
-        tabFuncCadLayout.setHorizontalGroup(
-            tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabFuncCadLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(funcHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
-            .addGroup(tabFuncCadLayout.createSequentialGroup()
-                .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabFuncCadLayout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addComponent(sexoLabel))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFuncCadLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(salarioLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cargoLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cpfLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(voltarCadFunc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(idadeLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(nomeLabel, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(59, 59, 59)
-                .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabFuncCadLayout.createSequentialGroup()
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nomeCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(idadeCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(tabFuncCadLayout.createSequentialGroup()
-                                .addComponent(femButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(mascButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(outroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(tabFuncCadLayout.createSequentialGroup()
-                                .addComponent(cargoCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37)
-                                .addComponent(addCargo))
-                            .addComponent(salarioCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cpfCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFuncCadLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(cadastrarCadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                            .addComponent(limparCadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(129, 129, 129))))
-        );
-        tabFuncCadLayout.setVerticalGroup(
-            tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFuncCadLayout.createSequentialGroup()
-                .addGap(177, 177, 177)
-                .addComponent(funcHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomeLabel)
-                    .addComponent(nomeCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(tabFuncCadLayout.createSequentialGroup()
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(idadeCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(idadeLabel))
-                        .addGap(18, 18, 18)
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(mascButton, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                            .addComponent(sexoLabel)
-                            .addComponent(femButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(outroButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(tabFuncCadLayout.createSequentialGroup()
-                                .addComponent(addCargo, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                                .addGap(4, 4, 4))
-                            .addComponent(cargoLabel)
-                            .addGroup(tabFuncCadLayout.createSequentialGroup()
-                                .addComponent(cargoCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(2, 2, 2)))
-                        .addGap(24, 24, 24)
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(salarioLabel)
-                            .addComponent(salarioCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25)
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cpfLabel)
-                            .addComponent(cpfCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(106, 106, 106))
-                    .addGroup(tabFuncCadLayout.createSequentialGroup()
-                        .addComponent(cadastrarCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(voltarCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(tabFuncCadLayout.createSequentialGroup()
-                                .addComponent(limparCadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                                .addGap(4, 4, 4)))))
-                .addContainerGap(96, Short.MAX_VALUE))
-        );
-
-        tabs.addTab("tab3", tabFuncCad);
 
         tabFuncAlt.setBackground(new java.awt.Color(244, 232, 225));
 
@@ -1072,6 +1085,42 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void botaoAltEstqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAltEstqActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoAltEstqActionPerformed
+
+    private void cadastrarCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCadFuncActionPerformed
+        // TODO add your handling code here:
+        String sexo = "";
+        
+        if (femButton.isSelected()) {
+            sexo = "Feminino";
+        }
+        else if (mascButton.isSelected()) {
+            sexo = "Masculino";
+        }
+        else if (outroButton.isSelected()) {
+            sexo = "Outro";
+        }
+        
+        
+            try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            st.executeUpdate("INSERT INTO tb_funcionario (nome_funcionario, salario_funcionario, cargo_funcionario, sexo, idade_funcionario, cpf) VALUES ('"+nomeCadFunc.getText()+"',"+salarioCadFunc.getText()+",'"+cargoCadFunc.getSelectedItem()+"','"+sexo+"',"+idadeCadFunc.getText()+","+cpfCadFunc.getText()+");");
+            JOptionPane.showMessageDialog(null, "Cadastro inserido com Sucesso!"); 
+            nomeCadFunc.setText("");
+            salarioCadFunc.setText("");
+            cargoCadFunc.setSelectedItem("Item 1");
+            idadeCadFunc.setText("");
+            cpfCadFunc.setText("");
+            
+         
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+        }
+    }//GEN-LAST:event_cadastrarCadFuncActionPerformed
+
+    private void femButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_femButtonActionPerformed
 
     /**
      * @param args the command line arguments
