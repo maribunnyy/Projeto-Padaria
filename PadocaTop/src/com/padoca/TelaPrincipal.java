@@ -5,6 +5,8 @@
  */
 package com.padoca;
 
+import java.sql.Statement;
+
 /**
  *
  * @author maria.coregio
@@ -203,6 +205,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         pesquisaSelectFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pesquisaSelectFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pesquisaSelectFunc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pesquisaSelectFuncMouseClicked(evt);
+            }
+        });
 
         funcID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         funcID.setText("ID:");
@@ -646,9 +653,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         cadastrarCadProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cadastrarCadProd.setText("Cadastrar");
+        cadastrarCadProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarCadProdActionPerformed(evt);
+            }
+        });
 
         limparCadProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         limparCadProd.setText("Limpar");
+        limparCadProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limparCadProdActionPerformed(evt);
+            }
+        });
 
         voltarCadProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         voltarCadProd.setText("Voltar");
@@ -661,7 +678,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         tipoCadProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        fornCadProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        fornCadProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Produto>", "Item 2", "Item 3", "Item 4" }));
 
         precoLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         precoLabel.setText("Preço:");
@@ -1150,6 +1167,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnVendas.setForeground(new java.awt.Color(255, 102, 102));
         btnVendas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnVendas.setText("Vendas");
+        btnVendas.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                btnVendasAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         javax.swing.GroupLayout panVendasLayout = new javax.swing.GroupLayout(panVendas);
         panVendas.setLayout(panVendasLayout);
@@ -1311,6 +1337,38 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void botaoAltEstqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAltEstqActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoAltEstqActionPerformed
+
+    private void btnVendasAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_btnVendasAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVendasAncestorAdded
+
+    private void pesquisaSelectFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pesquisaSelectFuncMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pesquisaSelectFuncMouseClicked
+
+    private void cadastrarCadProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCadProdActionPerformed
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            st.executeUpdate("insert into tb_produto(nome_funcionario,validade_produto,preco_produto,quantidade_produto,fk_id_fornecedor)"
+                    + "values ('"+nomeCadProd.getText()+"',"
+                    + "'"+valCadProd.getText()+"',"
+                    + ""+precoCadProd.getText()+","
+                    + ""+quantCadProd.getText()+","
+                    + ""+fornCadProd.getToolTipText()+"");
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_cadastrarCadProdActionPerformed
+
+    private void limparCadProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCadProdActionPerformed
+           nomeCadProd.setText("");
+           valCadProd.setText("");
+           precoCadProd.setText("");
+           quantCadProd.setText("");
+           fornCadProd.setSelectedIndex(0);
+    }//GEN-LAST:event_limparCadProdActionPerformed
     
     /**
      * @param args the command line arguments
@@ -1402,12 +1460,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel idadeLabel;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JButton limparCadForn;
     private javax.swing.JButton limparCadFunc;
     private javax.swing.JButton limparCadProd;
@@ -1424,9 +1476,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel nomeLabelProd;
     private javax.swing.JRadioButton outroButton;
     private javax.swing.JPanel panEstq;
-    private javax.swing.JPanel panEstq1;
-    private javax.swing.JPanel panEstq2;
-    private javax.swing.JPanel panEstq3;
     private javax.swing.JPanel panForn;
     private javax.swing.JPanel panFunc;
     private javax.swing.JPanel panProd;
