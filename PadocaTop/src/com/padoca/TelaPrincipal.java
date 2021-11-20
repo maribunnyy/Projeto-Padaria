@@ -28,7 +28,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         genButtons = new javax.swing.ButtonGroup();
+        padariaLogo = new javax.swing.JLabel();
         header = new javax.swing.JPanel();
+        padariaHeader = new javax.swing.JLabel();
         tabs = new javax.swing.JTabbedPane();
         tabFunc = new javax.swing.JPanel();
         funcScroll = new javax.swing.JScrollPane();
@@ -336,10 +338,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1146, 804));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        padariaLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/padoca/logo-padaria-ned.png"))); // NOI18N
+        getContentPane().add(padariaLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 180, 160));
+
         header.setBackground(new java.awt.Color(249, 111, 93));
         header.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 225, 225), new java.awt.Color(122, 74, 74), null));
         header.setForeground(new java.awt.Color(255, 204, 204));
         header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        padariaHeader.setFont(new java.awt.Font("Garamond", 1, 64)); // NOI18N
+        padariaHeader.setForeground(new java.awt.Color(255, 255, 255));
+        padariaHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        padariaHeader.setText("Padaria N&D");
+        header.add(padariaHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 900, 150));
+
         getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 1160, 160));
 
         tabFunc.setBackground(new java.awt.Color(251, 242, 212));
@@ -3034,7 +3046,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         buttonPanelLayout.setVerticalGroup(
             buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buttonPanelLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(93, 93, 93)
                 .addComponent(panVendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3046,7 +3058,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(panEstq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panRemessa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(180, Short.MAX_VALUE))
         );
 
         getContentPane().add(buttonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 230, 690));
@@ -3263,6 +3275,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel nomeLabelProdAlt;
     private javax.swing.JRadioButton outroButton;
     private javax.swing.JRadioButton outroButtonAltFunc;
+    private javax.swing.JLabel padariaHeader;
+    private javax.swing.JLabel padariaLogo;
     private javax.swing.JPanel panEstq;
     private javax.swing.JPanel panForn;
     private javax.swing.JPanel panFunc;
