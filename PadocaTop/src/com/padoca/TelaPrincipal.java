@@ -259,10 +259,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFuncCadLayout.createSequentialGroup()
                         .addGap(0, 462, Short.MAX_VALUE)
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(cadastrarCadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                            .addComponent(limparCadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(limparCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(129, 129, 129))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFuncCadLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cadastrarCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(390, 390, 390))
         );
         tabFuncCadLayout.setVerticalGroup(
             tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,16 +304,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cpfLabel)
                             .addComponent(cpfCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(106, 106, 106))
-                    .addGroup(tabFuncCadLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
                         .addComponent(cadastrarCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(voltarCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(tabFuncCadLayout.createSequentialGroup()
-                                .addComponent(limparCadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                                .addGap(4, 4, 4)))))
-                .addContainerGap(96, Short.MAX_VALUE))
+                        .addGap(43, 43, 43))
+                    .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(voltarCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(tabFuncCadLayout.createSequentialGroup()
+                            .addComponent(limparCadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                            .addGap(4, 4, 4))))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab3", tabFuncCad);
@@ -1089,22 +1090,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void cadastrarCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCadFuncActionPerformed
         // TODO add your handling code here:
         String sexo = "";
+        String data = "2021-10-22";
+        
+        
+        String salarioFunc = salarioCadFunc.getText().replace(",", "");
+        
         
         if (femButton.isSelected()) {
-            sexo = "Feminino";
+            sexo = "F";
         }
         else if (mascButton.isSelected()) {
-            sexo = "Masculino";
+            sexo = "M";
         }
         else if (outroButton.isSelected()) {
-            sexo = "Outro";
+            sexo = "O";
         }
         
         
             try {
             Conexao con = new Conexao();
             Statement st = con.conexao.createStatement();
-            st.executeUpdate("INSERT INTO tb_funcionario (nome_funcionario, salario_funcionario, cargo_funcionario, sexo, idade_funcionario, cpf) VALUES ('"+nomeCadFunc.getText()+"',"+salarioCadFunc.getText()+",'"+cargoCadFunc.getSelectedItem()+"','"+sexo+"',"+idadeCadFunc.getText()+","+cpfCadFunc.getText()+");");
+            st.executeUpdate("INSERT INTO tb_funcionario (nome_funcionario, salario_funcionario, cargo_funcionario, sexo, idade_funcionario, cpf, data_admissao_funcionario) VALUES ('"+nomeCadFunc.getText()+"',"+salarioFunc+",'"+cargoCadFunc.getSelectedItem()+"','"+sexo+"',"+idadeCadFunc.getText()+","+cpfCadFunc.getText()+", '"+data+"');");
+            
+            
+            JOptionPane.showMessageDialog(null, ("INSERT INTO tb_funcionario (nome_funcionario, salario_funcionario, cargo_funcionario, sexo, idade_funcionario, cpf, data_admissao_funcionario) VALUES ('"+nomeCadFunc.getText()+"',"+salarioFunc+",'"+cargoCadFunc.getSelectedItem()+"','"+sexo+"',"+idadeCadFunc.getText()+","+cpfCadFunc.getText()+", '"+data+"');")); 
             JOptionPane.showMessageDialog(null, "Cadastro inserido com Sucesso!"); 
             nomeCadFunc.setText("");
             salarioCadFunc.setText("");

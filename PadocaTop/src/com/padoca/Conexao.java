@@ -14,11 +14,11 @@ import java.sql.SQLException;
  */
 public class Conexao {
     public Connection conexao;
-    String server = "127.0.0.1";
-    String dbname = "padaria";
+    String server = "localhost";
+    String dbname = "padariav3";
     String url = "jdbc:mysql://" + server +  "/" + dbname;
     String user = "root";
-    String password = "inserida";
+    String password = "%Pedroso";
     
     public Conexao() throws SQLException{
         conexao = DriverManager.getConnection(url, user, password);
