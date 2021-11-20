@@ -7,13 +7,14 @@ package com.padoca;
 
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /**
  *
  * @author maria.coregio
  */
 public class TelaPrincipal extends javax.swing.JFrame {
-
+    boolean b;
     /**
      * Creates new form TelaPrincipal
      */
@@ -201,6 +202,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cpfLabel.setText("CPF:");
 
         cpfCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
+        cpfCadFunc.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                cpfCadFuncCaretUpdate(evt);
+            }
+        });
 
         cadastrarCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cadastrarCadFunc.setText("Cadastrar");
@@ -1093,7 +1099,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         String data = "2021-10-22";
         
         
-        String salarioFunc = salarioCadFunc.getText().replace(",", "");
         
         
         if (femButton.isSelected()) {
@@ -1110,10 +1115,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
             try {
             Conexao con = new Conexao();
             Statement st = con.conexao.createStatement();
-            st.executeUpdate("INSERT INTO tb_funcionario (nome_funcionario, salario_funcionario, cargo_funcionario, sexo, idade_funcionario, cpf, data_admissao_funcionario) VALUES ('"+nomeCadFunc.getText()+"',"+salarioFunc+",'"+cargoCadFunc.getSelectedItem()+"','"+sexo+"',"+idadeCadFunc.getText()+","+cpfCadFunc.getText()+", '"+data+"');");
+            st.executeUpdate("INSERT INTO tb_funcionario (nome_funcionario, salario_funcionario, cargo_funcionario, sexo, idade_funcionario, cpf, data_admissao_funcionario) VALUES ('"+nomeCadFunc.getText()+"',"+salarioCadFunc.getText().replace(",", "")+",'"+cargoCadFunc.getSelectedItem()+"','"+sexo+"',"+idadeCadFunc.getText()+","+cpfCadFunc.getText()+", '"+data+"');");
             
             
-            JOptionPane.showMessageDialog(null, ("INSERT INTO tb_funcionario (nome_funcionario, salario_funcionario, cargo_funcionario, sexo, idade_funcionario, cpf, data_admissao_funcionario) VALUES ('"+nomeCadFunc.getText()+"',"+salarioFunc+",'"+cargoCadFunc.getSelectedItem()+"','"+sexo+"',"+idadeCadFunc.getText()+","+cpfCadFunc.getText()+", '"+data+"');")); 
             JOptionPane.showMessageDialog(null, "Cadastro inserido com Sucesso!"); 
             nomeCadFunc.setText("");
             salarioCadFunc.setText("");
@@ -1130,6 +1134,47 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void femButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_femButtonActionPerformed
+
+    private void cpfCadFuncCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_cpfCadFuncCaretUpdate
+        // TODO add your handling code here:
+        Runnable cpfCadFuncCaretUpdate = new Runnable() {
+        @Override
+        public void run() {
+            // your highlight code
+                 if (cpfCadFunc.getText().length()> 5) {
+            /*hTerminoError.setText("Formato inválido");*/
+        }
+           if (cpfCadFunc.getText().length()< 6) {
+            /*hTerminoError.setText("");*/
+        }
+           
+        
+        
+        if (cpfCadFunc.getText().length()==2 || cpfCadFunc.getText().length()==6 || cpfCadFunc.getText().length()==9) {
+            b = false;
+        }
+        if((cpfCadFunc.getText().length()==3 || cpfCadFunc.getText().length()==7 ) && b == false){  
+            cpfCadFunc.setText(cpfCadFunc.getText() + ".");
+            b = true;
+        }
+        
+        else if((cpfCadFunc.getText().length()==11) && b == false){  
+            cpfCadFunc.setText(cpfCadFunc.getText() + "-");
+            b = true;
+        }
+        
+        if((cpfCadFunc.getText().length()==15)){  
+            cpfCadFunc.setText(cpfCadFunc.getText().replaceFirst(".$",""));
+           
+        }
+        
+        }
+    };       
+        
+    SwingUtilities.invokeLater(cpfCadFuncCaretUpdate);
+           
+          
+    }//GEN-LAST:event_cpfCadFuncCaretUpdate
 
     /**
      * @param args the command line arguments

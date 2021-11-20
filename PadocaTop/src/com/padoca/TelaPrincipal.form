@@ -361,6 +361,9 @@
                   <Dimension value="[7, 23]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="cpfCadFuncCaretUpdate"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="cadastrarCadFunc">
               <Properties>
