@@ -5,6 +5,9 @@
  */
 package com.padoca;
 
+import java.awt.Color;
+import javax.swing.JPanel;
+
 /**
  *
  * @author maria.coregio
@@ -1557,11 +1560,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                     .addComponent(sttsCadForn)
                                     .addComponent(tipoCadForn)
                                     .addComponent(nomeCadForn, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(tabFornCadLayout.createSequentialGroup()
-                                .addGroup(tabFornCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(statusLabelCadForn)
-                                    .addComponent(tipoLabelCadForn))
-                                .addGap(265, 265, 265))))
+                            .addComponent(statusLabelCadForn)
+                            .addComponent(tipoLabelCadForn)))
                     .addGroup(tabFornCadLayout.createSequentialGroup()
                         .addGap(338, 338, 338)
                         .addComponent(cadFornLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -2057,10 +2057,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabEstqAltLayout.setHorizontalGroup(
             tabEstqAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabEstqAltLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(prodCadHeader5, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
-            .addGroup(tabEstqAltLayout.createSequentialGroup()
                 .addGap(97, 97, 97)
                 .addComponent(voltarAltEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 492, Short.MAX_VALUE)
@@ -2068,35 +2064,40 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(cadastrarAltEstq, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
                     .addComponent(limparAltEstq, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(129, 129, 129))
-            .addGroup(tabEstqAltLayout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addGroup(tabEstqAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fornLabelAltEstq)
-                    .addComponent(tipoLabelAltEstq)
-                    .addComponent(precoLabelAltEstq)
-                    .addComponent(nomeLabelAltEstq)
-                    .addComponent(idLabelAltEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
-                .addGroup(tabEstqAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nomeAltEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(tabEstqAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(fornAltEstq, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tipoAltEstq, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(precoAltEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(idAltEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(tabEstqAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(valLabelAltEstq)
-                    .addComponent(quantLabelAltEstq))
-                .addGap(18, 18, 18)
-                .addGroup(tabEstqAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(valAltEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(quantAltEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(151, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabEstqAltLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(altEstqLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(401, 401, 401))
+            .addGroup(tabEstqAltLayout.createSequentialGroup()
+                .addGroup(tabEstqAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabEstqAltLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(prodCadHeader5, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tabEstqAltLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addGroup(tabEstqAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fornLabelAltEstq)
+                            .addComponent(tipoLabelAltEstq)
+                            .addComponent(precoLabelAltEstq)
+                            .addComponent(nomeLabelAltEstq)
+                            .addComponent(idLabelAltEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(59, 59, 59)
+                        .addGroup(tabEstqAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nomeAltEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(tabEstqAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(fornAltEstq, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tipoAltEstq, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(precoAltEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idAltEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34)
+                        .addGroup(tabEstqAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(valLabelAltEstq)
+                            .addComponent(quantLabelAltEstq))
+                        .addGap(18, 18, 18)
+                        .addGroup(tabEstqAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(valAltEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(quantAltEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tabEstqAltLayout.setVerticalGroup(
             tabEstqAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2916,11 +2917,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         panVendas.setBackground(new java.awt.Color(248, 242, 208));
         panVendas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panVendas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panVendasMouseEntered(evt);
+            }
+        });
 
         btnVendas.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         btnVendas.setForeground(new java.awt.Color(255, 102, 102));
         btnVendas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnVendas.setText("Vendas");
+        btnVendas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVendasMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panVendasLayout = new javax.swing.GroupLayout(panVendas);
         panVendas.setLayout(panVendasLayout);
@@ -2940,6 +2951,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnProd.setForeground(new java.awt.Color(255, 102, 102));
         btnProd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnProd.setText("Produtos");
+        btnProd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnProdMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panProdLayout = new javax.swing.GroupLayout(panProd);
         panProd.setLayout(panProdLayout);
@@ -2959,6 +2975,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnFunc.setForeground(new java.awt.Color(255, 102, 102));
         btnFunc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnFunc.setText("Funcionários");
+        btnFunc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnFuncMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panFuncLayout = new javax.swing.GroupLayout(panFunc);
         panFunc.setLayout(panFuncLayout);
@@ -2978,6 +2999,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnEstq.setForeground(new java.awt.Color(255, 102, 102));
         btnEstq.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnEstq.setText("Estoque");
+        btnEstq.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEstqMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panEstqLayout = new javax.swing.GroupLayout(panEstq);
         panEstq.setLayout(panEstqLayout);
@@ -2997,6 +3023,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnForn.setForeground(new java.awt.Color(255, 102, 102));
         btnForn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnForn.setText("Fornecedores");
+        btnForn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnFornMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panFornLayout = new javax.swing.GroupLayout(panForn);
         panForn.setLayout(panFornLayout);
@@ -3016,6 +3047,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnRemessa.setForeground(new java.awt.Color(255, 102, 102));
         btnRemessa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnRemessa.setText("Remessas");
+        btnRemessa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRemessaMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panRemessaLayout = new javax.swing.GroupLayout(panRemessa);
         panRemessa.setLayout(panRemessaLayout);
@@ -3090,7 +3126,66 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void botaoAltRemssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAltRemssActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoAltRemssActionPerformed
+
+    private void btnVendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendasMouseClicked
+        // TODO add your handling code here:
+        tabs.setSelectedIndex(15);
+        panVendas.setBackground(new Color(255,255,255));
+        defaultColor(panProd, panEstq, panForn, panRemessa, panFunc);
+        
+    }//GEN-LAST:event_btnVendasMouseClicked
+
+    private void btnProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProdMouseClicked
+        // TODO add your handling code here:
+        tabs.setSelectedIndex(3);
+        panProd.setBackground(new Color(255,255,255));
+        defaultColor(panVendas, panEstq, panFunc, panRemessa, panForn);
+        
+    }//GEN-LAST:event_btnProdMouseClicked
+
+    private void btnFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFuncMouseClicked
+        // TODO add your handling code here:
+        tabs.setSelectedIndex(0);
+        panFunc.setBackground(new Color(255,255,255));
+        defaultColor(panVendas, panEstq, panProd, panRemessa, panForn);
+
+    }//GEN-LAST:event_btnFuncMouseClicked
+
+    private void btnFornMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFornMouseClicked
+        // TODO add your handling code here:
+        tabs.setSelectedIndex(6);
+        panForn.setBackground(new Color(255,255,255));
+        defaultColor(panVendas, panEstq, panFunc, panRemessa,panProd);
+    }//GEN-LAST:event_btnFornMouseClicked
+
+    private void btnEstqMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstqMouseClicked
+        // TODO add your handling code here:
+        tabs.setSelectedIndex(9);
+        panEstq.setBackground(new Color(255,255,255));
+        defaultColor(panVendas, panProd, panFunc, panRemessa,panForn);
+
+    }//GEN-LAST:event_btnEstqMouseClicked
+
+    private void btnRemessaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemessaMouseClicked
+        
+        tabs.setSelectedIndex(12);
+        panRemessa.setBackground(new Color(255,255,255));
+        defaultColor(panVendas, panEstq, panFunc, panForn,panProd);
+
+    }//GEN-LAST:event_btnRemessaMouseClicked
+
+    private void panVendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panVendasMouseEntered
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_panVendasMouseEntered
     
+    public void defaultColor(JPanel panel, JPanel panel1, JPanel panel2, JPanel panel3, JPanel panel4) {
+        panel.setBackground(new Color(248,242,208));
+        panel1.setBackground(new Color(248,242,208));
+        panel2.setBackground(new Color(248,242,208));
+        panel3.setBackground(new Color(248,242,208));
+        panel4.setBackground(new Color(248,242,208));
+    }
     /**
      * @param args the command line arguments
      */
