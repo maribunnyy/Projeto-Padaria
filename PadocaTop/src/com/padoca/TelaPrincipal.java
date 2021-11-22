@@ -7,7 +7,10 @@ package com.padoca;
 
 import java.awt.Color;
 import javax.swing.JPanel;
-
+import java.sql.Statement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author maria.coregio
@@ -1762,6 +1765,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         botaoAddEstq.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         botaoAddEstq.setForeground(new java.awt.Color(0, 153, 0));
         botaoAddEstq.setText("Adicionar");
+        botaoAddEstq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAddEstqActionPerformed(evt);
+            }
+        });
 
         botaoAltEstq.setBackground(new java.awt.Color(242, 214, 137));
         botaoAltEstq.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -1863,16 +1871,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cadastrarCadEstq.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         cadastrarCadEstq.setForeground(new java.awt.Color(0, 153, 0));
         cadastrarCadEstq.setText("Cadastrar");
+        cadastrarCadEstq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarCadEstqActionPerformed(evt);
+            }
+        });
 
         limparCadEstq.setBackground(new java.awt.Color(242, 214, 137));
         limparCadEstq.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         limparCadEstq.setForeground(new java.awt.Color(192, 134, 47));
         limparCadEstq.setText("Limpar");
+        limparCadEstq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limparCadEstqActionPerformed(evt);
+            }
+        });
 
         voltarCadEstq.setBackground(new java.awt.Color(242, 214, 137));
         voltarCadEstq.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         voltarCadEstq.setForeground(new java.awt.Color(192, 134, 47));
         voltarCadEstq.setText("Voltar");
+        voltarCadEstq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarCadEstqActionPerformed(evt);
+            }
+        });
 
         tipoLabelCadEstq.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tipoLabelCadEstq.setText("Tipo:");
@@ -1886,7 +1909,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         fornCadEstq.setBackground(new java.awt.Color(242, 214, 137));
         fornCadEstq.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        fornCadEstq.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        fornCadEstq.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Fornecedores>", "1", "2", "3", "4", "5", "6", "7" }));
 
         precoLabelCadEstq.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         precoLabelCadEstq.setText("Preço:");
@@ -1900,6 +1923,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         quantLabelCadEstq.setText("Quantidade:");
 
         valCadEstq.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        valCadEstq.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
 
         estqCadLabel.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         estqCadLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -3178,6 +3202,50 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_panVendasMouseEntered
+
+    private void cadastrarCadEstqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCadEstqActionPerformed
+        // TODO add your handling code here:
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            
+            st.executeUpdate("insert into tb_estoque (nome_estoque, validade_estoque, preco_estoque, quantidade_estoque, fk_id_fornecedor) VALUES ("
+                    + "'" + nomeCadEstq.getText() +"', "
+                    + "'" + valCadEstq.getText() + "', "
+                    + "" + precoCadEstq.getText().replace(",", ".") +", "
+                    + "" + quantCadEstq.getText() +", "
+                    + "'" + fornCadEstq.getSelectedItem() +"')");
+            
+            ResultSet rs = st.getResultSet();
+            JOptionPane.showMessageDialog(null, "Estoque cadastrado com sucesso");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+        }
+       
+       
+       
+       
+    }//GEN-LAST:event_cadastrarCadEstqActionPerformed
+
+    private void botaoAddEstqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddEstqActionPerformed
+        // TODO add your handling code here:
+        tabs.setSelectedIndex(10);
+    }//GEN-LAST:event_botaoAddEstqActionPerformed
+
+    private void limparCadEstqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCadEstqActionPerformed
+        // TODO add your handling code here:
+        nomeCadEstq.setText("");
+        valCadEstq.setText("");
+        precoCadEstq.setText("");
+        quantCadEstq.setText("");
+        fornCadEstq.setSelectedIndex(0);
+        
+    }//GEN-LAST:event_limparCadEstqActionPerformed
+
+    private void voltarCadEstqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarCadEstqActionPerformed
+        // TODO add your handling code here:
+        tabs.setSelectedIndex(9);
+    }//GEN-LAST:event_voltarCadEstqActionPerformed
     
     public void defaultColor(JPanel panel, JPanel panel1, JPanel panel2, JPanel panel3, JPanel panel4) {
         panel.setBackground(new Color(248,242,208));

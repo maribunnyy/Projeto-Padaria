@@ -18,7 +18,7 @@ public class Conexao {
     String dbname = "padaria";
     String url = "jdbc:mysql://" + server +  "/" + dbname;
     String user = "root";
-    String password = "inserida";
+    String password = "";
     
     public Conexao() throws SQLException{
         conexao = DriverManager.getConnection(url, user, password);
