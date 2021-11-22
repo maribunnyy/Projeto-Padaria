@@ -9,8 +9,11 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import java.sql.Statement;
 import java.sql.ResultSet;
+<<<<<<< HEAD
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+=======
+>>>>>>> 9d52dae (trabalhando na tela de produto(^^))
 /**
  *
  * @author maria.coregio
@@ -936,6 +939,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         botaoAddProd.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         botaoAddProd.setForeground(new java.awt.Color(0, 153, 0));
         botaoAddProd.setText("Adicionar");
+        botaoAddProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAddProdActionPerformed(evt);
+            }
+        });
 
         botaoAltProd.setBackground(new java.awt.Color(242, 214, 137));
         botaoAltProd.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -1056,16 +1064,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cadastrarCadProd.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         cadastrarCadProd.setForeground(new java.awt.Color(0, 153, 0));
         cadastrarCadProd.setText("Cadastrar");
+        cadastrarCadProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarCadProdActionPerformed(evt);
+            }
+        });
 
         limparCadProd.setBackground(new java.awt.Color(242, 214, 137));
         limparCadProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         limparCadProd.setForeground(new java.awt.Color(192, 134, 47));
         limparCadProd.setText("Limpar");
+        limparCadProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limparCadProdActionPerformed(evt);
+            }
+        });
 
         voltarCadProd.setBackground(new java.awt.Color(242, 214, 137));
         voltarCadProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         voltarCadProd.setForeground(new java.awt.Color(192, 134, 47));
         voltarCadProd.setText("Voltar");
+        voltarCadProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarCadProdActionPerformed(evt);
+            }
+        });
 
         tipoLabelProd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tipoLabelProd.setText("Tipo:");
@@ -1075,11 +1098,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         tipoCadProd.setBackground(new java.awt.Color(242, 214, 137));
         tipoCadProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tipoCadProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tipoCadProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Tipo>", "líquido", "sólido" }));
 
         fornCadProd.setBackground(new java.awt.Color(242, 214, 137));
         fornCadProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        fornCadProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        fornCadProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Fornecedores>" }));
+        fornCadProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fornCadProdActionPerformed(evt);
+            }
+        });
 
         precoLabelProd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         precoLabelProd.setText("Preço:");
@@ -1227,6 +1255,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         voltarAltProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         voltarAltProd.setForeground(new java.awt.Color(192, 134, 47));
         voltarAltProd.setText("Voltar");
+        voltarAltProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarAltProdActionPerformed(evt);
+            }
+        });
 
         tipoLabelProdAlt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tipoLabelProdAlt.setText("Tipo:");
@@ -3132,7 +3165,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoAltFuncActionPerformed
 
     private void botaoAltProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAltProdActionPerformed
-        // TODO add your handling code here:
+        tabs.setSelectedIndex(5);
     }//GEN-LAST:event_botaoAltProdActionPerformed
 
     private void botaoAltFornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAltFornActionPerformed
@@ -3164,7 +3197,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabs.setSelectedIndex(3);
         panProd.setBackground(new Color(255,255,255));
         defaultColor(panVendas, panEstq, panFunc, panRemessa, panForn);
-        
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM tb_produto;");
+            while(rs.next()){
+                String name = rs.getString("nome_Produto");
+                pesquisaSelectProd.addItem(name);
+            }
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_btnProdMouseClicked
 
     private void btnFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFuncMouseClicked
@@ -3203,6 +3245,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_panVendasMouseEntered
 
+<<<<<<< HEAD
     private void cadastrarCadEstqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCadEstqActionPerformed
         // TODO add your handling code here:
         try {
@@ -3246,6 +3289,47 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         tabs.setSelectedIndex(9);
     }//GEN-LAST:event_voltarCadEstqActionPerformed
+=======
+    private void botaoAddProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddProdActionPerformed
+        tabs.setSelectedIndex(4);
+    }//GEN-LAST:event_botaoAddProdActionPerformed
+
+    private void voltarAltProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarAltProdActionPerformed
+        tabs.setSelectedIndex(3);
+    }//GEN-LAST:event_voltarAltProdActionPerformed
+
+    private void voltarCadProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarCadProdActionPerformed
+        tabs.setSelectedIndex(3);
+    }//GEN-LAST:event_voltarCadProdActionPerformed
+
+    private void cadastrarCadProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCadProdActionPerformed
+          
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            st.executeUpdate("INSERT INTO tb_produto(id_produto,nome_produto,"
+                    + "validade_produto,preco_produto,quantidade_produto,"
+                    + "fk_id_fornecedor) VALUES ('"+nomeCadProd.getText()+"',"+valCadProd.getText()
+            +","+precoCadProd.getText()+","+quantCadProd.getText()+",'"+fornCadProd.getSelectedIndex()+"');");
+        } catch (Exception e) {
+             e.printStackTrace();
+        }
+        
+        
+    }//GEN-LAST:event_cadastrarCadProdActionPerformed
+
+    private void fornCadProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fornCadProdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fornCadProdActionPerformed
+
+    private void limparCadProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCadProdActionPerformed
+        nomeCadProd.setText("");
+        valCadProd.setText("");
+        precoCadProd.setText("");
+        quantCadProd.setText("");
+        fornCadProd.setSelectedIndex(0);
+    }//GEN-LAST:event_limparCadProdActionPerformed
+>>>>>>> 9d52dae (trabalhando na tela de produto(^^))
     
     public void defaultColor(JPanel panel, JPanel panel1, JPanel panel2, JPanel panel3, JPanel panel4) {
         panel.setBackground(new Color(248,242,208));

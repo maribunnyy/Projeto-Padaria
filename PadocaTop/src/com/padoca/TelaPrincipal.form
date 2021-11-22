@@ -1393,6 +1393,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Adicionar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoAddProdActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="botaoAltProd">
               <Properties>
@@ -1688,6 +1691,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarCadProdActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="limparCadProd">
               <Properties>
@@ -1702,6 +1708,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Limpar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="limparCadProdActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="voltarCadProd">
               <Properties>
@@ -1716,6 +1725,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Voltar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="voltarCadProdActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="tipoLabelProd">
               <Properties>
@@ -1742,11 +1754,10 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                  <StringArray count="3">
+                    <StringItem index="0" value="&lt;Tipo&gt;"/>
+                    <StringItem index="1" value="l&#xed;quido"/>
+                    <StringItem index="2" value="s&#xf3;lido"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -1763,14 +1774,14 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                  <StringArray count="1">
+                    <StringItem index="0" value="&lt;Fornecedores&gt;"/>
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fornCadProdActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -2028,6 +2039,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Voltar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="voltarAltProdActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="tipoLabelProdAlt">
               <Properties>
