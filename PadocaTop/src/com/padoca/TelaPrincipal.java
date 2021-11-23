@@ -9,11 +9,8 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import java.sql.Statement;
 import java.sql.ResultSet;
-<<<<<<< HEAD
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-=======
->>>>>>> 9d52dae (trabalhando na tela de produto(^^))
 /**
  *
  * @author maria.coregio
@@ -3245,7 +3242,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_panVendasMouseEntered
 
-<<<<<<< HEAD
     private void cadastrarCadEstqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCadEstqActionPerformed
         // TODO add your handling code here:
         try {
@@ -3289,7 +3285,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         tabs.setSelectedIndex(9);
     }//GEN-LAST:event_voltarCadEstqActionPerformed
-=======
+
     private void botaoAddProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddProdActionPerformed
         tabs.setSelectedIndex(4);
     }//GEN-LAST:event_botaoAddProdActionPerformed
@@ -3329,7 +3325,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         quantCadProd.setText("");
         fornCadProd.setSelectedIndex(0);
     }//GEN-LAST:event_limparCadProdActionPerformed
->>>>>>> 9d52dae (trabalhando na tela de produto(^^))
+
     
     public void defaultColor(JPanel panel, JPanel panel1, JPanel panel2, JPanel panel3, JPanel panel4) {
         panel.setBackground(new Color(248,242,208));
