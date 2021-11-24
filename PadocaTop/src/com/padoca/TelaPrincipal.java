@@ -963,7 +963,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         prodSelect.setText("Produto:");
 
         pesquisaSelectProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        pesquisaSelectProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pesquisaSelectProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Produtos>" }));
 
         prodNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         prodNome.setText("Nome:");
@@ -979,6 +979,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pesquisaBotaoProd.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         pesquisaBotaoProd.setForeground(new java.awt.Color(192, 134, 47));
         pesquisaBotaoProd.setText("Pesquisar");
+        pesquisaBotaoProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesquisaBotaoProdActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout tabProdLayout = new javax.swing.GroupLayout(tabProd);
         tabProd.setLayout(tabProdLayout);
@@ -1008,7 +1013,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                 .addComponent(botaoAltProd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(botaoDelProd, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(prodScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 832, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         tabProdLayout.setVerticalGroup(
             tabProdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3186,7 +3191,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabs.setSelectedIndex(15);
         panVendas.setBackground(new Color(255,255,255));
         defaultColor(panProd, panEstq, panForn, panRemessa, panFunc);
-        
+        pesquisaSelectProd.removeAllItems();
     }//GEN-LAST:event_btnVendasMouseClicked
 
     private void btnProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProdMouseClicked
@@ -3203,6 +3208,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 pesquisaSelectProd.addItem(name);
             }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
         }
     }//GEN-LAST:event_btnProdMouseClicked
 
@@ -3211,7 +3217,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabs.setSelectedIndex(0);
         panFunc.setBackground(new Color(255,255,255));
         defaultColor(panVendas, panEstq, panProd, panRemessa, panForn);
-
+        pesquisaSelectProd.removeAllItems();
     }//GEN-LAST:event_btnFuncMouseClicked
 
     private void btnFornMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFornMouseClicked
@@ -3219,6 +3225,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabs.setSelectedIndex(6);
         panForn.setBackground(new Color(255,255,255));
         defaultColor(panVendas, panEstq, panFunc, panRemessa,panProd);
+        pesquisaSelectProd.removeAllItems();
     }//GEN-LAST:event_btnFornMouseClicked
 
     private void btnEstqMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstqMouseClicked
@@ -3226,7 +3233,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabs.setSelectedIndex(9);
         panEstq.setBackground(new Color(255,255,255));
         defaultColor(panVendas, panProd, panFunc, panRemessa,panForn);
-
+        pesquisaSelectProd.removeAllItems();
     }//GEN-LAST:event_btnEstqMouseClicked
 
     private void btnRemessaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemessaMouseClicked
@@ -3234,7 +3241,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabs.setSelectedIndex(12);
         panRemessa.setBackground(new Color(255,255,255));
         defaultColor(panVendas, panEstq, panFunc, panForn,panProd);
-
+        pesquisaSelectProd.removeAllItems();
     }//GEN-LAST:event_btnRemessaMouseClicked
 
     private void panVendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panVendasMouseEntered
@@ -3242,8 +3249,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_panVendasMouseEntered
 
+
     private void cadastrarCadEstqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCadEstqActionPerformed
         // TODO add your handling code here:
+        pesquisaSelectProd.removeAllItems();
         try {
             Conexao con = new Conexao();
             Statement st = con.conexao.createStatement();
@@ -3326,6 +3335,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         fornCadProd.setSelectedIndex(0);
     }//GEN-LAST:event_limparCadProdActionPerformed
 
+    private void pesquisaBotaoProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaBotaoProdActionPerformed
+        try {
+         Conexao con = new Conexao();
+         Statement st = con.conexao.createStatement();
+         ResultSet rs = st.getResultSet();
+         st.executeQuery("SELECT * FROM tb_produto WHERE id_produto="+pesquisaIdProd.getText()+" AND nome_produto='"+pesquisaNomeProd.getText()+"';");
+         JOptionPane.showConfirmDialog(null,"Nome Produto: "+rs.getString("nome_produto") );
+        } catch (Exception e) {
+             e.printStackTrace();
+        }
+    }//GEN-LAST:event_pesquisaBotaoProdActionPerformed
+
     
     public void defaultColor(JPanel panel, JPanel panel1, JPanel panel2, JPanel panel3, JPanel panel4) {
         panel.setBackground(new Color(248,242,208));
@@ -3334,6 +3355,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         panel3.setBackground(new Color(248,242,208));
         panel4.setBackground(new Color(248,242,208));
     }
+    
     /**
      * @param args the command line arguments
      */
