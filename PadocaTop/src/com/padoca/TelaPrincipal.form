@@ -382,6 +382,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Adicionar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoAddFuncActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="botaoAltFunc">
               <Properties>
@@ -741,6 +744,9 @@
                   <Dimension value="[7, 23]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="cpfCadFuncCaretUpdate"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="cadastrarCadFunc">
               <Properties>
@@ -786,6 +792,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Voltar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="voltarCadFuncActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="dataAdmLabel">
               <Properties>

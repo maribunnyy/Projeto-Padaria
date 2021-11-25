@@ -11,13 +11,18 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.SwingUtilities;
 /**
  *
  * @author maria.coregio
  */
 public class TelaPrincipal extends javax.swing.JFrame {
+<<<<<<< HEAD
 
     Boolean clicked = false;
+=======
+    boolean b;
+>>>>>>> 3c51faf (cad func alex)
     /**
      * Creates new form TelaPrincipal
      */
@@ -432,6 +437,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         botaoAddFunc.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         botaoAddFunc.setForeground(new java.awt.Color(0, 153, 0));
         botaoAddFunc.setText("Adicionar");
+        botaoAddFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAddFuncActionPerformed(evt);
+            }
+        });
 
         botaoAltFunc.setBackground(new java.awt.Color(242, 214, 137));
         botaoAltFunc.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -570,6 +580,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cpfLabel.setText("CPF:");
 
         cpfCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
+        cpfCadFunc.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                cpfCadFuncCaretUpdate(evt);
+            }
+        });
 
         cadastrarCadFunc.setBackground(new java.awt.Color(102, 255, 102));
         cadastrarCadFunc.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -590,6 +605,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         voltarCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         voltarCadFunc.setForeground(new java.awt.Color(192, 134, 47));
         voltarCadFunc.setText("Voltar");
+        voltarCadFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarCadFuncActionPerformed(evt);
+            }
+        });
 
         dataAdmLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         dataAdmLabel.setText("Data de Admissão:");
@@ -3427,6 +3447,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cadastrarCadFuncActionPerformed
 
+<<<<<<< HEAD
     private void btnVendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendasMouseEntered
         // TODO add your handling code here:
         hoverColor(panVendas);
@@ -3504,6 +3525,57 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
         clicked = false;
     }
+=======
+    private void cpfCadFuncCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_cpfCadFuncCaretUpdate
+        // TODO add your handling code here:
+        Runnable cpfCadFuncCaretUpdate = new Runnable() {
+        @Override
+        public void run() {
+            // your highlight code
+                 if (cpfCadFunc.getText().length()> 5) {
+            /*hTerminoError.setText("Formato inválido");*/
+        }
+           if (cpfCadFunc.getText().length()< 6) {
+            /*hTerminoError.setText("");*/
+        }
+           
+        
+        
+        if (cpfCadFunc.getText().length()==2 || cpfCadFunc.getText().length()==6 || cpfCadFunc.getText().length()==9) {
+            b = false;
+        }
+        if((cpfCadFunc.getText().length()==3 || cpfCadFunc.getText().length()==7 ) && b == false){  
+            cpfCadFunc.setText(cpfCadFunc.getText() + ".");
+            b = true;
+        }
+        
+        else if((cpfCadFunc.getText().length()==11) && b == false){  
+            cpfCadFunc.setText(cpfCadFunc.getText() + "-");
+            b = true;
+        }
+        
+        if((cpfCadFunc.getText().length()==15)){  
+            cpfCadFunc.setText(cpfCadFunc.getText().replaceFirst(".$",""));
+           
+        }
+        
+        }
+    };       
+        
+    SwingUtilities.invokeLater(cpfCadFuncCaretUpdate);
+    }//GEN-LAST:event_cpfCadFuncCaretUpdate
+
+    private void botaoAddFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddFuncActionPerformed
+        // TODO add your handling code here:
+        tabs.setSelectedIndex(1);
+    }//GEN-LAST:event_botaoAddFuncActionPerformed
+
+    private void voltarCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarCadFuncActionPerformed
+        // TODO add your handling code here:
+        tabs.setSelectedIndex(0);
+    }//GEN-LAST:event_voltarCadFuncActionPerformed
+
+>>>>>>> 3c51faf (cad func alex)
     
     public void defaultColor(JPanel panel, JPanel panel1, JPanel panel2, JPanel panel3, JPanel panel4) {
         panel.setBackground(new Color(248,242,208));
