@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
+    Boolean clicked = false;
     /**
      * Creates new form TelaPrincipal
      */
@@ -2990,6 +2991,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnVendasMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVendasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVendasMouseExited(evt);
+            }
         });
 
         javax.swing.GroupLayout panVendasLayout = new javax.swing.GroupLayout(panVendas);
@@ -3013,6 +3020,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnProd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnProdMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnProdMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnProdMouseExited(evt);
             }
         });
 
@@ -3038,6 +3051,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnFuncMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFuncMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFuncMouseExited(evt);
+            }
         });
 
         javax.swing.GroupLayout panFuncLayout = new javax.swing.GroupLayout(panFunc);
@@ -3061,6 +3080,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnEstq.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnEstqMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEstqMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEstqMouseExited(evt);
             }
         });
 
@@ -3086,6 +3111,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnFornMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFornMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFornMouseExited(evt);
+            }
         });
 
         javax.swing.GroupLayout panFornLayout = new javax.swing.GroupLayout(panForn);
@@ -3109,6 +3140,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnRemessa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnRemessaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRemessaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRemessaMouseExited(evt);
             }
         });
 
@@ -3189,7 +3226,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void btnVendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendasMouseClicked
         // TODO add your handling code here:
         tabs.setSelectedIndex(15);
-        panVendas.setBackground(new Color(255,255,255));
+        btnClicked(panVendas);
         defaultColor(panProd, panEstq, panForn, panRemessa, panFunc);
         pesquisaSelectProd.removeAllItems();
     }//GEN-LAST:event_btnVendasMouseClicked
@@ -3197,7 +3234,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void btnProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProdMouseClicked
         // TODO add your handling code here:
         tabs.setSelectedIndex(3);
-        panProd.setBackground(new Color(255,255,255));
+        btnClicked(panProd);
         defaultColor(panVendas, panEstq, panFunc, panRemessa, panForn);
         try {
             Conexao con = new Conexao();
@@ -3215,7 +3252,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void btnFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFuncMouseClicked
         // TODO add your handling code here:
         tabs.setSelectedIndex(0);
-        panFunc.setBackground(new Color(255,255,255));
+        btnClicked(panFunc);
         defaultColor(panVendas, panEstq, panProd, panRemessa, panForn);
         pesquisaSelectProd.removeAllItems();
     }//GEN-LAST:event_btnFuncMouseClicked
@@ -3223,7 +3260,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void btnFornMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFornMouseClicked
         // TODO add your handling code here:
         tabs.setSelectedIndex(6);
-        panForn.setBackground(new Color(255,255,255));
+        btnClicked(panForn);
         defaultColor(panVendas, panEstq, panFunc, panRemessa,panProd);
         pesquisaSelectProd.removeAllItems();
     }//GEN-LAST:event_btnFornMouseClicked
@@ -3231,7 +3268,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void btnEstqMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstqMouseClicked
         // TODO add your handling code here:
         tabs.setSelectedIndex(9);
-        panEstq.setBackground(new Color(255,255,255));
+        btnClicked(panEstq);
         defaultColor(panVendas, panProd, panFunc, panRemessa,panForn);
         pesquisaSelectProd.removeAllItems();
     }//GEN-LAST:event_btnEstqMouseClicked
@@ -3239,7 +3276,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void btnRemessaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemessaMouseClicked
         
         tabs.setSelectedIndex(12);
-        panRemessa.setBackground(new Color(255,255,255));
+        btnClicked(panRemessa);
         defaultColor(panVendas, panEstq, panFunc, panForn,panProd);
         pesquisaSelectProd.removeAllItems();
     }//GEN-LAST:event_btnRemessaMouseClicked
@@ -3347,6 +3384,83 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_pesquisaBotaoProdActionPerformed
 
+    private void btnVendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendasMouseEntered
+        // TODO add your handling code here:
+        hoverColor(panVendas);
+    }//GEN-LAST:event_btnVendasMouseEntered
+
+    private void btnVendasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendasMouseExited
+        // TODO add your handling code here:
+        removeHoverColor(panVendas);
+    }//GEN-LAST:event_btnVendasMouseExited
+
+    private void btnProdMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProdMouseEntered
+        // TODO add your handling code here:
+        hoverColor(panProd);
+    }//GEN-LAST:event_btnProdMouseEntered
+
+    private void btnProdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProdMouseExited
+        // TODO add your handling code here:
+        removeHoverColor(panProd);
+    }//GEN-LAST:event_btnProdMouseExited
+
+    private void btnFuncMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFuncMouseEntered
+        // TODO add your handling code here:
+        hoverColor(panFunc);
+    }//GEN-LAST:event_btnFuncMouseEntered
+
+    private void btnFuncMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFuncMouseExited
+        // TODO add your handling code here:
+        removeHoverColor(panFunc);
+    }//GEN-LAST:event_btnFuncMouseExited
+
+    private void btnFornMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFornMouseEntered
+        // TODO add your handling code here:
+        hoverColor(panForn);
+    }//GEN-LAST:event_btnFornMouseEntered
+
+    private void btnFornMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFornMouseExited
+        // TODO add your handling code here:
+        removeHoverColor(panForn);
+    }//GEN-LAST:event_btnFornMouseExited
+
+    private void btnEstqMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstqMouseEntered
+        // TODO add your handling code here:
+        hoverColor(panEstq);
+    }//GEN-LAST:event_btnEstqMouseEntered
+
+    private void btnEstqMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstqMouseExited
+        // TODO add your handling code here:
+        removeHoverColor(panEstq);
+    }//GEN-LAST:event_btnEstqMouseExited
+
+    private void btnRemessaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemessaMouseEntered
+        // TODO add your handling code here:
+        hoverColor(panRemessa);
+    }//GEN-LAST:event_btnRemessaMouseEntered
+
+    private void btnRemessaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemessaMouseExited
+        // TODO add your handling code here:
+        removeHoverColor(panRemessa);
+    }//GEN-LAST:event_btnRemessaMouseExited
+
+    public void hoverColor(JPanel panel) {
+        panel.setBackground(new Color(239, 224, 185));
+    }
+    public void btnClicked (JPanel panel) {
+        clicked = true;
+        panel.setBackground(new Color(234, 212, 170));
+    }
+    public void removeHoverColor (JPanel panel) {
+        if (clicked == true) {
+            
+        } 
+        
+        if (clicked == false){
+            panel.setBackground(new Color(248,242,208));
+        }
+        clicked = false;
+    }
     
     public void defaultColor(JPanel panel, JPanel panel1, JPanel panel2, JPanel panel3, JPanel panel4) {
         panel.setBackground(new Color(248,242,208));
