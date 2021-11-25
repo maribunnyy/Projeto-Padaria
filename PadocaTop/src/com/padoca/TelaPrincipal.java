@@ -575,6 +575,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cadastrarCadFunc.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         cadastrarCadFunc.setForeground(new java.awt.Color(0, 153, 0));
         cadastrarCadFunc.setText("Cadastrar");
+        cadastrarCadFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarCadFuncActionPerformed(evt);
+            }
+        });
 
         limparCadFunc.setBackground(new java.awt.Color(242, 214, 137));
         limparCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -3383,6 +3388,44 @@ public class TelaPrincipal extends javax.swing.JFrame {
              e.printStackTrace();
         }
     }//GEN-LAST:event_pesquisaBotaoProdActionPerformed
+
+    private void cadastrarCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCadFuncActionPerformed
+        // TODO add your handling code here:
+        String sexo = "";
+        String data = "2021-10-22";
+        
+        
+        
+        
+        if (femButton.isSelected()) {
+            sexo = "F";
+        }
+        else if (mascButton.isSelected()) {
+            sexo = "M";
+        }
+        else if (outroButton.isSelected()) {
+            sexo = "O";
+        }
+        
+        
+            try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            st.executeUpdate("INSERT INTO tb_funcionario (nome_funcionario, salario_funcionario, cargo_funcionario, sexo, idade_funcionario, cpf, data_admissao_funcionario) VALUES ('"+nomeCadFunc.getText()+"',"+salarioCadFunc.getText().replace(",", "")+",'"+cargoCadFunc.getSelectedItem()+"','"+sexo+"',"+idadeCadFunc.getText()+","+cpfCadFunc.getText()+", '"+data+"');");
+            
+            
+            JOptionPane.showMessageDialog(null, "Cadastro inserido com Sucesso!"); 
+            nomeCadFunc.setText("");
+            salarioCadFunc.setText("");
+            cargoCadFunc.setSelectedItem("Item 1");
+            idadeCadFunc.setText("");
+            cpfCadFunc.setText("");
+            
+         
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+        }
+    }//GEN-LAST:event_cadastrarCadFuncActionPerformed
 
     private void btnVendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendasMouseEntered
         // TODO add your handling code here:
