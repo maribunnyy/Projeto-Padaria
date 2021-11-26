@@ -17,10 +17,10 @@ import javax.swing.SwingUtilities;
  * @author maria.coregio
  */
 public class TelaPrincipal extends javax.swing.JFrame {
-    Boolean clicked;
-    Boolean b;
     
-    
+    Boolean clicked = false;
+    boolean b;
+
     /**
      * Creates new form TelaPrincipal
      */
@@ -3527,6 +3527,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro: " + e);
         }
     }//GEN-LAST:event_cadastrarCadFuncActionPerformed
+
 
     private void btnVendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendasMouseEntered
         // TODO add your handling code here:
