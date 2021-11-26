@@ -3404,10 +3404,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
             Statement st = con.conexao.createStatement();
             st.executeUpdate("INSERT INTO tb_produto(nome_produto,"
                     + "validade_produto,preco_produto,quantidade_produto,"
-                    + "fk_id_fornecedor) VALUES ('"+nomeCadProd.getText()+"',"+valCadProd.getText()
-            +","+precoCadProd.getText()+","+quantCadProd.getText()+",'"+fornCadProd.getSelectedIndex()+"');");
+                    + "fk_id_fornecedor) VALUES ('"+nomeCadProd.getText()+"','"+valCadProd.getText()
+            +"',"+precoCadProd.getText()+","+quantCadProd.getText()+",'"+fornCadProd.getSelectedIndex()+"');");
         } catch (Exception e) {
              e.printStackTrace();
+             JOptionPane.showMessageDialog(null, e);
         }
         
         nomeCadProd.setText("");
