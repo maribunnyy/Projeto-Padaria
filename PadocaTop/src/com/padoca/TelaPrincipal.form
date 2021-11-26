@@ -163,7 +163,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="45" max="32767" attributes="0"/>
+                      <EmptySpace pref="48" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -197,9 +197,9 @@
                           </Group>
                           <Component id="botaoDelFunc" min="-2" pref="38" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="15" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="funcScroll" min="-2" pref="392" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <EmptySpace pref="47" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1807,11 +1807,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="precoCadProd">
-              <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                  <Format format="#,##0.00" subtype="-1" type="0"/>
-                </Property>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="valLabel">
               <Properties>
@@ -4012,11 +4007,8 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                  <StringArray count="1">
+                    <StringItem index="0" value="&lt;Remessas&gt;"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -4235,6 +4227,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarCadRemssActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="limparCadRemss">
               <Properties>
@@ -4249,6 +4244,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Limpar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="limparCadRemssActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="voltarCadRemss">
               <Properties>
@@ -4263,6 +4261,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Voltar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="voltarCadRemssActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="quantLabelCadRemss">
               <Properties>
@@ -4289,11 +4290,8 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                  <StringArray count="1">
+                    <StringItem index="0" value="&lt;Fornecedores&gt;"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -4310,11 +4308,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="precoUniCadRemss">
-              <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                  <Format format="#,##0.00" subtype="-1" type="0"/>
-                </Property>
-              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="precoUniCadRemssActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="valLabelCadRemss">
               <Properties>
@@ -4325,11 +4321,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="valCadRemss">
-              <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                  <Format subtype="1" type="1"/>
-                </Property>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="cadRemssLabel">
               <Properties>

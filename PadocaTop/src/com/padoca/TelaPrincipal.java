@@ -490,7 +490,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                     .addComponent(botaoAddFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
                                     .addComponent(botaoAltFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(botaoDelFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         tabFuncLayout.setVerticalGroup(
             tabFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -516,9 +516,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                 .addComponent(funcID))
                             .addComponent(pesquisaBotaoFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(botaoDelFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(funcScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab3", tabFunc);
@@ -1137,8 +1137,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         precoLabelProd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         precoLabelProd.setText("Preço:");
-
-        precoCadProd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
 
         valLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         valLabel.setText("Validade:");
@@ -2295,7 +2293,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         remssSelect.setText("Tipo de Produto:");
 
         pesquisaSelectRemss.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        pesquisaSelectRemss.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pesquisaSelectRemss.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Remessas>" }));
 
         remssNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         remssNome.setText("Nome:");
@@ -2393,16 +2391,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cadastrarCadRemss.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         cadastrarCadRemss.setForeground(new java.awt.Color(0, 153, 0));
         cadastrarCadRemss.setText("Cadastrar");
+        cadastrarCadRemss.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarCadRemssActionPerformed(evt);
+            }
+        });
 
         limparCadRemss.setBackground(new java.awt.Color(242, 214, 137));
         limparCadRemss.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         limparCadRemss.setForeground(new java.awt.Color(192, 134, 47));
         limparCadRemss.setText("Limpar");
+        limparCadRemss.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limparCadRemssActionPerformed(evt);
+            }
+        });
 
         voltarCadRemss.setBackground(new java.awt.Color(242, 214, 137));
         voltarCadRemss.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         voltarCadRemss.setForeground(new java.awt.Color(192, 134, 47));
         voltarCadRemss.setText("Voltar");
+        voltarCadRemss.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarCadRemssActionPerformed(evt);
+            }
+        });
 
         quantLabelCadRemss.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         quantLabelCadRemss.setText("Quantidade:");
@@ -2412,17 +2425,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         fornCadRemss.setBackground(new java.awt.Color(242, 214, 137));
         fornCadRemss.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        fornCadRemss.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        fornCadRemss.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Fornecedores>" }));
 
         precoUniLabelCadRemss.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         precoUniLabelCadRemss.setText("Preço Unitário:");
 
-        precoUniCadRemss.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
+        precoUniCadRemss.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                precoUniCadRemssActionPerformed(evt);
+            }
+        });
 
         valLabelCadRemss.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         valLabelCadRemss.setText("Validade:");
-
-        valCadRemss.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
 
         cadRemssLabel.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         cadRemssLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -3601,6 +3616,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
            
         
         
+        
         if (cpfCadFunc.getText().length()==2 || cpfCadFunc.getText().length()==6 || cpfCadFunc.getText().length()==9) {
             b = false;
         }
@@ -3640,8 +3656,58 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_valCadProdFocusLost
 
     private void botaoAddRemssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddRemssActionPerformed
+        tabs.setSelectedIndex(13);
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM tb_fornecedor;");
+            while(rs.next()){
+                String name = rs.getString("nome_fornecedor");
+                fornCadRemss.addItem(name);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+        
        
+    }                                             
+    
     }//GEN-LAST:event_botaoAddRemssActionPerformed
+
+    private void cadastrarCadRemssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCadRemssActionPerformed
+       try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            st.executeUpdate("INSERT INTO padaria.tb_remessa(nome_produto,"
+                    + "quantidade_remessa,precounitario_remessa,validade_remessa,"
+                    + "fk_id_fornecedor) VALUES ('"+nomeCadRemss.getText()+"',"+quantCadRemss.getText()
+            +","+precoUniCadRemss.getText()+",'"+valCadRemss.getText()+"','"+fornCadRemss.getSelectedIndex()+"');");
+        } catch (Exception e) {
+             e.printStackTrace();
+        }
+        
+        nomeCadRemss.setText("");
+        quantCadRemss.setText("");
+        precoUniCadRemss.setText("");
+        valCadRemss.setText("");
+        fornCadRemss.setSelectedIndex(0);
+    }//GEN-LAST:event_cadastrarCadRemssActionPerformed
+
+    private void precoUniCadRemssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precoUniCadRemssActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_precoUniCadRemssActionPerformed
+
+    private void voltarCadRemssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarCadRemssActionPerformed
+       tabs.setSelectedIndex(12);
+    }//GEN-LAST:event_voltarCadRemssActionPerformed
+
+    private void limparCadRemssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCadRemssActionPerformed
+        nomeCadRemss.setText("");
+        quantCadRemss.setText("");
+        precoUniCadRemss.setText("");
+        valCadRemss.setText("");
+        fornCadRemss.setSelectedIndex(0);
+    }//GEN-LAST:event_limparCadRemssActionPerformed
+
 
     
     public void defaultColor(JPanel panel, JPanel panel1, JPanel panel2, JPanel panel3, JPanel panel4) {
