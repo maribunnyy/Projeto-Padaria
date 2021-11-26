@@ -3512,18 +3512,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         panel.setBackground(new Color(239, 224, 185));
     }
     public void btnClicked (JPanel panel) {
-        clicked = true;
+        
         panel.setBackground(new Color(234, 212, 170));
     }
     public void removeHoverColor (JPanel panel) {
-        if (clicked == true) {
-            
-        } 
         
-        if (clicked == false){
-            panel.setBackground(new Color(248,242,208));
-        }
-        clicked = false;
+        panel.setBackground(new Color(248,242,208));
+        
     }
 =======
     private void cpfCadFuncCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_cpfCadFuncCaretUpdate
