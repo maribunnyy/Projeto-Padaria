@@ -17,12 +17,11 @@ import javax.swing.SwingUtilities;
  * @author maria.coregio
  */
 public class TelaPrincipal extends javax.swing.JFrame {
-<<<<<<< HEAD
-
+    
     Boolean clicked = false;
-=======
+    
     boolean b;
->>>>>>> 3c51faf (cad func alex)
+
     /**
      * Creates new form TelaPrincipal
      */
@@ -3447,7 +3446,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cadastrarCadFuncActionPerformed
 
-<<<<<<< HEAD
+
     private void btnVendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendasMouseEntered
         // TODO add your handling code here:
         hoverColor(panVendas);
@@ -3520,7 +3519,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         panel.setBackground(new Color(248,242,208));
         
     }
-=======
+
     private void cpfCadFuncCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_cpfCadFuncCaretUpdate
         // TODO add your handling code here:
         Runnable cpfCadFuncCaretUpdate = new Runnable() {
@@ -3570,7 +3569,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabs.setSelectedIndex(0);
     }//GEN-LAST:event_voltarCadFuncActionPerformed
 
->>>>>>> 3c51faf (cad func alex)
     
     public void defaultColor(JPanel panel, JPanel panel1, JPanel panel2, JPanel panel3, JPanel panel4) {
         panel.setBackground(new Color(248,242,208));
