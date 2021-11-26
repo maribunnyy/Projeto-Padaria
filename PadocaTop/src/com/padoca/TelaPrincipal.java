@@ -1970,7 +1970,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         fornCadEstq.setBackground(new java.awt.Color(242, 214, 137));
         fornCadEstq.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        fornCadEstq.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Fornecedores>", "1", "2", "3", "4", "5", "6", "7" }));
+        fornCadEstq.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Fornecedores>" }));
 
         precoLabelCadEstq.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         precoLabelCadEstq.setText("Preço:");
@@ -3277,6 +3277,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         defaultColor(panProd, panEstq, panForn, panRemessa, panFunc);
         pesquisaSelectProd.removeAllItems();
         pesquisaSelectProd.addItem("<Produtos>");
+        fornCadEstq.removeAllItems();
+        fornCadEstq.addItem("<Fornecedores>");
     }//GEN-LAST:event_btnVendasMouseClicked
 
     private void btnProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProdMouseClicked
@@ -3295,6 +3297,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e);
         }
+        fornCadEstq.removeAllItems();
+        fornCadEstq.addItem("<Fornecedores>");
     }//GEN-LAST:event_btnProdMouseClicked
 
     private void btnFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFuncMouseClicked
@@ -3304,6 +3308,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         defaultColor(panVendas, panEstq, panProd, panRemessa, panForn);
         pesquisaSelectProd.removeAllItems();
         pesquisaSelectProd.addItem("<Produtos>");
+        fornCadEstq.removeAllItems();
+        fornCadEstq.addItem("<Fornecedores>");
     }//GEN-LAST:event_btnFuncMouseClicked
 
     private void btnFornMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFornMouseClicked
@@ -3313,6 +3319,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         defaultColor(panVendas, panEstq, panFunc, panRemessa,panProd);
         pesquisaSelectProd.removeAllItems();
         pesquisaSelectProd.addItem("<Produtos>");
+        fornCadEstq.removeAllItems();
+        fornCadEstq.addItem("<Fornecedores>");
     }//GEN-LAST:event_btnFornMouseClicked
 
     private void btnEstqMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstqMouseClicked
@@ -3322,6 +3330,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         defaultColor(panVendas, panProd, panFunc, panRemessa,panForn);
         pesquisaSelectProd.removeAllItems();
         pesquisaSelectProd.addItem("<Produtos>");
+        fornCadEstq.removeAllItems();
+        fornCadEstq.addItem("<Fornecedores>");
     }//GEN-LAST:event_btnEstqMouseClicked
 
     private void btnRemessaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemessaMouseClicked
@@ -3331,6 +3341,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         defaultColor(panVendas, panEstq, panFunc, panForn,panProd);
         pesquisaSelectProd.removeAllItems();
         pesquisaSelectProd.addItem("<Produtos>");
+        fornCadEstq.removeAllItems();
+        fornCadEstq.addItem("<Fornecedores>");
     }//GEN-LAST:event_btnRemessaMouseClicked
 
     private void panVendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panVendasMouseEntered
@@ -3351,7 +3363,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     + "'" + valCadEstq.getText() + "', "
                     + "" + precoCadEstq.getText().replace(",", ".") +", "
                     + "" + quantCadEstq.getText() +", "
-                    + "'" + fornCadEstq.getSelectedItem() +"')");
+                    + "'" + fornCadEstq.getSelectedIndex()+"')");
             
             ResultSet rs = st.getResultSet();
             JOptionPane.showMessageDialog(null, "Estoque cadastrado com sucesso");
@@ -3365,8 +3377,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastrarCadEstqActionPerformed
 
     private void botaoAddEstqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddEstqActionPerformed
-        // TODO add your handling code here:
+
         tabs.setSelectedIndex(10);
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM tb_fornecedor;");
+            while(rs.next()){
+                String name = rs.getString("nome_fornecedor");
+                fornCadEstq.addItem(name);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+        }
+        
     }//GEN-LAST:event_botaoAddEstqActionPerformed
 
     private void limparCadEstqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCadEstqActionPerformed
@@ -3382,6 +3406,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void voltarCadEstqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarCadEstqActionPerformed
         // TODO add your handling code here:
         tabs.setSelectedIndex(9);
+        fornCadEstq.removeAllItems();
+        fornCadEstq.addItem("<Fornecedores>");
     }//GEN-LAST:event_voltarCadEstqActionPerformed
 
     private void botaoAddProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddProdActionPerformed
