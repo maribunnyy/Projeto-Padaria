@@ -3075,6 +3075,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Pesquisar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pesquisaBotaoEstqActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="botaoAddEstq">
               <Properties>
@@ -4052,6 +4055,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Pesquisar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pesquisaBotaoProd1ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

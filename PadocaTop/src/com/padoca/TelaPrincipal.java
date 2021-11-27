@@ -1821,6 +1821,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pesquisaBotaoEstq.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         pesquisaBotaoEstq.setForeground(new java.awt.Color(192, 134, 47));
         pesquisaBotaoEstq.setText("Pesquisar");
+        pesquisaBotaoEstq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesquisaBotaoEstqActionPerformed(evt);
+            }
+        });
 
         botaoAddEstq.setBackground(new java.awt.Color(102, 255, 102));
         botaoAddEstq.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -2309,6 +2314,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pesquisaBotaoProd1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         pesquisaBotaoProd1.setForeground(new java.awt.Color(192, 134, 47));
         pesquisaBotaoProd1.setText("Pesquisar");
+        pesquisaBotaoProd1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesquisaBotaoProd1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout tabRemssLayout = new javax.swing.GroupLayout(tabRemss);
         tabRemss.setLayout(tabRemssLayout);
@@ -3275,14 +3285,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabs.setSelectedIndex(15);
         btnClicked(panVendas);
         defaultColor(panProd, panEstq, panForn, panRemessa, panFunc);
+        
         pesquisaSelectProd.removeAllItems();
         pesquisaSelectProd.addItem("<Produtos>");
         fornCadEstq.removeAllItems();
         fornCadEstq.addItem("<Fornecedores>");
+        
     }//GEN-LAST:event_btnVendasMouseClicked
 
     private void btnProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProdMouseClicked
         // TODO add your handling code here:
+        pesquisaSelectProd.removeAllItems();
+        pesquisaSelectProd.addItem("<Produtos>");
         tabs.setSelectedIndex(3);
         btnClicked(panProd);
         defaultColor(panVendas, panEstq, panFunc, panRemessa, panForn);
@@ -3297,6 +3311,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e);
         }
+        
+        
         fornCadEstq.removeAllItems();
         fornCadEstq.addItem("<Fornecedores>");
     }//GEN-LAST:event_btnProdMouseClicked
@@ -3436,6 +3452,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         valCadProd.setText("");
         precoCadProd.setText("");
         quantCadProd.setText("");
+        pesquisaSelectProd.removeAllItems();
+        pesquisaSelectProd.addItem("<Produtos>");
+       
     }//GEN-LAST:event_voltarCadProdActionPerformed
 
     private void cadastrarCadProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCadProdActionPerformed
@@ -3483,13 +3502,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 st.executeQuery("SELECT * FROM tb_produto WHERE id_produto="+pesquisaIdProd.getText()
                  +"and nome_produto like '%"+pesquisaNomeProd.getText()+"%'");
              } else if (!pesquisaIdProd.getText().equals("")) {
-                st.executeQuery("SELECT * FROM tb_produto WHERE id_produto="+pesquisaIdProd.getText());
+                st.executeQuery("SELECT * FROM tb_produto WHERE id_produto="+pesquisaIdProd.getText());//Aquiiiii <---
              } else if (!pesquisaNomeProd.getText().equals("")) {
-                st.executeQuery("SELECT * FROM tb_produto WHERE nome_produto like '%"+pesquisaNomeProd.getText()+"%'");
+                st.executeQuery("SELECT p.id_produto,p.nome_produto, p.validade_produto,p.preco_produto"
+                    + ",p.quantidade_produto,f.nome_fornecedor"
+                    + " FROM tb_produto p "
+                    + " INNER JOIN tb_fornecedor f ON f.id_fornecedor=p.fk_id_fornecedor "
+                    + "WHERE nome_produto like '%"+pesquisaNomeProd.getText()+"%'");
              } else {
-                 st.executeQuery("SELECT * FROM tb_produto");
+                 st.executeQuery("SELECT p.id_produto,p.nome_produto, p.validade_produto,p.preco_produto"
+                    + ",p.quantidade_produto,f.nome_fornecedor FROM tb_produto p inner join tb_fornecedor f "
+                    +"ON f.id_fornecedor=p.fk_id_fornecedor; ");
              }
-            
+            //SELECT p.id_produto,p.nome_produto, p.validade_produto,p.preco_produto,p.quantidade_produto,f.nome_fornecedor 
+            //FROM tb_produto p 
+            //inner join tb_fornecedor f 
+            //ON f.id_fornecedor=p.fk_id_fornecedor;
          ResultSet rs = st.getResultSet();
          
          DefaultTableModel model = (DefaultTableModel) listaProd.getModel();
@@ -3503,7 +3531,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     rs.getString("validade_produto"),
                     rs.getString("preco_produto"),
                     rs.getString("quantidade_produto"),
-                    rs.getString("fk_id_fornecedor")
+                    rs.getString("nome_fornecedor")
                     
                 });
             }
@@ -3734,6 +3762,52 @@ public class TelaPrincipal extends javax.swing.JFrame {
         valCadRemss.setText("");
         fornCadRemss.setSelectedIndex(0);
     }//GEN-LAST:event_limparCadRemssActionPerformed
+
+    private void pesquisaBotaoEstqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaBotaoEstqActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pesquisaBotaoEstqActionPerformed
+
+    private void pesquisaBotaoProd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaBotaoProd1ActionPerformed
+       try {
+         Conexao con = new Conexao();
+         Statement st = con.conexao.createStatement();
+         
+            if(!pesquisaIdProd.getText().equals("") && !pesquisaNomeProd.getText().equals("")) {
+                st.executeQuery("SELECT * FROM tb_remessa WHERE id_remessa="+pesquisaIdProd.getText()
+                 +"and nome_produto like '%"+pesquisaNomeProd.getText()+"%'");
+             } else if (!pesquisaIdProd.getText().equals("")) {
+                st.executeQuery("SELECT * FROM tb_remessa WHERE id_remessa="+pesquisaIdProd.getText());
+             } else if (!pesquisaNomeProd.getText().equals("")) {
+                st.executeQuery("SELECT * FROM tb_remessa WHERE nome_produto like '%"+pesquisaNomeProd.getText()+"%'");
+             } else {
+                 st.executeQuery("SELECT * FROM tb_remessa");
+             }
+            
+         ResultSet rs = st.getResultSet();
+         
+         DefaultTableModel model = (DefaultTableModel) listaRemss.getModel();
+         model.setNumRows(0);
+         
+         while(rs.next()) {
+                model.addRow(new Object[] 
+                {
+                    rs.getString("id_remessa"),
+                    rs.getString("nome_produto"),
+                    rs.getString("validade_produto"),
+                    rs.getString("preco_produto"),
+                    rs.getString("quantidade_produto"),
+                    rs.getString("fk_id_fornecedor")
+                    
+                });
+            }
+         
+         
+         
+         
+        } catch (Exception e) {
+             e.printStackTrace();
+        }
+    }//GEN-LAST:event_pesquisaBotaoProd1ActionPerformed
 
 
     
