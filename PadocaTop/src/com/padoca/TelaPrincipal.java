@@ -3499,25 +3499,37 @@ public class TelaPrincipal extends javax.swing.JFrame {
          Statement st = con.conexao.createStatement();
          
             if(!pesquisaIdProd.getText().equals("") && !pesquisaNomeProd.getText().equals("")) {
-                st.executeQuery("SELECT * FROM tb_produto WHERE id_produto="+pesquisaIdProd.getText()
-                 +"and nome_produto like '%"+pesquisaNomeProd.getText()+"%'");
+                st.executeQuery("SELECT p.id_produto,p.nome_produto, p.validade_produto,p.preco_produto,p.quantidade_produto,f.nome_fornecedor "
+                 +" FROM tb_produto p INNER JOIN tb_fornecedor f "
+                 + "ON f.id_fornecedor=p.fk_id_fornecedor "
+                 +" WHERE id_produto="+pesquisaIdProd.getText()
+                 +" AND nome_produto like '%"+pesquisaNomeProd.getText()+"%'");
              } else if (!pesquisaIdProd.getText().equals("")) {
-                st.executeQuery("SELECT * FROM tb_produto WHERE id_produto="+pesquisaIdProd.getText());//Aquiiiii <---
+               
+                 st.executeQuery("SELECT p.id_produto,p.nome_produto, p.validade_produto,p.preco_produto,p.quantidade_produto, f.nome_fornecedor"
+                    + " FROM tb_produto p inner join tb_fornecedor f "
+                    + " ON id_fornecedor= p.fk_id_fornecedor"
+                    + " WHERE id_produto="+pesquisaIdProd.getText());
+             
              } else if (!pesquisaNomeProd.getText().equals("")) {
-                st.executeQuery("SELECT p.id_produto,p.nome_produto, p.validade_produto,p.preco_produto"
+             
+                 st.executeQuery("SELECT p.id_produto,p.nome_produto, p.validade_produto,p.preco_produto"
                     + ",p.quantidade_produto,f.nome_fornecedor"
                     + " FROM tb_produto p "
-                    + " INNER JOIN tb_fornecedor f ON f.id_fornecedor=p.fk_id_fornecedor "
-                    + "WHERE nome_produto like '%"+pesquisaNomeProd.getText()+"%'");
+                    + " INNER JOIN tb_fornecedor f "
+                    + " ON f.id_fornecedor=p.fk_id_fornecedor "
+                    + " WHERE nome_produto like '%"+pesquisaNomeProd.getText()+"%'");
+             
              } else {
-                 st.executeQuery("SELECT p.id_produto,p.nome_produto, p.validade_produto,p.preco_produto"
-                    + ",p.quantidade_produto,f.nome_fornecedor FROM tb_produto p inner join tb_fornecedor f "
-                    +"ON f.id_fornecedor=p.fk_id_fornecedor; ");
+                 st.executeQuery("SELECT p.id_produto,p.nome_produto, p.validade_produto,p.preco_produto,p.quantidade_produto,f.nome_fornecedor "
+                    +" FROM tb_produto p inner join tb_fornecedor f "
+                    +" ON f.id_fornecedor=p.fk_id_fornecedor; ");
+             
              }
-            //SELECT p.id_produto,p.nome_produto, p.validade_produto,p.preco_produto,p.quantidade_produto,f.nome_fornecedor 
-            //FROM tb_produto p 
-            //inner join tb_fornecedor f 
-            //ON f.id_fornecedor=p.fk_id_fornecedor;
+                     //SELECT p.id_produto,p.nome_produto, p.validade_produto,p.preco_produto,p.quantidade_produto,f.nome_fornecedor 
+                     //FROM tb_produto p 
+                     //inner join tb_fornecedor f 
+                     //ON f.id_fornecedor=p.fk_id_fornecedor;
          ResultSet rs = st.getResultSet();
          
          DefaultTableModel model = (DefaultTableModel) listaProd.getModel();
@@ -3772,15 +3784,33 @@ public class TelaPrincipal extends javax.swing.JFrame {
          Conexao con = new Conexao();
          Statement st = con.conexao.createStatement();
          
-            if(!pesquisaIdProd.getText().equals("") && !pesquisaNomeProd.getText().equals("")) {
-                st.executeQuery("SELECT * FROM tb_remessa WHERE id_remessa="+pesquisaIdProd.getText()
-                 +"and nome_produto like '%"+pesquisaNomeProd.getText()+"%'");
-             } else if (!pesquisaIdProd.getText().equals("")) {
-                st.executeQuery("SELECT * FROM tb_remessa WHERE id_remessa="+pesquisaIdProd.getText());
-             } else if (!pesquisaNomeProd.getText().equals("")) {
-                st.executeQuery("SELECT * FROM tb_remessa WHERE nome_produto like '%"+pesquisaNomeProd.getText()+"%'");
+            if(!pesquisaIdRemss.getText().equals("") && !pesquisaNomeRemss.getText().equals("")) {
+                st.executeQuery("SELECT r.id_remessa,r.nome_produto,r.validade_remessa,r.precounitario_remessa,r.quantidade_remessa,f.nome_fornecedor "
+                 +" FROM tb_remessa r INNER JOIN tb_fornecedor f "
+                 + "ON f.id_fornecedor=r.fk_id_fornecedor "
+                 +" WHERE r.id_remessa="+pesquisaIdRemss.getText()
+                 +" AND r.nome_produto like '%"+pesquisaNomeRemss.getText()+"%'");
+            
+            } else if (!pesquisaIdRemss.getText().equals("")) {   
+                 st.executeQuery("SELECT r.id_remessa,r.nome_produto,r.validade_remessa,r.precounitario_remessa,r.quantidade_remessa,f.nome_fornecedor "
+                    + " FROM tb_remessa r "
+                    + " INNER JOIN tb_fornecedor f "
+                    + " ON id_fornecedor= r.fk_id_fornecedor"
+                    + " WHERE r.id_remessa="+pesquisaIdRemss.getText());
+             
+             } else if (!pesquisaNomeRemss.getText().equals("")) {            
+                 st.executeQuery("SELECT r.id_remessa,r.nome_produto,r.validade_remessa,r.precounitario_remessa,r.quantidade_remessa,f.nome_fornecedor "
+                    + " FROM tb_remessa r "
+                    + " INNER JOIN tb_fornecedor f "
+                    + " ON f.id_fornecedor=r.fk_id_fornecedor "
+                    + " WHERE r.nome_produto like '%"+pesquisaNomeRemss.getText()+"%'");
+             
              } else {
-                 st.executeQuery("SELECT * FROM tb_remessa");
+                 st.executeQuery("SELECT r.id_remessa,r.nome_produto,r.validade_remessa,r.precounitario_remessa,r.quantidade_remessa,f.nome_fornecedor "
+                    +" FROM tb_remessa r  "
+                    +" INNER JOIN tb_fornecedor f"
+                    +" ON f.id_fornecedor=r.fk_id_fornecedor ");
+             
              }
             
          ResultSet rs = st.getResultSet();
@@ -3793,10 +3823,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 {
                     rs.getString("id_remessa"),
                     rs.getString("nome_produto"),
-                    rs.getString("validade_produto"),
-                    rs.getString("preco_produto"),
-                    rs.getString("quantidade_produto"),
-                    rs.getString("fk_id_fornecedor")
+                    rs.getString("validade_remessa"),
+                    rs.getString("precounitario_remessa"),
+                    rs.getString("quantidade_remessa"),
+                    rs.getString("nome_fornecedor")
                     
                 });
             }
