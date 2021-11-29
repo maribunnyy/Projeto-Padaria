@@ -215,21 +215,27 @@
                 <Component class="javax.swing.JTable" name="listaFunc">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="9" rowCount="6">
+                      <Table columnCount="10" rowCount="6">
                         <Column editable="false" title="ID" type="java.lang.Integer"/>
                         <Column editable="true" title="Nome" type="java.lang.Object"/>
-                        <Column editable="true" title="Idade" type="java.lang.Object"/>
                         <Column editable="true" title="Sexo" type="java.lang.Object"/>
                         <Column editable="true" title="Cargo" type="java.lang.Object"/>
+                        <Column editable="true" title="Telefone" type="java.lang.Object"/>
+                        <Column editable="true" title="Idade" type="java.lang.Object"/>
+                        <Column editable="true" title="E-Mail" type="java.lang.Object"/>
+                        <Column editable="true" title="CPF" type="java.lang.Object"/>
                         <Column editable="true" title="Sal&#xe1;rio" type="java.lang.Object"/>
                         <Column editable="true" title="Data de Admiss&#xe3;o" type="java.lang.Object"/>
-                        <Column editable="true" title="Contato" type="java.lang.Object"/>
-                        <Column editable="true" title="CPF" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>
@@ -442,7 +448,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="cadFuncLabel" min="-2" pref="230" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="342" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
@@ -451,67 +462,89 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="salarioLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cargoLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cpfLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="voltarCadFunc" alignment="1" min="-2" pref="83" max="-2" attributes="0"/>
                                   <Component id="idadeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="nomeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="59" pref="59" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
+                              <Component id="idadeCadFunc" min="-2" pref="79" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="cadastrarCadFunc" pref="114" max="32767" attributes="0"/>
+                                  <Component id="limparCadFunc" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="nomeCadFunc" min="-2" pref="244" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="idadeCadFunc" min="-2" pref="79" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Component id="femButton" min="-2" pref="93" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="mascButton" min="-2" pref="93" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="outroButton" min="-2" pref="93" max="-2" attributes="0"/>
+                                      <Component id="telLabelFunc" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="telCadFunc" min="-2" pref="123" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="salarioCadFunc" min="-2" pref="110" max="-2" attributes="0"/>
-                                  <Component id="cpfCadFunc" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="salarioLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cpfLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="cpfCadFunc" min="-2" pref="110" max="-2" attributes="0"/>
+                                          <Component id="salarioCadFunc" min="-2" pref="110" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="dataAdmLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="dataAdmCadFunc" min="-2" pref="114" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="108" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="emailLabelFunc" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="femButton" min="-2" pref="93" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="mascButton" min="-2" pref="93" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="outroButton" min="-2" pref="83" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                              <Component id="emailCadFunc" min="-2" pref="303" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="cargoLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="cargoCadFunc" min="-2" pref="177" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="addCargo" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="nomeCadFunc" min="-2" pref="244" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="dataAdmLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="dataAdmCadFunc" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="cadastrarCadFunc" pref="114" max="32767" attributes="0"/>
-                                          <Component id="limparCadFunc" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="cadFuncHeader" min="-2" pref="819" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="48" pref="48" max="-2" attributes="0"/>
-                      <Component id="cadFuncHeader" min="-2" pref="819" max="-2" attributes="0"/>
-                      <EmptySpace pref="48" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="cadFuncLabel" min="-2" pref="230" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="342" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -521,65 +554,62 @@
                       <EmptySpace min="-2" pref="177" max="-2" attributes="0"/>
                       <Component id="cadFuncHeader" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="cadFuncLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="nomeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="nomeCadFunc" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                          <Component id="dataAdmLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="dataAdmCadFunc" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
+                              <Component id="cadFuncLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="idadeCadFunc" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Component id="nomeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nomeCadFunc" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Component id="dataAdmLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="dataAdmCadFunc" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="idadeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="telLabelFunc" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="idadeCadFunc" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Component id="telCadFunc" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="mascButton" alignment="1" pref="26" max="32767" attributes="0"/>
+                                  <Component id="mascButton" alignment="1" max="32767" attributes="0"/>
                                   <Component id="sexoLabel" min="-2" max="-2" attributes="0"/>
                                   <Component id="femButton" max="32767" attributes="0"/>
-                                  <Component id="outroButton" alignment="1" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="addCargo" pref="34" max="32767" attributes="0"/>
-                                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="cargoLabel" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="cargoCadFunc" min="-2" pref="32" max="-2" attributes="0"/>
-                                      <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                      <Component id="outroButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="salarioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="salarioCadFunc" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="salarioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="salarioCadFunc" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                      <Component id="emailCadFunc" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                                      <Component id="cpfLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cpfCadFunc" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="emailLabelFunc" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="cpfLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cpfCadFunc" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="cargoLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="cadastrarCadFunc" min="-2" pref="31" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="voltarCadFunc" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="limparCadFunc" pref="32" max="32767" attributes="0"/>
-                                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="cargoCadFunc" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="addCargo" min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="93" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
+                      <Component id="cadastrarCadFunc" min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="voltarCadFunc" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="limparCadFunc" min="-2" pref="32" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="87" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -700,7 +730,7 @@
                   <Color blue="66" green="ff" red="66" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Verdana" size="14" style="0"/>
+                  <Font name="Verdana" size="10" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="99" red="0" type="rgb"/>
@@ -820,6 +850,26 @@
                 <Property name="text" type="java.lang.String" value="Cadastro"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JLabel" name="telLabelFunc">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Telefone:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="telCadFunc">
+            </Component>
+            <Component class="javax.swing.JLabel" name="emailLabelFunc">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="E-Mail:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="emailCadFunc">
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="tabFuncAlt">
@@ -839,76 +889,102 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
-                              <Component id="sexoLabelAltFunc" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="salarioLabelAltFunc" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cargoLabelAltFunc" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cpfLabelAltFunc" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="voltarAltFunc" alignment="1" min="-2" pref="83" max="-2" attributes="0"/>
-                                  <Component id="idadeLabelAltFunc" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="nomeLabelAltFunc" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="59" pref="59" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="idadeAltFunc" alignment="0" min="-2" pref="79" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="femButtonAltFunc" min="-2" pref="93" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="mascButtonAltFunc" min="-2" pref="93" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="outroButtonAltFunc" min="-2" pref="93" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="salarioAltFunc" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                                  <Component id="cpfAltFunc" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="cargoAltFunc" min="-2" pref="177" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                                      <Component id="addCargoAltFunc" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="nomeAltFunc" min="-2" pref="234" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                      <Component id="dataAdmLabelAltFunc" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="dataAdmAltFunc" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="alterarCadFunc" alignment="1" pref="114" max="32767" attributes="0"/>
-                                          <Component id="limparAltFunc" alignment="1" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="48" pref="48" max="-2" attributes="0"/>
-                      <Component id="altFuncHeader" min="-2" pref="819" max="-2" attributes="0"/>
-                      <EmptySpace pref="48" max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="altFuncLabel" min="-2" pref="111" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="401" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="sexoLabelAltFunc" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="idadeLabelAltFunc" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nomeLabelAltFunc" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="41" pref="41" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="idadeAltFunc" alignment="0" min="-2" pref="79" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="femButtonAltFunc" min="-2" pref="93" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="mascButtonAltFunc" min="-2" pref="93" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="outroButtonAltFunc" min="-2" pref="93" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                      <Component id="nomeAltFunc" min="-2" pref="234" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="emailLabelAltFunc" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cargoLabelAltFunc" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="emailAltFunc" min="-2" pref="301" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                                  <Component id="cargoAltFunc" min="-2" pref="177" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="addCargoAltFunc" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="dataAdmLabelAltFunc" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="dataAdmAltFunc" min="-2" pref="141" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="salarioLabelAltFunc" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cpfLabelAltFunc" min="-2" max="-2" attributes="0"/>
+                                  <Component id="telLabelAltFunc" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="salarioAltFunc" alignment="0" pref="110" max="32767" attributes="0"/>
+                                      <Component id="cpfAltFunc" alignment="0" pref="110" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="telAltFunc" min="-2" pref="135" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="48" pref="48" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="altFuncHeader" min="-2" pref="819" max="-2" attributes="0"/>
+                              <EmptySpace pref="48" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="voltarAltFunc" min="-2" pref="83" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="alterarCadFunc" min="-2" pref="114" max="-2" attributes="0"/>
+                                  <Component id="limparAltFunc" min="-2" pref="114" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -919,47 +995,47 @@
                       <Component id="altFuncHeader" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="altFuncLabel" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="nomeLabelAltFunc" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="dataAdmLabelAltFunc" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="dataAdmAltFunc" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="nomeAltFunc" min="-2" pref="35" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="idadeAltFunc" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                                  <Component id="idadeLabelAltFunc" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="dataAdmLabelAltFunc" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="dataAdmAltFunc" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="telLabelAltFunc" min="-2" max="-2" attributes="0"/>
+                                          <Component id="telAltFunc" min="-2" pref="35" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="nomeLabelAltFunc" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="nomeAltFunc" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="idadeAltFunc" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                                          <Component id="idadeLabelAltFunc" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="mascButtonAltFunc" alignment="1" pref="26" max="32767" attributes="0"/>
+                                  <Component id="mascButtonAltFunc" alignment="1" max="32767" attributes="0"/>
                                   <Component id="sexoLabelAltFunc" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="femButtonAltFunc" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="outroButtonAltFunc" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="outroButtonAltFunc" alignment="1" min="-2" pref="26" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="addCargoAltFunc" pref="34" max="32767" attributes="0"/>
-                                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="cargoLabelAltFunc" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="cargoAltFunc" min="-2" pref="32" max="-2" attributes="0"/>
-                                      <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                                  </Group>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="emailLabelAltFunc" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="emailAltFunc" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="salarioLabelAltFunc" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="salarioAltFunc" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
@@ -969,21 +1045,22 @@
                                   <Component id="cpfLabelAltFunc" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="cpfAltFunc" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="alterarCadFunc" min="-2" pref="31" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="voltarAltFunc" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="limparAltFunc" pref="32" max="32767" attributes="0"/>
-                                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="105" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cargoLabelAltFunc" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cargoAltFunc" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="addCargoAltFunc" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+                      <Component id="alterarCadFunc" min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="limparAltFunc" max="32767" attributes="0"/>
+                          <Component id="voltarAltFunc" min="-2" pref="31" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1094,7 +1171,7 @@
                   <Color blue="66" green="ff" red="66" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Verdana" size="14" style="0"/>
+                  <Font name="Verdana" size="10" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="99" red="0" type="rgb"/>
@@ -1222,6 +1299,26 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="emailLabelAltFunc">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="E-Mail:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="emailAltFunc">
+            </Component>
+            <Component class="javax.swing.JLabel" name="telLabelAltFunc">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Telefone:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="telAltFunc">
             </Component>
           </SubComponents>
         </Container>
@@ -2284,16 +2381,28 @@
                 <Component class="javax.swing.JTable" name="listaForn">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="6">
+                      <Table columnCount="6" rowCount="6">
                         <Column editable="false" title="ID" type="java.lang.Integer"/>
                         <Column editable="true" title="Nome" type="java.lang.Object"/>
                         <Column editable="true" title="Tipo Forn." type="java.lang.Object"/>
                         <Column editable="true" title="Status" type="java.lang.Object"/>
+                        <Column editable="true" title="Telefone" type="java.lang.Object"/>
+                        <Column editable="false" title="E-Mail" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>
@@ -2493,17 +2602,34 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="nomeLabelCadForn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="sttsCadForn" max="32767" attributes="0"/>
-                                          <Component id="tipoCadForn" max="32767" attributes="0"/>
-                                          <Component id="nomeCadForn" min="-2" pref="244" max="-2" attributes="0"/>
+                                  <Component id="statusLabelCadForn" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="nomeLabelCadForn" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="sttsCadForn" max="32767" attributes="0"/>
+                                                  <Component id="tipoCadForn" max="32767" attributes="0"/>
+                                                  <Component id="nomeCadForn" min="-2" pref="244" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="tipoLabelCadForn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="telFornLabel" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="telCadForn" min="-2" pref="127" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="emailFornLabel" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                              <Component id="emailCadForn" min="-2" pref="259" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
-                                  <Component id="statusLabelCadForn" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tipoLabelCadForn" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -2526,11 +2652,15 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="nomeLabelCadForn" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="nomeCadForn" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="telFornLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="telCadForn" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="tipoLabelCadForn" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="tipoCadForn" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="emailFornLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="emailCadForn" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -2650,6 +2780,26 @@
                 <Property name="text" type="java.lang.String" value="Cadastro"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JLabel" name="telFornLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Telefone:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="emailFornLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="E-Mail:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="telCadForn">
+            </Component>
+            <Component class="javax.swing.JTextField" name="emailCadForn">
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="tabFornAlt">
@@ -2689,16 +2839,33 @@
                               <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="sttsLabelAltForn" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tipoLabelAltForn" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="altFornLabel" min="-2" pref="111" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="nomeLabelAltForn" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="sttsAltForn" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="tipoAltForn" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="nomeAltForn" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="tipoLabelAltForn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                              <Component id="altFornLabel" min="-2" pref="111" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="nomeLabelAltForn" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="sttsAltForn" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="tipoAltForn" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="nomeAltForn" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="telLabelAltForn" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="telAltForn" min="-2" pref="127" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="emailLabelAltForn" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                              <Component id="emailAltForn" min="-2" pref="259" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -2717,14 +2884,29 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="altFornLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="nomeLabelAltForn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="nomeAltForn" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="tipoLabelAltForn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tipoAltForn" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="nomeLabelAltForn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nomeAltForn" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="tipoLabelAltForn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tipoAltForn" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="telLabelAltForn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="telAltForn" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="emailLabelAltForn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="emailAltForn" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -2840,6 +3022,26 @@
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Alterar"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="telLabelAltForn">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Telefone:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="telAltForn">
+            </Component>
+            <Component class="javax.swing.JLabel" name="emailLabelAltForn">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="E-Mail:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="emailAltForn">
             </Component>
           </SubComponents>
         </Container>
@@ -3163,54 +3365,61 @@
                       <Component id="estqCadHeader" min="-2" pref="819" max="-2" attributes="0"/>
                       <EmptySpace pref="48" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="voltarCadEstq" alignment="1" min="-2" pref="83" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="fornLabelCadEstq" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="tipoLabelCadEstq" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="nomeLabelCadEstq" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="precoLabelCadEstq" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="59" pref="59" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="cadastrarCadEstq" alignment="1" pref="114" max="32767" attributes="0"/>
-                                  <Component id="limparCadEstq" alignment="1" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="nomeCadEstq" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="fornCadEstq" alignment="0" pref="161" max="32767" attributes="0"/>
-                                      <Component id="tipoCadEstq" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="precoCadEstq" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="valLabelCadEstq" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="quantLabelCadEstq" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="valCadEstq" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
-                                  <Component id="quantCadEstq" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="estqCadLabel" min="-2" pref="230" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="341" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="fornLabelCadEstq" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="precoLabelCadEstq" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="59" pref="59" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="fornCadEstq" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
+                                  <Component id="precoCadEstq" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="voltarCadEstq" alignment="1" min="-2" pref="83" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="nomeLabelCadEstq" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="59" pref="59" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="cadastrarCadEstq" alignment="1" pref="114" max="32767" attributes="0"/>
+                                          <Component id="limparCadEstq" alignment="1" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="nomeCadEstq" min="-2" pref="244" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="valLabelCadEstq" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="quantLabelCadEstq" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="valCadEstq" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
+                                          <Component id="quantCadEstq" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3221,35 +3430,35 @@
                       <Component id="estqCadHeader" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="estqCadLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="47" max="32767" attributes="0"/>
+                      <EmptySpace pref="48" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nomeLabelCadEstq" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nomeCadEstq" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="quantLabelCadEstq" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="quantCadEstq" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="nomeLabelCadEstq" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="nomeCadEstq" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Component id="quantLabelCadEstq" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="quantCadEstq" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="tipoLabelCadEstq" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                      <Component id="tipoCadEstq" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                      <Component id="valLabelCadEstq" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="valCadEstq" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="precoLabelCadEstq" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="precoCadEstq" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                              <Component id="fornLabelCadEstq" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
+                                      <Component id="fornLabelCadEstq" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="fornCadEstq" alignment="1" min="-2" pref="33" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Component id="fornCadEstq" alignment="1" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="valLabelCadEstq" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="valCadEstq" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="119" max="32767" attributes="0"/>
+                      <EmptySpace pref="198" max="32767" attributes="0"/>
                       <Component id="cadastrarCadEstq" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -3339,14 +3548,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="voltarCadEstqActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="tipoLabelCadEstq">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="18" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Tipo:"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="fornLabelCadEstq">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -3354,27 +3555,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Fornecedor:"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="tipoCadEstq">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="89" green="d6" red="f2" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="0"/>
-                </Property>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
             </Component>
             <Component class="javax.swing.JComboBox" name="fornCadEstq">
               <Properties>
@@ -3487,31 +3667,38 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="fornLabelAltEstq" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tipoLabelAltEstq" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="precoLabelAltEstq" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="nomeLabelAltEstq" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="idLabelAltEstq" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="59" pref="59" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="nomeAltEstq" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="fornAltEstq" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="tipoAltEstq" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="nomeLabelAltEstq" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="idLabelAltEstq" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="nomeAltEstq" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
+                                          <Component id="idAltEstq" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="valLabelAltEstq" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="quantLabelAltEstq" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="valAltEstq" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
+                                          <Component id="quantAltEstq" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <Component id="precoAltEstq" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
-                                  <Component id="idAltEstq" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="valLabelAltEstq" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="quantLabelAltEstq" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="valAltEstq" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
-                                  <Component id="quantAltEstq" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="fornLabelAltEstq" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="precoLabelAltEstq" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="59" pref="59" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="fornAltEstq" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
+                                          <Component id="precoAltEstq" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -3551,28 +3738,24 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace pref="17" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="nomeLabelAltEstq" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nomeAltEstq" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="precoLabelAltEstq" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="precoAltEstq" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="nomeLabelAltEstq" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="nomeAltEstq" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="tipoLabelAltEstq" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="tipoAltEstq" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="precoLabelAltEstq" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="precoAltEstq" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                      <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
                                       <Component id="fornLabelAltEstq" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="fornAltEstq" alignment="1" min="-2" pref="33" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="cadastrarAltEstq" min="-2" pref="31" max="-2" attributes="0"/>
@@ -3655,14 +3838,6 @@
                 <Property name="text" type="java.lang.String" value="Voltar"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="tipoLabelAltEstq">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="18" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Tipo:"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="fornLabelAltEstq">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -3670,27 +3845,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Fornecedor:"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="tipoAltEstq">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="89" green="d6" red="f2" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="0"/>
-                </Property>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
             </Component>
             <Component class="javax.swing.JComboBox" name="fornAltEstq">
               <Properties>
