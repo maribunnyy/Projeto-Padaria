@@ -1478,6 +1478,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         botaoAddForn.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         botaoAddForn.setForeground(new java.awt.Color(0, 153, 0));
         botaoAddForn.setText("Adicionar");
+        botaoAddForn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAddFornActionPerformed(evt);
+            }
+        });
 
         botaoAltForn.setBackground(new java.awt.Color(242, 214, 137));
         botaoAltForn.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -1586,6 +1591,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         voltarCadForn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         voltarCadForn.setForeground(new java.awt.Color(192, 134, 47));
         voltarCadForn.setText("Voltar");
+        voltarCadForn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarCadFornActionPerformed(evt);
+            }
+        });
 
         tipoLabelCadForn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tipoLabelCadForn.setText("Tipo de Fornecedor:");
@@ -3838,6 +3848,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
              e.printStackTrace();
         }
     }//GEN-LAST:event_pesquisaBotaoProd1ActionPerformed
+
+    private void botaoAddFornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddFornActionPerformed
+        // TODO add your handling code here:
+        tabs.setSelectedIndex(7);
+    }//GEN-LAST:event_botaoAddFornActionPerformed
+
+    private void voltarCadFornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarCadFornActionPerformed
+        // TODO add your handling code here:
+        tabs.setSelectedIndex(6);
+    }//GEN-LAST:event_voltarCadFornActionPerformed
 
 
     
