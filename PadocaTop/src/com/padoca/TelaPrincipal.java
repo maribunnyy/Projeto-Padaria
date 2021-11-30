@@ -2238,9 +2238,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addComponent(precoCadEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(28, 28, 28)
                         .addGroup(tabEstqCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabEstqCadLayout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(fornLabelCadEstq))
+                            .addComponent(fornLabelCadEstq, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(fornCadEstq, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(tabEstqCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(valLabelCadEstq)
@@ -2404,9 +2402,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addComponent(precoAltEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26)
                         .addGroup(tabEstqAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(tabEstqAltLayout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(fornLabelAltEstq))
+                            .addComponent(fornLabelAltEstq)
                             .addComponent(fornAltEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(145, 145, 145)))
                 .addComponent(cadastrarAltEstq, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3805,13 +3801,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
             try {
             Conexao con = new Conexao();
             Statement st = con.conexao.createStatement();
-            st.executeUpdate("INSERT INTO tb_funcionario (nome_funcionario, salario_funcionario, cargo_funcionario, sexo, idade_funcionario, cpf, data_admissao_funcionario) VALUES ('"+nomeCadFunc.getText()+"',"+salarioCadFunc.getText().replace(",", "")+",'"+cargoCadFunc.getSelectedItem()+"','"+sexo+"',"+idadeCadFunc.getText()+","+cpfCadFunc.getText()+", '"+data+"');");
+            st.executeUpdate("INSERT INTO tb_funcionario (nome_funcionario, salario_funcionario, cargo_funcionario, sexo, idade_funcionario, cpf, data_admissao_funcionario) VALUES ('"+nomeCadFunc.getText()+"',"+salarioCadFunc.getText().replace(",", "")+",'"+cargoCadFunc.getText()+"','"+sexo+"',"+idadeCadFunc.getText()+","+cpfCadFunc.getText()+", '"+data+"');");
             
             
             JOptionPane.showMessageDialog(null, "Cadastro inserido com Sucesso!"); 
             nomeCadFunc.setText("");
             salarioCadFunc.setText("");
-            cargoCadFunc.setSelectedItem("Item 1");
+            cargoCadFunc.setText("");
             idadeCadFunc.setText("");
             cpfCadFunc.setText("");
             
