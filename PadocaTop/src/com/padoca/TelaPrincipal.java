@@ -67,8 +67,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         mascButton = new javax.swing.JRadioButton();
         outroButton = new javax.swing.JRadioButton();
         cargoLabel = new javax.swing.JLabel();
-        cargoCadFunc = new javax.swing.JComboBox<>();
-        addCargo = new javax.swing.JButton();
         salarioLabel = new javax.swing.JLabel();
         salarioCadFunc = new javax.swing.JFormattedTextField();
         cpfLabel = new javax.swing.JLabel();
@@ -83,6 +81,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telCadFunc = new javax.swing.JTextField();
         emailLabelFunc = new javax.swing.JLabel();
         emailCadFunc = new javax.swing.JTextField();
+        cargoCadFunc = new javax.swing.JTextField();
         tabFuncAlt = new javax.swing.JPanel();
         altFuncHeader = new javax.swing.JLabel();
         idadeAltFunc = new javax.swing.JTextField();
@@ -93,8 +92,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         mascButtonAltFunc = new javax.swing.JRadioButton();
         outroButtonAltFunc = new javax.swing.JRadioButton();
         cargoLabelAltFunc = new javax.swing.JLabel();
-        cargoAltFunc = new javax.swing.JComboBox<>();
-        addCargoAltFunc = new javax.swing.JButton();
         salarioLabelAltFunc = new javax.swing.JLabel();
         salarioAltFunc = new javax.swing.JFormattedTextField();
         cpfLabelAltFunc = new javax.swing.JLabel();
@@ -110,6 +107,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         emailAltFunc = new javax.swing.JTextField();
         telLabelAltFunc = new javax.swing.JLabel();
         telAltFunc = new javax.swing.JTextField();
+        cargoAltFunc = new javax.swing.JTextField();
         tabProd = new javax.swing.JPanel();
         prodHeader = new javax.swing.JLabel();
         prodScroll = new javax.swing.JScrollPane();
@@ -133,7 +131,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         voltarCadProd = new javax.swing.JButton();
         tipoLabelProd = new javax.swing.JLabel();
         fornLabel = new javax.swing.JLabel();
-        tipoCadProd = new javax.swing.JComboBox<>();
         fornCadProd = new javax.swing.JComboBox<>();
         precoLabelProd = new javax.swing.JLabel();
         precoCadProd = new javax.swing.JFormattedTextField();
@@ -142,7 +139,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         quantCadProd = new javax.swing.JTextField();
         valCadProd = new javax.swing.JFormattedTextField();
         cadProdLabel = new javax.swing.JLabel();
-        addTipoProd = new javax.swing.JButton();
+        tipoCadProd = new javax.swing.JTextField();
         tabProdAlt = new javax.swing.JPanel();
         prodAltHeader = new javax.swing.JLabel();
         nomeLabelProdAlt = new javax.swing.JLabel();
@@ -151,7 +148,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         voltarAltProd = new javax.swing.JButton();
         tipoLabelProdAlt = new javax.swing.JLabel();
         fornLabelProdAlt = new javax.swing.JLabel();
-        tipoAltProd = new javax.swing.JComboBox<>();
         fornAltProd = new javax.swing.JComboBox<>();
         precoLabelProdAlt = new javax.swing.JLabel();
         precoAltProd = new javax.swing.JFormattedTextField();
@@ -161,6 +157,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         valAltProd = new javax.swing.JFormattedTextField();
         nomeAltProd = new javax.swing.JComboBox<>();
         altProdLabel = new javax.swing.JLabel();
+        tipoAltProd = new javax.swing.JTextField();
         tabForn = new javax.swing.JPanel();
         fornScroll = new javax.swing.JScrollPane();
         listaForn = new javax.swing.JTable();
@@ -378,6 +375,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         tabFunc.setBackground(new java.awt.Color(251, 242, 212));
 
+        listaFunc.setForeground(new java.awt.Color(67, 40, 28));
         listaFunc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null},
@@ -406,6 +404,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        listaFunc.setGridColor(new java.awt.Color(255, 255, 255));
+        listaFunc.setSelectionBackground(new java.awt.Color(251, 242, 192));
+        listaFunc.setSelectionForeground(new java.awt.Color(67, 40, 28));
+        listaFunc.setShowGrid(false);
         funcScroll.setViewportView(listaFunc);
         if (listaFunc.getColumnModel().getColumnCount() > 0) {
             listaFunc.getColumnModel().getColumn(0).setResizable(false);
@@ -417,6 +419,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         pesquisaSelectFunc.setBackground(new java.awt.Color(248, 242, 208));
         pesquisaSelectFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pesquisaSelectFunc.setForeground(new java.awt.Color(67, 40, 28));
         pesquisaSelectFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         pesquisaSelectFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -425,15 +428,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         funcID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        funcID.setForeground(new java.awt.Color(67, 40, 28));
         funcID.setText("ID:");
 
         funcNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        funcNome.setForeground(new java.awt.Color(67, 40, 28));
         funcNome.setText("Nome:");
 
         funcSelect.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        funcSelect.setForeground(new java.awt.Color(67, 40, 28));
         funcSelect.setText("Funcionário:");
 
         funcHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        funcHeader.setForeground(new java.awt.Color(67, 40, 28));
         funcHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         funcHeader.setText("Funcionários");
 
@@ -538,6 +545,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabFuncCad.setBackground(new java.awt.Color(251, 242, 212));
 
         cadFuncHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        cadFuncHeader.setForeground(new java.awt.Color(67, 40, 28));
         cadFuncHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         cadFuncHeader.setText("Funcionários");
 
@@ -546,39 +554,41 @@ public class TelaPrincipal extends javax.swing.JFrame {
         idadeCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
 
         nomeLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        nomeLabel.setForeground(new java.awt.Color(67, 40, 28));
         nomeLabel.setText("Nome:");
 
         idadeLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        idadeLabel.setForeground(new java.awt.Color(67, 40, 28));
         idadeLabel.setText("Idade:");
 
         sexoLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sexoLabel.setForeground(new java.awt.Color(67, 40, 28));
         sexoLabel.setText("Sexo:");
 
+        femButton.setBackground(new java.awt.Color(251, 242, 192));
         genButtons.add(femButton);
         femButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        femButton.setForeground(new java.awt.Color(67, 40, 28));
         femButton.setText("Feminino");
 
+        mascButton.setBackground(new java.awt.Color(251, 242, 192));
         genButtons.add(mascButton);
         mascButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mascButton.setForeground(new java.awt.Color(67, 40, 28));
         mascButton.setText("Masculino");
 
+        outroButton.setBackground(new java.awt.Color(251, 242, 192));
         genButtons.add(outroButton);
         outroButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        outroButton.setForeground(new java.awt.Color(67, 40, 28));
         outroButton.setText("Outro");
 
         cargoLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cargoLabel.setForeground(new java.awt.Color(67, 40, 28));
         cargoLabel.setText("Cargo:");
 
-        cargoCadFunc.setBackground(new java.awt.Color(242, 214, 137));
-        cargoCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cargoCadFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        addCargo.setBackground(new java.awt.Color(102, 255, 102));
-        addCargo.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        addCargo.setForeground(new java.awt.Color(0, 153, 0));
-        addCargo.setText("+ Adicionar cargo");
-
         salarioLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        salarioLabel.setForeground(new java.awt.Color(67, 40, 28));
         salarioLabel.setText("Salário:");
 
         salarioCadFunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
@@ -587,6 +597,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         salarioCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
 
         cpfLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cpfLabel.setForeground(new java.awt.Color(67, 40, 28));
         cpfLabel.setText("CPF:");
 
         cpfCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
@@ -622,18 +633,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         dataAdmLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        dataAdmLabel.setForeground(new java.awt.Color(67, 40, 28));
         dataAdmLabel.setText("Data de Admissão:");
 
         dataAdmCadFunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
 
         cadFuncLabel.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        cadFuncLabel.setForeground(new java.awt.Color(72, 57, 42));
         cadFuncLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         cadFuncLabel.setText("Cadastro");
 
         telLabelFunc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        telLabelFunc.setForeground(new java.awt.Color(67, 40, 28));
         telLabelFunc.setText("Telefone:");
 
         emailLabelFunc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        emailLabelFunc.setForeground(new java.awt.Color(67, 40, 28));
         emailLabelFunc.setText("E-Mail:");
 
         javax.swing.GroupLayout tabFuncCadLayout = new javax.swing.GroupLayout(tabFuncCad);
@@ -697,7 +712,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                         .addComponent(femButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(mascButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(outroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(tabFuncCadLayout.createSequentialGroup()
                                         .addGap(18, 18, 18)
@@ -705,9 +720,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addGroup(tabFuncCadLayout.createSequentialGroup()
                                 .addComponent(cargoLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cargoCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(addCargo))))
+                                .addComponent(cargoCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(tabFuncCadLayout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addComponent(cadFuncHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -719,51 +732,49 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(177, 177, 177)
                 .addComponent(cadFuncHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cadFuncLabel)
+                .addGap(45, 45, 45)
+                .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nomeLabel)
+                    .addComponent(nomeCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dataAdmLabel)
+                    .addComponent(dataAdmCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idadeLabel)
+                    .addComponent(telLabelFunc)
+                    .addComponent(idadeCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(sexoLabel)
+                    .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(salarioLabel)
+                        .addComponent(salarioCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(outroButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(mascButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(femButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(20, 20, 20)
+                .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(emailCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cpfLabel)
+                        .addComponent(cpfCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(tabFuncCadLayout.createSequentialGroup()
-                        .addComponent(cadFuncLabel)
-                        .addGap(45, 45, 45)
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nomeLabel)
-                            .addComponent(nomeCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dataAdmLabel)
-                            .addComponent(dataAdmCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(idadeLabel)
-                            .addComponent(telLabelFunc)
-                            .addComponent(idadeCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(telCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(mascButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(sexoLabel)
-                            .addComponent(femButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(outroButton)
-                                .addComponent(salarioLabel)
-                                .addComponent(salarioCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(20, 20, 20)
-                        .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(emailCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cpfLabel)
-                                .addComponent(cpfCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(tabFuncCadLayout.createSequentialGroup()
-                                .addComponent(emailLabelFunc)
-                                .addGap(3, 3, 3)))
-                        .addGap(30, 30, 30)
-                        .addComponent(cargoLabel))
-                    .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(cargoCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(addCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(102, 102, 102)
+                        .addComponent(emailLabelFunc)
+                        .addGap(3, 3, 3)))
+                .addGap(18, 18, 18)
+                .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cargoCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cargoLabel))
+                .addGap(106, 106, 106)
                 .addComponent(cadastrarCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(tabFuncCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(voltarCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(limparCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab3", tabFuncCad);
@@ -771,44 +782,45 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabFuncAlt.setBackground(new java.awt.Color(251, 242, 212));
 
         altFuncHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        altFuncHeader.setForeground(new java.awt.Color(67, 40, 28));
         altFuncHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         altFuncHeader.setText("Funcionários");
 
         idadeAltFunc.setPreferredSize(new java.awt.Dimension(7, 23));
 
         nomeLabelAltFunc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        nomeLabelAltFunc.setForeground(new java.awt.Color(67, 40, 28));
         nomeLabelAltFunc.setText("Nome:");
 
         idadeLabelAltFunc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        idadeLabelAltFunc.setForeground(new java.awt.Color(67, 40, 28));
         idadeLabelAltFunc.setText("Idade:");
 
         sexoLabelAltFunc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sexoLabelAltFunc.setForeground(new java.awt.Color(67, 40, 28));
         sexoLabelAltFunc.setText("Sexo:");
 
         genButtons.add(femButtonAltFunc);
         femButtonAltFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        femButtonAltFunc.setForeground(new java.awt.Color(67, 40, 28));
         femButtonAltFunc.setText("Feminino");
 
         genButtons.add(mascButtonAltFunc);
         mascButtonAltFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mascButtonAltFunc.setForeground(new java.awt.Color(67, 40, 28));
         mascButtonAltFunc.setText("Masculino");
 
         genButtons.add(outroButtonAltFunc);
         outroButtonAltFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        outroButtonAltFunc.setForeground(new java.awt.Color(67, 40, 28));
         outroButtonAltFunc.setText("Outro");
 
         cargoLabelAltFunc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cargoLabelAltFunc.setForeground(new java.awt.Color(67, 40, 28));
         cargoLabelAltFunc.setText("Cargo:");
 
-        cargoAltFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cargoAltFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        addCargoAltFunc.setBackground(new java.awt.Color(102, 255, 102));
-        addCargoAltFunc.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        addCargoAltFunc.setForeground(new java.awt.Color(0, 153, 0));
-        addCargoAltFunc.setText("+ Adicionar cargo");
-
         salarioLabelAltFunc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        salarioLabelAltFunc.setForeground(new java.awt.Color(67, 40, 28));
         salarioLabelAltFunc.setText("Salário:");
 
         salarioAltFunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
@@ -817,6 +829,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         salarioAltFunc.setPreferredSize(new java.awt.Dimension(7, 23));
 
         cpfLabelAltFunc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cpfLabelAltFunc.setForeground(new java.awt.Color(67, 40, 28));
         cpfLabelAltFunc.setText("CPF:");
 
         cpfAltFunc.setPreferredSize(new java.awt.Dimension(7, 23));
@@ -837,21 +850,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
         voltarAltFunc.setText("Voltar");
 
         dataAdmLabelAltFunc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        dataAdmLabelAltFunc.setForeground(new java.awt.Color(67, 40, 28));
         dataAdmLabelAltFunc.setText("Data de Admissão:");
 
         dataAdmAltFunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
 
         altFuncLabel.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        altFuncLabel.setForeground(new java.awt.Color(72, 57, 42));
         altFuncLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         altFuncLabel.setText("Alterar");
 
         nomeAltFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        nomeAltFunc.setForeground(new java.awt.Color(67, 40, 28));
         nomeAltFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         emailLabelAltFunc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        emailLabelAltFunc.setForeground(new java.awt.Color(67, 40, 28));
         emailLabelAltFunc.setText("E-Mail:");
 
         telLabelAltFunc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        telLabelAltFunc.setForeground(new java.awt.Color(67, 40, 28));
         telLabelAltFunc.setText("Telefone:");
 
         javax.swing.GroupLayout tabFuncAltLayout = new javax.swing.GroupLayout(tabFuncAlt);
@@ -886,18 +904,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addGroup(tabFuncAltLayout.createSequentialGroup()
                                 .addGap(49, 49, 49)
                                 .addComponent(nomeAltFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(tabFuncAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(tabFuncAltLayout.createSequentialGroup()
-                            .addGroup(tabFuncAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(emailLabelAltFunc)
-                                .addComponent(cargoLabelAltFunc, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(emailAltFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(tabFuncAltLayout.createSequentialGroup()
-                            .addGap(96, 96, 96)
-                            .addComponent(cargoAltFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(addCargoAltFunc))))
+                    .addGroup(tabFuncAltLayout.createSequentialGroup()
+                        .addGroup(tabFuncAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(emailLabelAltFunc)
+                            .addComponent(cargoLabelAltFunc, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(48, 48, 48)
+                        .addGroup(tabFuncAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(emailAltFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cargoAltFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(tabFuncAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tabFuncAltLayout.createSequentialGroup()
@@ -975,12 +989,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addGroup(tabFuncAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cpfLabelAltFunc)
                             .addComponent(cpfAltFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(33, 33, 33)
+                .addGap(36, 36, 36)
                 .addGroup(tabFuncAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cargoLabelAltFunc)
-                    .addComponent(cargoAltFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addCargoAltFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(115, 115, 115)
+                    .addComponent(cargoAltFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(116, 116, 116)
                 .addComponent(alterarCadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(tabFuncAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -994,9 +1007,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabProd.setBackground(new java.awt.Color(251, 242, 212));
 
         prodHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        prodHeader.setForeground(new java.awt.Color(67, 40, 28));
         prodHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         prodHeader.setText("Produtos");
 
+        listaProd.setForeground(new java.awt.Color(67, 40, 28));
         listaProd.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null}
@@ -1013,6 +1028,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        listaProd.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        listaProd.setGridColor(new java.awt.Color(255, 255, 255));
+        listaProd.setSelectionBackground(new java.awt.Color(251, 242, 192));
+        listaProd.setSelectionForeground(new java.awt.Color(67, 40, 28));
         prodScroll.setViewportView(listaProd);
 
         botaoAddProd.setBackground(new java.awt.Color(102, 255, 102));
@@ -1043,17 +1062,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
         botaoDelProd.setPreferredSize(new java.awt.Dimension(105, 27));
 
         prodSelect.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        prodSelect.setForeground(new java.awt.Color(67, 40, 28));
         prodSelect.setText("Produto:");
 
         pesquisaSelectProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pesquisaSelectProd.setForeground(new java.awt.Color(67, 40, 28));
         pesquisaSelectProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Produtos>" }));
 
         prodNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        prodNome.setForeground(new java.awt.Color(67, 40, 28));
         prodNome.setText("Nome:");
 
         pesquisaNomeProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         prodID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        prodID.setForeground(new java.awt.Color(67, 40, 28));
         prodID.setText("ID:");
 
         pesquisaIdProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1137,12 +1160,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabProdCad.setBackground(new java.awt.Color(251, 242, 212));
 
         prodCadHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        prodCadHeader.setForeground(new java.awt.Color(67, 40, 28));
         prodCadHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         prodCadHeader.setText("Produtos");
 
         nomeCadProd.setPreferredSize(new java.awt.Dimension(7, 23));
 
         nomeLabelProd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        nomeLabelProd.setForeground(new java.awt.Color(67, 40, 28));
         nomeLabelProd.setText("Nome:");
 
         cadastrarCadProd.setBackground(new java.awt.Color(102, 255, 102));
@@ -1176,17 +1201,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         tipoLabelProd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tipoLabelProd.setForeground(new java.awt.Color(67, 40, 28));
         tipoLabelProd.setText("Tipo:");
 
         fornLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fornLabel.setForeground(new java.awt.Color(67, 40, 28));
         fornLabel.setText("Fornecedor:");
-
-        tipoCadProd.setBackground(new java.awt.Color(242, 214, 137));
-        tipoCadProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tipoCadProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Tipo>", "líquido", "sólido" }));
 
         fornCadProd.setBackground(new java.awt.Color(242, 214, 137));
         fornCadProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        fornCadProd.setForeground(new java.awt.Color(67, 40, 28));
         fornCadProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Fornecedores>" }));
         fornCadProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1195,12 +1219,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         precoLabelProd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        precoLabelProd.setForeground(new java.awt.Color(67, 40, 28));
         precoLabelProd.setText("Preço:");
 
         valLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        valLabel.setForeground(new java.awt.Color(67, 40, 28));
         valLabel.setText("Validade:");
 
         quantLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        quantLabel.setForeground(new java.awt.Color(67, 40, 28));
         quantLabel.setText("Quantidade:");
 
         valCadProd.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -1210,13 +1237,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         cadProdLabel.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        cadProdLabel.setForeground(new java.awt.Color(72, 57, 42));
         cadProdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         cadProdLabel.setText("Cadastro");
-
-        addTipoProd.setBackground(new java.awt.Color(102, 255, 102));
-        addTipoProd.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        addTipoProd.setForeground(new java.awt.Color(0, 153, 0));
-        addTipoProd.setText("+ Adicionar Tipo");
 
         javax.swing.GroupLayout tabProdCadLayout = new javax.swing.GroupLayout(tabProdCad);
         tabProdCad.setLayout(tabProdCadLayout);
@@ -1235,18 +1258,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tabProdCadLayout.createSequentialGroup()
                         .addComponent(precoCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(580, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabProdCadLayout.createSequentialGroup()
+                        .addContainerGap(559, Short.MAX_VALUE))
+                    .addGroup(tabProdCadLayout.createSequentialGroup()
                         .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(tabProdCadLayout.createSequentialGroup()
                                 .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(nomeCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(tabProdCadLayout.createSequentialGroup()
-                                        .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(fornCadProd, javax.swing.GroupLayout.Alignment.LEADING, 0, 161, Short.MAX_VALUE)
-                                            .addComponent(tipoCadProd, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(addTipoProd)))
+                                    .addComponent(fornCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tipoCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(valLabel)
@@ -1278,20 +1297,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(prodCadHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cadProdLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGap(39, 39, 39)
                 .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabProdCadLayout.createSequentialGroup()
                         .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(tabProdCadLayout.createSequentialGroup()
-                                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(nomeLabelProd)
-                                    .addComponent(nomeCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(28, 28, 28)
-                                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(tipoLabelProd)
-                                    .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(tipoCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(addTipoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(tabProdCadLayout.createSequentialGroup()
                                 .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(quantLabel)
@@ -1299,15 +1308,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                 .addGap(26, 26, 26)
                                 .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(valLabel)
-                                    .addComponent(valCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(35, 35, 35)
+                                    .addComponent(valCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(tabProdCadLayout.createSequentialGroup()
+                                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(nomeLabelProd)
+                                    .addComponent(nomeCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(33, 33, 33)
+                                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tipoLabelProd)
+                                    .addComponent(tipoCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                         .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(precoLabelProd)
                             .addComponent(precoCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(49, 49, 49)
                         .addComponent(fornLabel))
                     .addComponent(fornCadProd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                .addGap(124, 124, 124)
                 .addComponent(cadastrarCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1322,10 +1339,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabProdAlt.setBackground(new java.awt.Color(251, 242, 212));
 
         prodAltHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        prodAltHeader.setForeground(new java.awt.Color(67, 40, 28));
         prodAltHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         prodAltHeader.setText("Produtos");
 
         nomeLabelProdAlt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        nomeLabelProdAlt.setForeground(new java.awt.Color(67, 40, 28));
         nomeLabelProdAlt.setText("Nome:");
 
         alterarProd.setBackground(new java.awt.Color(102, 255, 102));
@@ -1349,37 +1368,41 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         tipoLabelProdAlt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tipoLabelProdAlt.setForeground(new java.awt.Color(67, 40, 28));
         tipoLabelProdAlt.setText("Tipo:");
 
         fornLabelProdAlt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fornLabelProdAlt.setForeground(new java.awt.Color(67, 40, 28));
         fornLabelProdAlt.setText("Fornecedor:");
-
-        tipoAltProd.setBackground(new java.awt.Color(242, 214, 137));
-        tipoAltProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tipoAltProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         fornAltProd.setBackground(new java.awt.Color(242, 214, 137));
         fornAltProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        fornAltProd.setForeground(new java.awt.Color(67, 40, 28));
         fornAltProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         precoLabelProdAlt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        precoLabelProdAlt.setForeground(new java.awt.Color(67, 40, 28));
         precoLabelProdAlt.setText("Preço:");
 
         precoAltProd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
 
         valLabelAlt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        valLabelAlt.setForeground(new java.awt.Color(67, 40, 28));
         valLabelAlt.setText("Validade:");
 
         quantLabelAlt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        quantLabelAlt.setForeground(new java.awt.Color(67, 40, 28));
         quantLabelAlt.setText("Quantidade:");
 
         valAltProd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
 
         nomeAltProd.setBackground(new java.awt.Color(242, 214, 137));
         nomeAltProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        nomeAltProd.setForeground(new java.awt.Color(67, 40, 28));
         nomeAltProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         altProdLabel.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        altProdLabel.setForeground(new java.awt.Color(72, 57, 42));
         altProdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         altProdLabel.setText("Alterar");
 
@@ -1409,10 +1432,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addComponent(precoAltProd, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(tabProdAltLayout.createSequentialGroup()
                                 .addGroup(tabProdAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(tabProdAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(fornAltProd, javax.swing.GroupLayout.Alignment.LEADING, 0, 161, Short.MAX_VALUE)
-                                        .addComponent(tipoAltProd, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(nomeAltProd, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(fornAltProd, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nomeAltProd, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tipoAltProd, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(57, 57, 57)
                                 .addGroup(tabProdAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(valLabelAlt)
@@ -1445,23 +1467,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(quantLabelAlt)
                     .addComponent(quantAltProd, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nomeAltProd, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGap(28, 28, 28)
                 .addGroup(tabProdAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabProdAltLayout.createSequentialGroup()
-                        .addGroup(tabProdAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(tabProdAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(tipoLabelProdAlt)
                             .addGroup(tabProdAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(tipoAltProd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(valLabelAlt)
-                                .addComponent(valAltProd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(35, 35, 35)
+                                .addComponent(valAltProd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tipoAltProd))
+                        .addGap(33, 33, 33)
                         .addGroup(tabProdAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(precoLabelProdAlt)
                             .addComponent(precoAltProd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(49, 49, 49)
                         .addComponent(fornLabelProdAlt))
                     .addComponent(fornAltProd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                 .addComponent(alterarProd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(tabProdAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1475,6 +1497,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         tabForn.setBackground(new java.awt.Color(251, 242, 212));
 
+        listaForn.setForeground(new java.awt.Color(67, 40, 28));
         listaForn.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -1503,6 +1526,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        listaForn.setGridColor(new java.awt.Color(255, 255, 255));
+        listaForn.setSelectionBackground(new java.awt.Color(251, 242, 192));
         fornScroll.setViewportView(listaForn);
         if (listaForn.getColumnModel().getColumnCount() > 0) {
             listaForn.getColumnModel().getColumn(0).setResizable(false);
@@ -1513,18 +1538,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pesquisaIdForn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         pesquisaSelectForn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pesquisaSelectForn.setForeground(new java.awt.Color(67, 40, 28));
         pesquisaSelectForn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         fornID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fornID.setForeground(new java.awt.Color(67, 40, 28));
         fornID.setText("ID:");
 
         fornNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fornNome.setForeground(new java.awt.Color(67, 40, 28));
         fornNome.setText("Nome:");
 
         fornSelect.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fornSelect.setForeground(new java.awt.Color(67, 40, 28));
         fornSelect.setText("Fornecedor:");
 
         fornHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        fornHeader.setForeground(new java.awt.Color(67, 40, 28));
         fornHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fornHeader.setText("Fornecedores");
 
@@ -1628,12 +1658,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabFornCad.setBackground(new java.awt.Color(251, 242, 212));
 
         fornCadHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        fornCadHeader.setForeground(new java.awt.Color(67, 40, 28));
         fornCadHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fornCadHeader.setText("Fornecedor");
 
         nomeCadForn.setPreferredSize(new java.awt.Dimension(7, 23));
 
         nomeLabelCadForn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        nomeLabelCadForn.setForeground(new java.awt.Color(67, 40, 28));
         nomeLabelCadForn.setText("Nome:");
 
         cadastrarCadForn.setBackground(new java.awt.Color(102, 255, 102));
@@ -1657,19 +1689,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         tipoLabelCadForn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tipoLabelCadForn.setForeground(new java.awt.Color(67, 40, 28));
         tipoLabelCadForn.setText("Tipo de Fornecedor:");
 
         statusLabelCadForn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        statusLabelCadForn.setForeground(new java.awt.Color(67, 40, 28));
         statusLabelCadForn.setText("Status:");
 
         cadFornLabel.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        cadFornLabel.setForeground(new java.awt.Color(72, 57, 42));
         cadFornLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         cadFornLabel.setText("Cadastro");
 
         telFornLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        telFornLabel.setForeground(new java.awt.Color(67, 40, 28));
         telFornLabel.setText("Telefone:");
 
         emailFornLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        emailFornLabel.setForeground(new java.awt.Color(67, 40, 28));
         emailFornLabel.setText("E-Mail:");
 
         javax.swing.GroupLayout tabFornCadLayout = new javax.swing.GroupLayout(tabFornCad);
@@ -1756,12 +1793,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabFornAlt.setBackground(new java.awt.Color(251, 242, 212));
 
         fornAltHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        fornAltHeader.setForeground(new java.awt.Color(67, 40, 28));
         fornAltHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fornAltHeader.setText("Fornecedor");
 
         nomeAltForn.setPreferredSize(new java.awt.Dimension(7, 23));
 
         nomeLabelAltForn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        nomeLabelAltForn.setForeground(new java.awt.Color(67, 40, 28));
         nomeLabelAltForn.setText("Nome:");
 
         alterarForn.setBackground(new java.awt.Color(102, 255, 102));
@@ -1780,19 +1819,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         voltarAltForn.setText("Voltar");
 
         tipoLabelAltForn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tipoLabelAltForn.setForeground(new java.awt.Color(67, 40, 28));
         tipoLabelAltForn.setText("Tipo de Fornecedor:");
 
         sttsLabelAltForn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sttsLabelAltForn.setForeground(new java.awt.Color(67, 40, 28));
         sttsLabelAltForn.setText("Status:");
 
         altFornLabel.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        altFornLabel.setForeground(new java.awt.Color(72, 57, 42));
         altFornLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         altFornLabel.setText("Alterar");
 
         telLabelAltForn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        telLabelAltForn.setForeground(new java.awt.Color(67, 40, 28));
         telLabelAltForn.setText("Telefone:");
 
         emailLabelAltForn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        emailLabelAltForn.setForeground(new java.awt.Color(67, 40, 28));
         emailLabelAltForn.setText("E-Mail:");
 
         javax.swing.GroupLayout tabFornAltLayout = new javax.swing.GroupLayout(tabFornAlt);
@@ -1883,6 +1927,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         tabEstq.setBackground(new java.awt.Color(251, 242, 212));
 
+        listaEstq.setForeground(new java.awt.Color(67, 40, 28));
         listaEstq.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -1911,6 +1956,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        listaEstq.setGridColor(new java.awt.Color(255, 255, 255));
+        listaEstq.setSelectionBackground(new java.awt.Color(251, 242, 192));
         estqScroll.setViewportView(listaEstq);
         if (listaEstq.getColumnModel().getColumnCount() > 0) {
             listaEstq.getColumnModel().getColumn(0).setResizable(false);
@@ -1921,18 +1968,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pesquisaIdEstq.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         pesquisaSelectEstq.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pesquisaSelectEstq.setForeground(new java.awt.Color(67, 40, 28));
         pesquisaSelectEstq.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         estqID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        estqID.setForeground(new java.awt.Color(67, 40, 28));
         estqID.setText("ID:");
 
         estqNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        estqNome.setForeground(new java.awt.Color(67, 40, 28));
         estqNome.setText("Nome:");
 
         estqSelect.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        estqSelect.setForeground(new java.awt.Color(67, 40, 28));
         estqSelect.setText("Ingrediente/Produto:");
 
         estqHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        estqHeader.setForeground(new java.awt.Color(67, 40, 28));
         estqHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         estqHeader.setText("Estoque");
 
@@ -2044,12 +2096,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabEstqCad.setBackground(new java.awt.Color(251, 242, 212));
 
         estqCadHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        estqCadHeader.setForeground(new java.awt.Color(67, 40, 28));
         estqCadHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         estqCadHeader.setText("Estoque");
 
         nomeCadEstq.setPreferredSize(new java.awt.Dimension(7, 23));
 
         nomeLabelCadEstq.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        nomeLabelCadEstq.setForeground(new java.awt.Color(67, 40, 28));
         nomeLabelCadEstq.setText("Nome:");
 
         cadastrarCadEstq.setBackground(new java.awt.Color(102, 255, 102));
@@ -2083,27 +2137,33 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         fornLabelCadEstq.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fornLabelCadEstq.setForeground(new java.awt.Color(67, 40, 28));
         fornLabelCadEstq.setText("Fornecedor:");
 
         fornCadEstq.setBackground(new java.awt.Color(242, 214, 137));
         fornCadEstq.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        fornCadEstq.setForeground(new java.awt.Color(67, 40, 28));
         fornCadEstq.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Fornecedores>" }));
 
         precoLabelCadEstq.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        precoLabelCadEstq.setForeground(new java.awt.Color(67, 40, 28));
         precoLabelCadEstq.setText("Preço:");
 
         precoCadEstq.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
 
         valLabelCadEstq.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        valLabelCadEstq.setForeground(new java.awt.Color(67, 40, 28));
         valLabelCadEstq.setText("Validade:");
 
         quantLabelCadEstq.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        quantLabelCadEstq.setForeground(new java.awt.Color(67, 40, 28));
         quantLabelCadEstq.setText("Quantidade:");
 
         valCadEstq.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
         valCadEstq.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
 
         estqCadLabel.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        estqCadLabel.setForeground(new java.awt.Color(72, 57, 42));
         estqCadLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         estqCadLabel.setText("Cadastro");
 
@@ -2200,12 +2260,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabEstqAlt.setBackground(new java.awt.Color(251, 242, 212));
 
         prodCadHeader5.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        prodCadHeader5.setForeground(new java.awt.Color(67, 40, 28));
         prodCadHeader5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         prodCadHeader5.setText("Estoque");
 
         nomeAltEstq.setPreferredSize(new java.awt.Dimension(7, 23));
 
         nomeLabelAltEstq.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        nomeLabelAltEstq.setForeground(new java.awt.Color(67, 40, 28));
         nomeLabelAltEstq.setText("Nome:");
 
         cadastrarAltEstq.setBackground(new java.awt.Color(102, 255, 102));
@@ -2224,29 +2286,36 @@ public class TelaPrincipal extends javax.swing.JFrame {
         voltarAltEstq.setText("Voltar");
 
         fornLabelAltEstq.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fornLabelAltEstq.setForeground(new java.awt.Color(67, 40, 28));
         fornLabelAltEstq.setText("Fornecedor:");
 
         fornAltEstq.setBackground(new java.awt.Color(242, 214, 137));
         fornAltEstq.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        fornAltEstq.setForeground(new java.awt.Color(67, 40, 28));
         fornAltEstq.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         precoLabelAltEstq.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        precoLabelAltEstq.setForeground(new java.awt.Color(67, 40, 28));
         precoLabelAltEstq.setText("Preço:");
 
         precoAltEstq.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
 
         valLabelAltEstq.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        valLabelAltEstq.setForeground(new java.awt.Color(67, 40, 28));
         valLabelAltEstq.setText("Validade:");
 
         quantLabelAltEstq.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        quantLabelAltEstq.setForeground(new java.awt.Color(67, 40, 28));
         quantLabelAltEstq.setText("Quantidade:");
 
         valAltEstq.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
 
         idLabelAltEstq.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        idLabelAltEstq.setForeground(new java.awt.Color(67, 40, 28));
         idLabelAltEstq.setText("ID:");
 
         altEstqLabel.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        altEstqLabel.setForeground(new java.awt.Color(72, 57, 42));
         altEstqLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         altEstqLabel.setText("Alterar");
 
@@ -2354,9 +2423,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabRemss.setBackground(new java.awt.Color(251, 242, 212));
 
         remssHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        remssHeader.setForeground(new java.awt.Color(67, 40, 28));
         remssHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         remssHeader.setText("Remessas");
 
+        listaRemss.setForeground(new java.awt.Color(67, 40, 28));
         listaRemss.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null}
@@ -2373,6 +2444,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        listaRemss.setGridColor(new java.awt.Color(255, 255, 255));
+        listaRemss.setSelectionBackground(new java.awt.Color(251, 242, 192));
         remssScroll.setViewportView(listaRemss);
 
         botaoAddRemss.setBackground(new java.awt.Color(102, 255, 102));
@@ -2403,17 +2476,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
         botaoDelRemss.setPreferredSize(new java.awt.Dimension(105, 27));
 
         remssSelect.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        remssSelect.setForeground(new java.awt.Color(67, 40, 28));
         remssSelect.setText("Tipo de Produto:");
 
         pesquisaSelectRemss.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pesquisaSelectRemss.setForeground(new java.awt.Color(67, 40, 28));
         pesquisaSelectRemss.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Remessas>" }));
 
         remssNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        remssNome.setForeground(new java.awt.Color(67, 40, 28));
         remssNome.setText("Nome:");
 
         pesquisaNomeRemss.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         remssID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        remssID.setForeground(new java.awt.Color(67, 40, 28));
         remssID.setText("ID:");
 
         pesquisaIdRemss.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -2497,12 +2574,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabRemssCad.setBackground(new java.awt.Color(251, 242, 212));
 
         remssCadHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        remssCadHeader.setForeground(new java.awt.Color(67, 40, 28));
         remssCadHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         remssCadHeader.setText("Remessas");
 
         nomeCadRemss.setPreferredSize(new java.awt.Dimension(7, 23));
 
         nomeLabelCadRemss.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        nomeLabelCadRemss.setForeground(new java.awt.Color(67, 40, 28));
         nomeLabelCadRemss.setText("Nome do produto:");
 
         cadastrarCadRemss.setBackground(new java.awt.Color(102, 255, 102));
@@ -2536,16 +2615,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         quantLabelCadRemss.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        quantLabelCadRemss.setForeground(new java.awt.Color(67, 40, 28));
         quantLabelCadRemss.setText("Quantidade:");
 
         fornLabelCadRemss.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fornLabelCadRemss.setForeground(new java.awt.Color(67, 40, 28));
         fornLabelCadRemss.setText("Fornecedor:");
 
         fornCadRemss.setBackground(new java.awt.Color(242, 214, 137));
         fornCadRemss.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        fornCadRemss.setForeground(new java.awt.Color(67, 40, 28));
         fornCadRemss.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Fornecedores>" }));
 
         precoUniLabelCadRemss.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        precoUniLabelCadRemss.setForeground(new java.awt.Color(67, 40, 28));
         precoUniLabelCadRemss.setText("Preço Unitário:");
 
         precoUniCadRemss.addActionListener(new java.awt.event.ActionListener() {
@@ -2555,9 +2638,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         valLabelCadRemss.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        valLabelCadRemss.setForeground(new java.awt.Color(67, 40, 28));
         valLabelCadRemss.setText("Validade:");
 
         cadRemssLabel.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        cadRemssLabel.setForeground(new java.awt.Color(72, 57, 42));
         cadRemssLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         cadRemssLabel.setText("Cadastro");
 
@@ -2652,12 +2737,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabRemssAlt.setBackground(new java.awt.Color(251, 242, 212));
 
         remssAltHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        remssAltHeader.setForeground(new java.awt.Color(67, 40, 28));
         remssAltHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         remssAltHeader.setText("Remessas");
 
         nomeAltRemss.setPreferredSize(new java.awt.Dimension(7, 23));
 
         nomeLabelAltRemss.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        nomeLabelAltRemss.setForeground(new java.awt.Color(67, 40, 28));
         nomeLabelAltRemss.setText("Nome do produto:");
 
         alterarRemss.setBackground(new java.awt.Color(102, 255, 102));
@@ -2676,26 +2763,32 @@ public class TelaPrincipal extends javax.swing.JFrame {
         voltarAltRemss.setText("Voltar");
 
         quantLabelAltRemss.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        quantLabelAltRemss.setForeground(new java.awt.Color(67, 40, 28));
         quantLabelAltRemss.setText("Quantidade:");
 
         fornLabelAltRemss.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fornLabelAltRemss.setForeground(new java.awt.Color(67, 40, 28));
         fornLabelAltRemss.setText("Fornecedor:");
 
         fornAltRemss.setBackground(new java.awt.Color(242, 214, 137));
         fornAltRemss.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        fornAltRemss.setForeground(new java.awt.Color(67, 40, 28));
         fornAltRemss.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         precoUniLabelAltRemss.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        precoUniLabelAltRemss.setForeground(new java.awt.Color(67, 40, 28));
         precoUniLabelAltRemss.setText("Preço Unitário:");
 
         precoUniAltRemss.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
 
         valLabelAltRemss.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        valLabelAltRemss.setForeground(new java.awt.Color(67, 40, 28));
         valLabelAltRemss.setText("Validade:");
 
         valAltRemss.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
 
         remssAltLabel.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        remssAltLabel.setForeground(new java.awt.Color(72, 57, 42));
         remssAltLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         remssAltLabel.setText("Alterar");
 
@@ -2788,9 +2881,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabVenda.setBackground(new java.awt.Color(251, 242, 212));
 
         vendaCadHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        vendaCadHeader.setForeground(new java.awt.Color(67, 40, 28));
         vendaCadHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         vendaCadHeader.setText("Vendas");
 
+        prodVendaList.setForeground(new java.awt.Color(67, 40, 28));
         prodVendaList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -2810,8 +2905,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        prodVendaList.setGridColor(new java.awt.Color(255, 255, 255));
+        prodVendaList.setSelectionBackground(new java.awt.Color(251, 242, 192));
         prodVendaScroll.setViewportView(prodVendaList);
 
+        vendaList.setForeground(new java.awt.Color(67, 40, 28));
         vendaList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -2831,22 +2929,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        vendaList.setGridColor(new java.awt.Color(255, 255, 255));
+        vendaList.setSelectionBackground(new java.awt.Color(251, 242, 192));
         vendaScroll.setViewportView(vendaList);
 
         vendProdLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        vendProdLabel.setForeground(new java.awt.Color(72, 57, 42));
         vendProdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         vendProdLabel.setText("Produtos");
 
         vendaLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        vendaLabel.setForeground(new java.awt.Color(72, 57, 42));
         vendaLabel.setText("Vendas");
 
         valorVendaCadLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        valorVendaCadLabel.setForeground(new java.awt.Color(67, 40, 28));
         valorVendaCadLabel.setText("Valor da Venda:");
 
         funcVendaCadLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        funcVendaCadLabel.setForeground(new java.awt.Color(67, 40, 28));
         funcVendaCadLabel.setText("Funcionários:");
 
         idProdVendaCadLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        idProdVendaCadLabel.setForeground(new java.awt.Color(67, 40, 28));
         idProdVendaCadLabel.setText("ID do Produto:");
 
         funcVendaCad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -2953,9 +3058,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabVendaAlt.setBackground(new java.awt.Color(251, 242, 212));
 
         vendaAltHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        vendaAltHeader.setForeground(new java.awt.Color(67, 40, 28));
         vendaAltHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         vendaAltHeader.setText("Vendas");
 
+        prodVendaAltList.setForeground(new java.awt.Color(67, 40, 28));
         prodVendaAltList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -2975,8 +3082,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        prodVendaAltList.setGridColor(new java.awt.Color(255, 255, 255));
+        prodVendaAltList.setSelectionBackground(new java.awt.Color(251, 242, 192));
         prodVendaAltScroll.setViewportView(prodVendaAltList);
 
+        vendaAltList.setForeground(new java.awt.Color(67, 40, 28));
         vendaAltList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -2996,22 +3106,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        vendaAltList.setGridColor(new java.awt.Color(255, 255, 255));
+        vendaAltList.setSelectionBackground(new java.awt.Color(251, 242, 192));
         vendaAltScroll.setViewportView(vendaAltList);
 
         prodVendaAltLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        prodVendaAltLabel.setForeground(new java.awt.Color(72, 57, 42));
         prodVendaAltLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         prodVendaAltLabel.setText("Produtos");
 
         vendaListLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        vendaListLabel.setForeground(new java.awt.Color(72, 57, 42));
         vendaListLabel.setText("Vendas");
 
         valorVendaAltLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        valorVendaAltLabel.setForeground(new java.awt.Color(67, 40, 28));
         valorVendaAltLabel.setText("Valor da Venda:");
 
         funcVendaAltLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        funcVendaAltLabel.setForeground(new java.awt.Color(67, 40, 28));
         funcVendaAltLabel.setText("Funcionários:");
 
         idProdVendaAltLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        idProdVendaAltLabel.setForeground(new java.awt.Color(67, 40, 28));
         idProdVendaAltLabel.setText("ID do Produto:");
 
         funcVendaAlt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -3033,9 +3150,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         vendaAltVoltar.setText("Voltar");
 
         idVendaAltLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        idVendaAltLabel.setForeground(new java.awt.Color(67, 40, 28));
         idVendaAltLabel.setText("ID da Venda:");
 
         vendaAltLabel.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        vendaAltLabel.setForeground(new java.awt.Color(72, 57, 42));
         vendaAltLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         vendaAltLabel.setText("Alterar");
 
@@ -4003,9 +4122,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addCargo;
-    private javax.swing.JButton addCargoAltFunc;
-    private javax.swing.JButton addTipoProd;
     private javax.swing.JLabel altEstqLabel;
     private javax.swing.JLabel altFornLabel;
     private javax.swing.JLabel altFuncHeader;
@@ -4049,8 +4165,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton cadastrarCadFunc;
     private javax.swing.JButton cadastrarCadProd;
     private javax.swing.JButton cadastrarCadRemss;
-    private javax.swing.JComboBox<String> cargoAltFunc;
-    private javax.swing.JComboBox<String> cargoCadFunc;
+    private javax.swing.JTextField cargoAltFunc;
+    private javax.swing.JTextField cargoCadFunc;
     private javax.swing.JLabel cargoLabel;
     private javax.swing.JLabel cargoLabelAltFunc;
     private javax.swing.JFormattedTextField cpfAltFunc;
@@ -4269,9 +4385,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel telLabelAltFunc;
     private javax.swing.JLabel telLabelFunc;
     private javax.swing.JTextField tipoAltForn;
-    private javax.swing.JComboBox<String> tipoAltProd;
+    private javax.swing.JTextField tipoAltProd;
     private javax.swing.JTextField tipoCadForn;
-    private javax.swing.JComboBox<String> tipoCadProd;
+    private javax.swing.JTextField tipoCadProd;
     private javax.swing.JLabel tipoLabelAltForn;
     private javax.swing.JLabel tipoLabelCadForn;
     private javax.swing.JLabel tipoLabelProd;
