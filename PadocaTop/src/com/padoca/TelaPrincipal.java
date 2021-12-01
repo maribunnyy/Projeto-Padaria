@@ -6,9 +6,13 @@
 package com.padoca;
 
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import javax.swing.JPanel;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.SwingUtilities;
@@ -26,6 +30,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
      */
     public TelaPrincipal() {
         initComponents();
+        initMoving(this);
     }
 
     /**
@@ -40,6 +45,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         genButtons = new javax.swing.ButtonGroup();
         padariaLogo = new javax.swing.JLabel();
         header = new javax.swing.JPanel();
+        closeBtn = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         padariaHeader = new javax.swing.JLabel();
         tabs = new javax.swing.JTabbedPane();
         tabFunc = new javax.swing.JPanel();
@@ -315,6 +322,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         vendaCadButton = new javax.swing.JButton();
         vendaAltButton = new javax.swing.JButton();
         vendaDelButton = new javax.swing.JButton();
+        valorVendaCadLabel1 = new javax.swing.JLabel();
+        qntVendaCad = new javax.swing.JFormattedTextField();
         tabVendaAlt = new javax.swing.JPanel();
         vendaAltHeader = new javax.swing.JLabel();
         prodVendaAltScroll = new javax.swing.JScrollPane();
@@ -354,6 +363,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setMaximizedBounds(new java.awt.Rectangle(0, 0, 1146, 804));
         setMaximumSize(new java.awt.Dimension(1146, 804));
         setName("telaPrincipal"); // NOI18N
+        setUndecorated(true);
+        setResizable(false);
         setSize(new java.awt.Dimension(1146, 804));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -364,6 +375,34 @@ public class TelaPrincipal extends javax.swing.JFrame {
         header.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 225, 225), new java.awt.Color(122, 74, 74), null));
         header.setForeground(new java.awt.Color(255, 204, 204));
         header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        closeBtn.setBackground(new java.awt.Color(249, 111, 93));
+        closeBtn.setForeground(new java.awt.Color(249, 111, 93));
+        closeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeBtnMouseClicked(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("X");
+
+        javax.swing.GroupLayout closeBtnLayout = new javax.swing.GroupLayout(closeBtn);
+        closeBtn.setLayout(closeBtnLayout);
+        closeBtnLayout.setHorizontalGroup(
+            closeBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+        closeBtnLayout.setVerticalGroup(
+            closeBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, closeBtnLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        header.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 10, 50, 50));
 
         padariaHeader.setFont(new java.awt.Font("Garamond", 1, 64)); // NOI18N
         padariaHeader.setForeground(new java.awt.Color(255, 255, 255));
@@ -1672,6 +1711,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cadastrarCadForn.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         cadastrarCadForn.setForeground(new java.awt.Color(0, 153, 0));
         cadastrarCadForn.setText("Cadastrar");
+        cadastrarCadForn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarCadFornActionPerformed(evt);
+            }
+        });
 
         limparCadForn.setBackground(new java.awt.Color(242, 214, 137));
         limparCadForn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -2940,7 +2984,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         valorVendaCadLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         valorVendaCadLabel.setForeground(new java.awt.Color(67, 40, 28));
-        valorVendaCadLabel.setText("Valor da Venda:");
+        valorVendaCadLabel.setText("Quantidade: ");
 
         funcVendaCadLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         funcVendaCadLabel.setForeground(new java.awt.Color(67, 40, 28));
@@ -2968,18 +3012,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
         vendaDelButton.setForeground(new java.awt.Color(255, 51, 51));
         vendaDelButton.setText("Excluir");
 
+        valorVendaCadLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        valorVendaCadLabel1.setForeground(new java.awt.Color(67, 40, 28));
+        valorVendaCadLabel1.setText("Valor da Venda:");
+
         javax.swing.GroupLayout tabVendaLayout = new javax.swing.GroupLayout(tabVenda);
         tabVenda.setLayout(tabVendaLayout);
         tabVendaLayout.setHorizontalGroup(
             tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabVendaLayout.createSequentialGroup()
+                .addGap(169, 169, 169)
+                .addComponent(vendProdLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabVendaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(vendaCadHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 841, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
-            .addGroup(tabVendaLayout.createSequentialGroup()
-                .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(tabVendaLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
                         .addComponent(prodVendaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(tabVendaLayout.createSequentialGroup()
@@ -2990,30 +3038,40 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                 .addComponent(vendaLabel))
                             .addGroup(tabVendaLayout.createSequentialGroup()
                                 .addGap(27, 27, 27)
+                                .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(idProdVendaCadLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(vendaCadButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(idProdVendaCad, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(tabVendaLayout.createSequentialGroup()
+                                        .addComponent(vendaAltButton, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                                        .addComponent(vendaDelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(tabVendaLayout.createSequentialGroup()
                                 .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(tabVendaLayout.createSequentialGroup()
-                                        .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(valorVendaCadLabel)
-                                            .addComponent(funcVendaCadLabel))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(valorVendaCad, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(funcVendaCad, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                                        .addComponent(funcVendaCadLabel)
+                                        .addGap(22, 22, 22))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabVendaLayout.createSequentialGroup()
+                                        .addGap(18, 18, Short.MAX_VALUE)
+                                        .addComponent(valorVendaCadLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(tabVendaLayout.createSequentialGroup()
-                                        .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(idProdVendaCadLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(vendaCadButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(idProdVendaCad, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(tabVendaLayout.createSequentialGroup()
-                                                .addComponent(vendaAltButton, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(vendaDelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
-                    .addGroup(tabVendaLayout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(vendProdLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(37, 37, 37))
+                                        .addGap(6, 6, 6)
+                                        .addComponent(funcVendaCad, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE))
+                                    .addGroup(tabVendaLayout.createSequentialGroup()
+                                        .addComponent(valorVendaCad, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(valorVendaCadLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(qntVendaCad, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
+                    .addComponent(vendaCadHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 841, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
         );
         tabVendaLayout.setVerticalGroup(
             tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3027,7 +3085,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addGroup(tabVendaLayout.createSequentialGroup()
                         .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(valorVendaCadLabel)
-                            .addComponent(valorVendaCad, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(valorVendaCad, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(qntVendaCad, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(valorVendaCadLabel1))
                         .addGap(21, 21, 21)
                         .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(funcVendaCadLabel)
@@ -3046,7 +3106,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(vendaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(prodVendaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab2", tabVenda);
@@ -3605,7 +3665,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     + "'" + fornCadEstq.getSelectedIndex()+"')");
             
             ResultSet rs = st.getResultSet();
-            JOptionPane.showMessageDialog(null, "Estoque cadastrado com sucesso");
+            JOptionPane.showMessageDialog(null, "Estoque: "+ nomeCadEstq.getText() +" cadastrado com sucesso");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e);
         }
@@ -3689,6 +3749,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     + "validade_produto,preco_produto,quantidade_produto,"
                     + "fk_id_fornecedor) VALUES ('"+nomeCadProd.getText()+"','"+valCadProd.getText()
             +"',"+precoCadProd.getText()+","+quantCadProd.getText()+",'"+fornCadProd.getSelectedIndex()+"');");
+            JOptionPane.showMessageDialog(null, "Produto: " + nomeCadProd.getText() + " cadastrado com sucesso!");
         } catch (Exception e) {
              e.printStackTrace();
              JOptionPane.showMessageDialog(null, e);
@@ -3804,7 +3865,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             st.executeUpdate("INSERT INTO tb_funcionario (nome_funcionario, salario_funcionario, cargo_funcionario, sexo, idade_funcionario, cpf, data_admissao_funcionario) VALUES ('"+nomeCadFunc.getText()+"',"+salarioCadFunc.getText().replace(",", "")+",'"+cargoCadFunc.getText()+"','"+sexo+"',"+idadeCadFunc.getText()+","+cpfCadFunc.getText()+", '"+data+"');");
             
             
-            JOptionPane.showMessageDialog(null, "Cadastro inserido com Sucesso!"); 
+            JOptionPane.showMessageDialog(null, "Funcionario "+ nomeCadFunc.getText() +" inserido com Sucesso!"); 
             nomeCadFunc.setText("");
             salarioCadFunc.setText("");
             cargoCadFunc.setText("");
@@ -3971,6 +4032,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     + "quantidade_remessa,precounitario_remessa,validade_remessa,"
                     + "fk_id_fornecedor) VALUES ('"+nomeCadRemss.getText()+"',"+quantCadRemss.getText()
             +","+precoUniCadRemss.getText()+",'"+valCadRemss.getText()+"','"+fornCadRemss.getSelectedIndex()+"');");
+            JOptionPane.showMessageDialog(null, "Remessa: " + nomeCadRemss.getText() + " cadastrada com sucesso!");
         } catch (Exception e) {
              e.printStackTrace();
         }
@@ -4072,7 +4134,50 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabs.setSelectedIndex(6);
     }//GEN-LAST:event_voltarCadFornActionPerformed
 
+    private void cadastrarCadFornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCadFornActionPerformed
+        // TODO add your handling code here:
+        try {
+            Conexao conn = new Conexao();
+            Statement st = conn.conexao.createStatement();
+            
+            st.executeUpdate("Insert into tb_fornecedor (nome_fornecedor,email_fornecedor, telefone_fornecedor, tipo_fornecedor, status_fornecedor) VALUES ('"+ nomeCadForn.getText() +"', '"+ emailCadForn.getText() +"', '"+ telCadForn.getText() +"',  '"+ tipoCadForn.getText() +"', '"+ sttsCadForn.getText() +"')");
+            JOptionPane.showMessageDialog(null, "Fornecedor: " + nomeCadForn.getText() + " adicionado com sucesso!");
+            nomeCadForn.setText("");
+            emailCadForn.setText("");
+            telCadForn.setText("");
+            tipoCadForn.setText("");
+            sttsCadForn.setText("");
+            
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_cadastrarCadFornActionPerformed
 
+    private void closeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_closeBtnMouseClicked
+
+    private int x;
+    private int y;
+    public void initMoving(JFrame frame) {
+        header.addMouseListener(new MouseAdapter(){
+            @Override
+            public void mousePressed(MouseEvent e) {
+                x = e.getX();
+                y = e.getY();
+            }
+            
+        });
+        header.addMouseMotionListener(new MouseMotionAdapter(){
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                frame.setLocation(e.getXOnScreen() - x, e.getYOnScreen() - y);
+            }
+            
+        });
+    }
     
     public void defaultColor(JPanel panel, JPanel panel1, JPanel panel2, JPanel panel3, JPanel panel4) {
         panel.setBackground(new Color(248,242,208));
@@ -4165,6 +4270,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField cargoCadFunc;
     private javax.swing.JLabel cargoLabel;
     private javax.swing.JLabel cargoLabelAltFunc;
+    private javax.swing.JPanel closeBtn;
     private javax.swing.JFormattedTextField cpfAltFunc;
     private javax.swing.JFormattedTextField cpfCadFunc;
     private javax.swing.JLabel cpfLabel;
@@ -4232,6 +4338,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField idadeCadFunc;
     private javax.swing.JLabel idadeLabel;
     private javax.swing.JLabel idadeLabelAltFunc;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton limparAltEstq;
     private javax.swing.JButton limparAltForn;
     private javax.swing.JButton limparAltFunc;
@@ -4324,6 +4431,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane prodVendaAltScroll;
     private javax.swing.JTable prodVendaList;
     private javax.swing.JScrollPane prodVendaScroll;
+    private javax.swing.JFormattedTextField qntVendaCad;
     private javax.swing.JTextField quantAltEstq;
     private javax.swing.JTextField quantAltProd;
     private javax.swing.JTextField quantAltRemss;
@@ -4404,6 +4512,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel valorVendaAltLabel;
     private javax.swing.JFormattedTextField valorVendaCad;
     private javax.swing.JLabel valorVendaCadLabel;
+    private javax.swing.JLabel valorVendaCadLabel1;
     private javax.swing.JLabel vendProdLabel;
     private javax.swing.JButton vendaAltButton;
     private javax.swing.JLabel vendaAltHeader;
