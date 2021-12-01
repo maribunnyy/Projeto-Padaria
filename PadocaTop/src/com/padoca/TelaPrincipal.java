@@ -264,7 +264,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tabIngre = new javax.swing.JPanel();
         IngreHeader = new javax.swing.JLabel();
         IngreScroll = new javax.swing.JScrollPane();
-        listaRemss = new javax.swing.JTable();
+        listaIngre = new javax.swing.JTable();
         botaoAddIngre = new javax.swing.JButton();
         botaoAltIngre = new javax.swing.JButton();
         botaoDelIngre = new javax.swing.JButton();
@@ -461,7 +461,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pesquisaSelectFunc.setBackground(new java.awt.Color(248, 242, 208));
         pesquisaSelectFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pesquisaSelectFunc.setForeground(new java.awt.Color(67, 40, 28));
-        pesquisaSelectFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Estoque>" }));
+        pesquisaSelectFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Funcionários>" }));
         pesquisaSelectFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pesquisaSelectFuncActionPerformed(evt);
@@ -1109,6 +1109,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pesquisaSelectProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pesquisaSelectProd.setForeground(new java.awt.Color(67, 40, 28));
         pesquisaSelectProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Produtos>" }));
+        pesquisaSelectProd.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+                pesquisaSelectProdCaretPositionChanged(evt);
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+            }
+        });
+        pesquisaSelectProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesquisaSelectProdActionPerformed(evt);
+            }
+        });
 
         prodNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         prodNome.setForeground(new java.awt.Color(67, 40, 28));
@@ -1581,6 +1593,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pesquisaSelectForn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pesquisaSelectForn.setForeground(new java.awt.Color(67, 40, 28));
         pesquisaSelectForn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Fornecedores>" }));
+        pesquisaSelectForn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesquisaSelectFornActionPerformed(evt);
+            }
+        });
 
         fornID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         fornID.setForeground(new java.awt.Color(67, 40, 28));
@@ -1987,16 +2004,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 "ID", "Nome", "Validade", "Preço", "Quantidade", "Fornecedor"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class, java.lang.Object.class, java.lang.Object.class
-            };
             boolean[] canEdit = new boolean [] {
                 false, true, true, true, true, true
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -2015,7 +2025,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         pesquisaSelectEstq.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pesquisaSelectEstq.setForeground(new java.awt.Color(67, 40, 28));
-        pesquisaSelectEstq.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pesquisaSelectEstq.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Estoque>" }));
+        pesquisaSelectEstq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesquisaSelectEstqActionPerformed(evt);
+            }
+        });
 
         estqID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         estqID.setForeground(new java.awt.Color(67, 40, 28));
@@ -2467,8 +2482,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         IngreHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         IngreHeader.setText("Ingredientes");
 
-        listaRemss.setForeground(new java.awt.Color(67, 40, 28));
-        listaRemss.setModel(new javax.swing.table.DefaultTableModel(
+        listaIngre.setForeground(new java.awt.Color(67, 40, 28));
+        listaIngre.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null}
             },
@@ -2484,9 +2499,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        listaRemss.setGridColor(new java.awt.Color(255, 255, 255));
-        listaRemss.setSelectionBackground(new java.awt.Color(251, 242, 192));
-        IngreScroll.setViewportView(listaRemss);
+        listaIngre.setGridColor(new java.awt.Color(255, 255, 255));
+        listaIngre.setSelectionBackground(new java.awt.Color(251, 242, 192));
+        IngreScroll.setViewportView(listaIngre);
 
         botaoAddIngre.setBackground(new java.awt.Color(102, 255, 102));
         botaoAddIngre.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -2522,6 +2537,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pesquisaSelectIngre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pesquisaSelectIngre.setForeground(new java.awt.Color(67, 40, 28));
         pesquisaSelectIngre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Ingredientes>" }));
+        pesquisaSelectIngre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesquisaSelectIngreActionPerformed(evt);
+            }
+        });
 
         IngreNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         IngreNome.setForeground(new java.awt.Color(67, 40, 28));
@@ -2985,6 +3005,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         vendaCadButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         vendaCadButton.setForeground(new java.awt.Color(0, 153, 0));
         vendaCadButton.setText("Registrar");
+        vendaCadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vendaCadButtonActionPerformed(evt);
+            }
+        });
 
         vendaAltButton.setBackground(new java.awt.Color(242, 214, 137));
         vendaAltButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -3540,7 +3565,39 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoAltEstqActionPerformed
 
     private void pesquisaSelectFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaSelectFuncActionPerformed
-       
+       String teste = String.valueOf(pesquisaSelectFunc.getSelectedItem());
+        DefaultTableModel model = (DefaultTableModel) listaFunc.getModel();
+        model.setNumRows(0);
+
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            if(teste == "<Funcionários>"){
+                st.executeQuery("Select * from tb_funcionario order by id_funcionario asc");
+            } else {
+                st.executeQuery("Select * from tb_funcionario where nome_funcionario = '"+ teste +"'");
+            }
+            
+             ResultSet rs  = st.getResultSet();
+            
+            while(rs.next()){
+                model.addRow(new Object[] {
+                    rs.getString("id_funcionario"),
+                    rs.getString("nome_funcionario"),
+                    rs.getString("sexo_funcionario"),
+                    rs.getString("cargo_funcionario"),
+                    rs.getString("telefone_funcionario"),
+                    rs.getString("idade_funcionario"),
+                    rs.getString("email_funcionario"),
+                    rs.getString("cpf"),
+                    "R$"+ rs.getString("salario_funcionario").replace(".", ","),
+                    rs.getString("data_admissao_funcionario")
+                    
+                });
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_pesquisaSelectFuncActionPerformed
 
     private void botaoAltIngreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAltIngreActionPerformed
@@ -4238,7 +4295,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             
          ResultSet rs = st.getResultSet();
          
-         DefaultTableModel model = (DefaultTableModel) listaRemss.getModel();
+         DefaultTableModel model = (DefaultTableModel) listaIngre.getModel();
          model.setNumRows(0);
          
          while(rs.next()) {
@@ -4296,6 +4353,162 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_closeBtnMouseClicked
+
+    private void pesquisaSelectProdCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_pesquisaSelectProdCaretPositionChanged
+        // TODO add your handling code here:
+       
+
+    }//GEN-LAST:event_pesquisaSelectProdCaretPositionChanged
+
+    private void pesquisaSelectProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaSelectProdActionPerformed
+        // TODO add your handling code here:
+        String teste = String.valueOf(pesquisaSelectProd.getSelectedItem());
+        DefaultTableModel model = (DefaultTableModel) listaProd.getModel();
+        model.setNumRows(0);
+
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            if(teste == "<Produtos>"){
+                st.executeQuery("Select p.*, f.nome_fornecedor from tb_produto p inner join tb_fornecedor f on f.id_fornecedor = p.fk_id_fornecedor order by id_produto asc");
+            } else {
+                st.executeQuery("Select p.*, f.nome_fornecedor from tb_produto p inner join tb_fornecedor f on f.id_fornecedor = p.fk_id_fornecedor where nome_produto = '"+ teste +"'");
+            }
+            
+             ResultSet rs  = st.getResultSet();
+            
+            while(rs.next()){
+                model.addRow(new Object[] {
+                    rs.getString("id_produto"),
+                    rs.getString("nome_produto"),
+                    rs.getString("validade_produto"),
+                    "R$"+ rs.getString("preco_produto").replace(".", ","),
+                    rs.getString("quantidade_produto"),
+                    rs.getString("nome_fornecedor")
+                });
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        
+        
+    }//GEN-LAST:event_pesquisaSelectProdActionPerformed
+
+    private void pesquisaSelectFornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaSelectFornActionPerformed
+        // TODO add your handling code here:
+        String teste = String.valueOf(pesquisaSelectForn.getSelectedItem());
+        DefaultTableModel model = (DefaultTableModel) listaForn.getModel();
+        model.setNumRows(0);
+
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            if(teste == "<Fornecedor>"){
+                st.executeQuery("Select * from tb_fornecedor order by id_fornecedor asc");
+            } else {
+                st.executeQuery("Select * from tb_fornecedor where nome_fornecedor = '"+ teste +"'");
+            }
+            
+             ResultSet rs  = st.getResultSet();
+            
+            while(rs.next()){
+                model.addRow(new Object[] {
+                    rs.getString("id_fornecedor"),
+                    rs.getString("nome_fornecedor"),
+                    rs.getString("tipo_fornecedor"),
+                    rs.getString("status_fornecedor"),
+                    rs.getString("telefone_fornecedor"),
+                    rs.getString("email_fornecedor")
+                });
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_pesquisaSelectFornActionPerformed
+
+    private void pesquisaSelectEstqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaSelectEstqActionPerformed
+        // TODO add your handling code here:
+        String teste = String.valueOf(pesquisaSelectEstq.getSelectedItem());
+        DefaultTableModel model = (DefaultTableModel) listaEstq.getModel();
+        model.setNumRows(0);
+
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            if(teste == "<Estoque>"){
+                st.executeQuery("Select e.*, f.nome_fornecedor from tb_estoque e inner join tb_fornecedor f on f.id_fornecedor = e.fk_id_fornecedor order by id_estoque asc");
+            } else {
+                st.executeQuery("Select e.*, f.nome_fornecedor from tb_estoque e inner join tb_fornecedor f on f.id_fornecedor = e.fk_id_fornecedor where nome_estoque = '"+ teste +"'");
+            }
+            
+             ResultSet rs  = st.getResultSet();
+            
+            while(rs.next()){
+                model.addRow(new Object[] {
+                    rs.getString("id_estoque"),
+                    rs.getString("nome_estoque"),
+                    rs.getString("validade_estoque"),
+                    "R$" + rs.getString("preco_compra"),
+                    rs.getString("quantidade_estoque"),
+                    rs.getString("nome_fornecedor")
+                });
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_pesquisaSelectEstqActionPerformed
+
+    private void pesquisaSelectIngreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaSelectIngreActionPerformed
+        // TODO add your handling code here:
+        String teste = String.valueOf(pesquisaSelectIngre.getSelectedItem());
+        DefaultTableModel model = (DefaultTableModel) listaIngre.getModel();
+        model.setNumRows(0);
+
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            if(teste == "<Ingredientes>"){
+                st.executeQuery("Select i.*, f.nome_fornecedor from tb_ingrediente i inner join tb_fornecedor f on f.id_fornecedor = i.fk_id_fornecedor order by id_ingrediente asc");
+            } else {
+                st.executeQuery("Select i.*, f.nome_fornecedor from tb_ingrediente i inner join tb_fornecedor f on f.id_fornecedor = i.fk_id_fornecedor where nome_ingrediente = '"+ teste +"'");
+            }
+            
+             ResultSet rs  = st.getResultSet();
+            
+            while(rs.next()){
+                model.addRow(new Object[] {
+                    rs.getString("id_ingrediente"),
+                    rs.getString("nome_ingrediente"),
+                    rs.getString("validade_ingrediente"),
+                    "R$" + rs.getString("precounitario_ingrediente"),
+                    rs.getString("quantidade_ingrediente"),
+                    rs.getString("nome_fornecedor")
+                });
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_pesquisaSelectIngreActionPerformed
+
+    private void vendaCadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendaCadButtonActionPerformed
+        // TODO add your handling code here:
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            st.executeUpdate("insert into tb_venda (valor_venda, fk_id_funcionario, fk_id_produto, qtd_venda) VALUES ("+ valorVendaCad.getText() +", "+ funcVendaCad.getSelectedIndex() +", "+ idProdVendaCad.getText() +", "+ qntVendaCad.getText() +" )");
+            String qtd = qntVendaCad.getText();
+            st.executeUpdate("Update tb_produto set quantidade_produto =  quantidade_produto - "+  qtd + " where id_produto = "+ idProdVendaCad.getText() +"");
+            
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        valorVendaCad.setText("");
+        funcVendaCad.setSelectedIndex(0);
+        idProdVendaCad.setText("");
+        qntVendaCad.setText("");
+    }//GEN-LAST:event_vendaCadButtonActionPerformed
 
     private int x;
     private int y;
@@ -4497,8 +4710,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTable listaEstq;
     private javax.swing.JTable listaForn;
     private javax.swing.JTable listaFunc;
+    private javax.swing.JTable listaIngre;
     private javax.swing.JTable listaProd;
-    private javax.swing.JTable listaRemss;
     private javax.swing.JRadioButton mascButton;
     private javax.swing.JRadioButton mascButtonAltFunc;
     private javax.swing.JTextField nomeAltEstq;
