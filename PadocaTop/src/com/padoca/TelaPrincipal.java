@@ -2205,7 +2205,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         quantLabelCadEstq.setForeground(new java.awt.Color(67, 40, 28));
         quantLabelCadEstq.setText("Quantidade:");
 
-        valCadEstq.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        valCadEstq.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         valCadEstq.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
 
         estqCadLabel.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
@@ -2351,8 +2351,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         quantLabelAltEstq.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         quantLabelAltEstq.setForeground(new java.awt.Color(67, 40, 28));
         quantLabelAltEstq.setText("Quantidade:");
-
-        valAltEstq.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
 
         idLabelAltEstq.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         idLabelAltEstq.setForeground(new java.awt.Color(67, 40, 28));
@@ -2682,6 +2680,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         valLabelCadRemss.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         valLabelCadRemss.setForeground(new java.awt.Color(67, 40, 28));
         valLabelCadRemss.setText("Validade:");
+
+        valCadRemss.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
 
         cadRemssLabel.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         cadRemssLabel.setForeground(new java.awt.Color(72, 57, 42));
@@ -3716,12 +3716,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         pesquisaSelectProd.removeAllItems();
         try {
+            
+            String data = valCadEstq.getText();
+        
+            String [] dataAlterada = data.split("/");
+        
+            LocalDate dataNova = LocalDate.of(Integer.parseInt(dataAlterada[2]), Integer.parseInt(dataAlterada[1]), Integer.parseInt(dataAlterada[0]));
+            
             Conexao con = new Conexao();
             Statement st = con.conexao.createStatement();
             
             st.executeUpdate("insert into tb_estoque (nome_estoque, validade_estoque, preco_estoque, quantidade_estoque, fk_id_fornecedor) VALUES ("
                     + "'" + nomeCadEstq.getText() +"', "
-                    + "'" + valCadEstq.getText() + "', "
+                    + "'" + dataNova + "', "
                     + "" + precoCadEstq.getText().replace(",", ".") +", "
                     + "" + quantCadEstq.getText() +", "
                     + "'" + fornCadEstq.getSelectedIndex()+"')");
@@ -3804,12 +3811,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void cadastrarCadProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCadProdActionPerformed
           
+        
+        String data = valCadProd.getText();
+        
+        String [] dataAlterada = data.split("/");
+        
+        LocalDate dataNova = LocalDate.of(Integer.parseInt(dataAlterada[2]), Integer.parseInt(dataAlterada[1]), Integer.parseInt(dataAlterada[0]));
+        
         try {
             Conexao con = new Conexao();
             Statement st = con.conexao.createStatement();
             st.executeUpdate("INSERT INTO tb_produto(nome_produto,"
                     + "validade_produto,preco_produto,quantidade_produto,"
-                    + "fk_id_fornecedor) VALUES ('"+nomeCadProd.getText()+"','"+valCadProd.getText()
+                    + "fk_id_fornecedor) VALUES ('"+nomeCadProd.getText()+"','"+dataNova
             +"',"+precoCadProd.getText()+","+quantCadProd.getText()+",'"+fornCadProd.getSelectedIndex()+"');");
             JOptionPane.showMessageDialog(null, "Produto: " + nomeCadProd.getText() + " cadastrado com sucesso!");
         } catch (Exception e) {
@@ -4096,13 +4110,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoAddRemssActionPerformed
 
     private void cadastrarCadRemssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCadRemssActionPerformed
-       try {
+       
+        String data = valCadRemss.getText();
+        
+        String [] dataAlterada = data.split("/");
+        
+        LocalDate dataNova = LocalDate.of(Integer.parseInt(dataAlterada[2]), Integer.parseInt(dataAlterada[1]), Integer.parseInt(dataAlterada[0]));
+        
+        try {
             Conexao con = new Conexao();
             Statement st = con.conexao.createStatement();
             st.executeUpdate("INSERT INTO padaria.tb_remessa(nome_produto,"
                     + "quantidade_remessa,precounitario_remessa,validade_remessa,"
                     + "fk_id_fornecedor) VALUES ('"+nomeCadRemss.getText()+"',"+quantCadRemss.getText()
-            +","+precoUniCadRemss.getText()+",'"+valCadRemss.getText()+"','"+fornCadRemss.getSelectedIndex()+"');");
+            +","+precoUniCadRemss.getText()+",'"+dataNova+"','"+fornCadRemss.getSelectedIndex()+"');");
             JOptionPane.showMessageDialog(null, "Remessa: " + nomeCadRemss.getText() + " cadastrada com sucesso!");
         } catch (Exception e) {
              e.printStackTrace();
