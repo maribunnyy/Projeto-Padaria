@@ -261,37 +261,37 @@ public class TelaPrincipal extends javax.swing.JFrame {
         idLabelAltEstq = new javax.swing.JLabel();
         idAltEstq = new javax.swing.JTextField();
         altEstqLabel = new javax.swing.JLabel();
-        tabRemss = new javax.swing.JPanel();
-        remssHeader = new javax.swing.JLabel();
-        remssScroll = new javax.swing.JScrollPane();
+        tabIngre = new javax.swing.JPanel();
+        IngreHeader = new javax.swing.JLabel();
+        IngreScroll = new javax.swing.JScrollPane();
         listaRemss = new javax.swing.JTable();
-        botaoAddRemss = new javax.swing.JButton();
-        botaoAltRemss = new javax.swing.JButton();
-        botaoDelRemss = new javax.swing.JButton();
-        remssSelect = new javax.swing.JLabel();
-        pesquisaSelectRemss = new javax.swing.JComboBox<>();
-        remssNome = new javax.swing.JLabel();
-        pesquisaNomeRemss = new javax.swing.JTextField();
-        remssID = new javax.swing.JLabel();
-        pesquisaIdRemss = new javax.swing.JTextField();
-        pesquisaBotaoProd1 = new javax.swing.JButton();
-        tabRemssCad = new javax.swing.JPanel();
-        remssCadHeader = new javax.swing.JLabel();
-        nomeCadRemss = new javax.swing.JTextField();
-        nomeLabelCadRemss = new javax.swing.JLabel();
-        cadastrarCadRemss = new javax.swing.JButton();
-        limparCadRemss = new javax.swing.JButton();
-        voltarCadRemss = new javax.swing.JButton();
-        quantLabelCadRemss = new javax.swing.JLabel();
-        fornLabelCadRemss = new javax.swing.JLabel();
-        fornCadRemss = new javax.swing.JComboBox<>();
-        precoUniLabelCadRemss = new javax.swing.JLabel();
-        precoUniCadRemss = new javax.swing.JFormattedTextField();
-        valLabelCadRemss = new javax.swing.JLabel();
-        valCadRemss = new javax.swing.JFormattedTextField();
-        cadRemssLabel = new javax.swing.JLabel();
-        quantCadRemss = new javax.swing.JTextField();
-        tabRemssAlt = new javax.swing.JPanel();
+        botaoAddIngre = new javax.swing.JButton();
+        botaoAltIngre = new javax.swing.JButton();
+        botaoDelIngre = new javax.swing.JButton();
+        IngreSelect = new javax.swing.JLabel();
+        pesquisaSelectIngre = new javax.swing.JComboBox<>();
+        IngreNome = new javax.swing.JLabel();
+        pesquisaNomeIngre = new javax.swing.JTextField();
+        IngreID = new javax.swing.JLabel();
+        pesquisaIdIngre = new javax.swing.JTextField();
+        pesquisaBotaoIngre = new javax.swing.JButton();
+        tabIngreCad = new javax.swing.JPanel();
+        IngreCadHeader = new javax.swing.JLabel();
+        nomeCadIngre = new javax.swing.JTextField();
+        nomeLabelCadIngre = new javax.swing.JLabel();
+        cadastrarCadIngre = new javax.swing.JButton();
+        limparCadIngre = new javax.swing.JButton();
+        voltarCadIngre = new javax.swing.JButton();
+        quantLabelCadIngre = new javax.swing.JLabel();
+        fornLabelCadIngre = new javax.swing.JLabel();
+        fornCadIngre = new javax.swing.JComboBox<>();
+        precoUniLabelCadIngre = new javax.swing.JLabel();
+        precoUniCadIngre = new javax.swing.JFormattedTextField();
+        valLabelCadIngre = new javax.swing.JLabel();
+        valCadIngre = new javax.swing.JFormattedTextField();
+        cadIngreLabel = new javax.swing.JLabel();
+        quantCadIngre = new javax.swing.JTextField();
+        tabIngreAlt = new javax.swing.JPanel();
         remssAltHeader = new javax.swing.JLabel();
         nomeAltRemss = new javax.swing.JTextField();
         nomeLabelAltRemss = new javax.swing.JLabel();
@@ -358,7 +358,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         panForn = new javax.swing.JPanel();
         btnForn = new javax.swing.JLabel();
         panRemessa = new javax.swing.JPanel();
-        btnRemessa = new javax.swing.JLabel();
+        btnIngredientes = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 204, 204));
@@ -2460,12 +2460,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         tabs.addTab("tab3", tabEstqAlt);
 
-        tabRemss.setBackground(new java.awt.Color(251, 242, 212));
+        tabIngre.setBackground(new java.awt.Color(251, 242, 212));
 
-        remssHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        remssHeader.setForeground(new java.awt.Color(67, 40, 28));
-        remssHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        remssHeader.setText("Remessas");
+        IngreHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        IngreHeader.setForeground(new java.awt.Color(67, 40, 28));
+        IngreHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        IngreHeader.setText("Ingredientes");
 
         listaRemss.setForeground(new java.awt.Color(67, 40, 28));
         listaRemss.setModel(new javax.swing.table.DefaultTableModel(
@@ -2486,297 +2486,295 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         listaRemss.setGridColor(new java.awt.Color(255, 255, 255));
         listaRemss.setSelectionBackground(new java.awt.Color(251, 242, 192));
-        remssScroll.setViewportView(listaRemss);
+        IngreScroll.setViewportView(listaRemss);
 
-        botaoAddRemss.setBackground(new java.awt.Color(102, 255, 102));
-        botaoAddRemss.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        botaoAddRemss.setForeground(new java.awt.Color(0, 153, 0));
-        botaoAddRemss.setText("Adicionar");
-        botaoAddRemss.addActionListener(new java.awt.event.ActionListener() {
+        botaoAddIngre.setBackground(new java.awt.Color(102, 255, 102));
+        botaoAddIngre.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        botaoAddIngre.setForeground(new java.awt.Color(0, 153, 0));
+        botaoAddIngre.setText("Adicionar");
+        botaoAddIngre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoAddRemssActionPerformed(evt);
+                botaoAddIngreActionPerformed(evt);
             }
         });
 
-        botaoAltRemss.setBackground(new java.awt.Color(242, 214, 137));
-        botaoAltRemss.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        botaoAltRemss.setForeground(new java.awt.Color(192, 134, 47));
-        botaoAltRemss.setText("Alterar");
-        botaoAltRemss.setPreferredSize(new java.awt.Dimension(105, 27));
-        botaoAltRemss.addActionListener(new java.awt.event.ActionListener() {
+        botaoAltIngre.setBackground(new java.awt.Color(242, 214, 137));
+        botaoAltIngre.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        botaoAltIngre.setForeground(new java.awt.Color(192, 134, 47));
+        botaoAltIngre.setText("Alterar");
+        botaoAltIngre.setPreferredSize(new java.awt.Dimension(105, 27));
+        botaoAltIngre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoAltRemssActionPerformed(evt);
+                botaoAltIngreActionPerformed(evt);
             }
         });
 
-        botaoDelRemss.setBackground(new java.awt.Color(255, 153, 153));
-        botaoDelRemss.setFont(new java.awt.Font("Verdana", 3, 14)); // NOI18N
-        botaoDelRemss.setForeground(new java.awt.Color(255, 51, 51));
-        botaoDelRemss.setText("Excluir");
-        botaoDelRemss.setPreferredSize(new java.awt.Dimension(105, 27));
+        botaoDelIngre.setBackground(new java.awt.Color(255, 153, 153));
+        botaoDelIngre.setFont(new java.awt.Font("Verdana", 3, 14)); // NOI18N
+        botaoDelIngre.setForeground(new java.awt.Color(255, 51, 51));
+        botaoDelIngre.setText("Excluir");
+        botaoDelIngre.setPreferredSize(new java.awt.Dimension(105, 27));
 
-        remssSelect.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        remssSelect.setForeground(new java.awt.Color(67, 40, 28));
-        remssSelect.setText("Tipo de Produto:");
+        IngreSelect.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        IngreSelect.setForeground(new java.awt.Color(67, 40, 28));
+        IngreSelect.setText("Tipo de Produto:");
 
-        pesquisaSelectRemss.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        pesquisaSelectRemss.setForeground(new java.awt.Color(67, 40, 28));
-        pesquisaSelectRemss.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Remessas>" }));
+        pesquisaSelectIngre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pesquisaSelectIngre.setForeground(new java.awt.Color(67, 40, 28));
+        pesquisaSelectIngre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Ingredientes>" }));
 
-        remssNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        remssNome.setForeground(new java.awt.Color(67, 40, 28));
-        remssNome.setText("Nome:");
+        IngreNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        IngreNome.setForeground(new java.awt.Color(67, 40, 28));
+        IngreNome.setText("Nome:");
 
-        pesquisaNomeRemss.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pesquisaNomeIngre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        remssID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        remssID.setForeground(new java.awt.Color(67, 40, 28));
-        remssID.setText("ID:");
+        IngreID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        IngreID.setForeground(new java.awt.Color(67, 40, 28));
+        IngreID.setText("ID:");
 
-        pesquisaIdRemss.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pesquisaIdIngre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        pesquisaBotaoProd1.setBackground(new java.awt.Color(242, 214, 137));
-        pesquisaBotaoProd1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        pesquisaBotaoProd1.setForeground(new java.awt.Color(192, 134, 47));
-        pesquisaBotaoProd1.setText("Pesquisar");
-        pesquisaBotaoProd1.addActionListener(new java.awt.event.ActionListener() {
+        pesquisaBotaoIngre.setBackground(new java.awt.Color(242, 214, 137));
+        pesquisaBotaoIngre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        pesquisaBotaoIngre.setForeground(new java.awt.Color(192, 134, 47));
+        pesquisaBotaoIngre.setText("Pesquisar");
+        pesquisaBotaoIngre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pesquisaBotaoProd1ActionPerformed(evt);
+                pesquisaBotaoIngreActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout tabRemssLayout = new javax.swing.GroupLayout(tabRemss);
-        tabRemss.setLayout(tabRemssLayout);
-        tabRemssLayout.setHorizontalGroup(
-            tabRemssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabRemssLayout.createSequentialGroup()
+        javax.swing.GroupLayout tabIngreLayout = new javax.swing.GroupLayout(tabIngre);
+        tabIngre.setLayout(tabIngreLayout);
+        tabIngreLayout.setHorizontalGroup(
+            tabIngreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabIngreLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addGroup(tabRemssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(remssHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 841, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(tabRemssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(tabRemssLayout.createSequentialGroup()
-                            .addGroup(tabRemssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(remssNome)
-                                .addComponent(remssID)
-                                .addComponent(remssSelect))
+                .addGroup(tabIngreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(IngreHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 841, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tabIngreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(tabIngreLayout.createSequentialGroup()
+                            .addGroup(tabIngreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(IngreNome)
+                                .addComponent(IngreID)
+                                .addComponent(IngreSelect))
                             .addGap(36, 36, 36)
-                            .addGroup(tabRemssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(pesquisaSelectRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(pesquisaNomeRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(tabRemssLayout.createSequentialGroup()
-                                    .addComponent(pesquisaIdRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(tabIngreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(pesquisaSelectIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(pesquisaNomeIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(tabIngreLayout.createSequentialGroup()
+                                    .addComponent(pesquisaIdIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(pesquisaBotaoProd1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(pesquisaBotaoIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(67, 67, 67)
-                            .addGroup(tabRemssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(botaoAddRemss, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botaoAltRemss, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botaoDelRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(remssScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 832, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(tabIngreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(botaoAddIngre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botaoAltIngre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botaoDelIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(IngreScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 832, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
-        tabRemssLayout.setVerticalGroup(
-            tabRemssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabRemssLayout.createSequentialGroup()
+        tabIngreLayout.setVerticalGroup(
+            tabIngreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabIngreLayout.createSequentialGroup()
                 .addGap(180, 180, 180)
-                .addComponent(remssHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(IngreHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(tabRemssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabRemssLayout.createSequentialGroup()
-                        .addComponent(botaoAddRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(tabIngreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabIngreLayout.createSequentialGroup()
+                        .addComponent(botaoAddIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(tabRemssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(tabRemssLayout.createSequentialGroup()
-                                .addComponent(botaoAltRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(tabIngreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(tabIngreLayout.createSequentialGroup()
+                                .addComponent(botaoAltIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(46, 46, 46))
-                            .addComponent(botaoDelRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(tabRemssLayout.createSequentialGroup()
-                        .addGroup(tabRemssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(pesquisaSelectRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(remssSelect))
+                            .addComponent(botaoDelIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(tabIngreLayout.createSequentialGroup()
+                        .addGroup(tabIngreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pesquisaSelectIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(IngreSelect))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(tabRemssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(pesquisaNomeRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(remssNome))
+                        .addGroup(tabIngreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pesquisaNomeIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(IngreNome))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(tabRemssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(tabRemssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(pesquisaIdRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(remssID))
-                            .addComponent(pesquisaBotaoProd1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(tabIngreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(tabIngreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(pesquisaIdIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(IngreID))
+                            .addComponent(pesquisaBotaoIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(remssScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(IngreScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        tabs.addTab("tab1", tabRemss);
+        tabs.addTab("tab1", tabIngre);
 
-        tabRemssCad.setBackground(new java.awt.Color(251, 242, 212));
+        tabIngreCad.setBackground(new java.awt.Color(251, 242, 212));
 
-        remssCadHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        remssCadHeader.setForeground(new java.awt.Color(67, 40, 28));
-        remssCadHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        remssCadHeader.setText("Remessas");
+        IngreCadHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        IngreCadHeader.setForeground(new java.awt.Color(67, 40, 28));
+        IngreCadHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        IngreCadHeader.setText("Ingredientes");
 
-        nomeCadRemss.setPreferredSize(new java.awt.Dimension(7, 23));
+        nomeCadIngre.setPreferredSize(new java.awt.Dimension(7, 23));
 
-        nomeLabelCadRemss.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        nomeLabelCadRemss.setForeground(new java.awt.Color(67, 40, 28));
-        nomeLabelCadRemss.setText("Nome do produto:");
+        nomeLabelCadIngre.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        nomeLabelCadIngre.setForeground(new java.awt.Color(67, 40, 28));
+        nomeLabelCadIngre.setText("Nome do produto:");
 
-        cadastrarCadRemss.setBackground(new java.awt.Color(102, 255, 102));
-        cadastrarCadRemss.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        cadastrarCadRemss.setForeground(new java.awt.Color(0, 153, 0));
-        cadastrarCadRemss.setText("Cadastrar");
-        cadastrarCadRemss.addActionListener(new java.awt.event.ActionListener() {
+        cadastrarCadIngre.setBackground(new java.awt.Color(102, 255, 102));
+        cadastrarCadIngre.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        cadastrarCadIngre.setForeground(new java.awt.Color(0, 153, 0));
+        cadastrarCadIngre.setText("Cadastrar");
+        cadastrarCadIngre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastrarCadRemssActionPerformed(evt);
+                cadastrarCadIngreActionPerformed(evt);
             }
         });
 
-        limparCadRemss.setBackground(new java.awt.Color(242, 214, 137));
-        limparCadRemss.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        limparCadRemss.setForeground(new java.awt.Color(192, 134, 47));
-        limparCadRemss.setText("Limpar");
-        limparCadRemss.addActionListener(new java.awt.event.ActionListener() {
+        limparCadIngre.setBackground(new java.awt.Color(242, 214, 137));
+        limparCadIngre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        limparCadIngre.setForeground(new java.awt.Color(192, 134, 47));
+        limparCadIngre.setText("Limpar");
+        limparCadIngre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                limparCadRemssActionPerformed(evt);
+                limparCadIngreActionPerformed(evt);
             }
         });
 
-        voltarCadRemss.setBackground(new java.awt.Color(242, 214, 137));
-        voltarCadRemss.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        voltarCadRemss.setForeground(new java.awt.Color(192, 134, 47));
-        voltarCadRemss.setText("Voltar");
-        voltarCadRemss.addActionListener(new java.awt.event.ActionListener() {
+        voltarCadIngre.setBackground(new java.awt.Color(242, 214, 137));
+        voltarCadIngre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        voltarCadIngre.setForeground(new java.awt.Color(192, 134, 47));
+        voltarCadIngre.setText("Voltar");
+        voltarCadIngre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                voltarCadRemssActionPerformed(evt);
+                voltarCadIngreActionPerformed(evt);
             }
         });
 
-        quantLabelCadRemss.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        quantLabelCadRemss.setForeground(new java.awt.Color(67, 40, 28));
-        quantLabelCadRemss.setText("Quantidade:");
+        quantLabelCadIngre.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        quantLabelCadIngre.setForeground(new java.awt.Color(67, 40, 28));
+        quantLabelCadIngre.setText("Quantidade:");
 
-        fornLabelCadRemss.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        fornLabelCadRemss.setForeground(new java.awt.Color(67, 40, 28));
-        fornLabelCadRemss.setText("Fornecedor:");
+        fornLabelCadIngre.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fornLabelCadIngre.setForeground(new java.awt.Color(67, 40, 28));
+        fornLabelCadIngre.setText("Fornecedor:");
 
-        fornCadRemss.setBackground(new java.awt.Color(242, 214, 137));
-        fornCadRemss.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        fornCadRemss.setForeground(new java.awt.Color(67, 40, 28));
-        fornCadRemss.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Fornecedores>" }));
+        fornCadIngre.setBackground(new java.awt.Color(242, 214, 137));
+        fornCadIngre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        fornCadIngre.setForeground(new java.awt.Color(67, 40, 28));
+        fornCadIngre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Fornecedores>" }));
 
-        precoUniLabelCadRemss.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        precoUniLabelCadRemss.setForeground(new java.awt.Color(67, 40, 28));
-        precoUniLabelCadRemss.setText("Preço Unitário:");
+        precoUniLabelCadIngre.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        precoUniLabelCadIngre.setForeground(new java.awt.Color(67, 40, 28));
+        precoUniLabelCadIngre.setText("Preço Unitário:");
 
-        precoUniCadRemss.addActionListener(new java.awt.event.ActionListener() {
+        precoUniCadIngre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                precoUniCadRemssActionPerformed(evt);
+                precoUniCadIngreActionPerformed(evt);
             }
         });
 
-        valLabelCadRemss.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        valLabelCadRemss.setForeground(new java.awt.Color(67, 40, 28));
-        valLabelCadRemss.setText("Validade:");
+        valLabelCadIngre.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        valLabelCadIngre.setForeground(new java.awt.Color(67, 40, 28));
+        valLabelCadIngre.setText("Validade:");
 
-        valCadRemss.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        cadIngreLabel.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        cadIngreLabel.setForeground(new java.awt.Color(72, 57, 42));
+        cadIngreLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cadIngreLabel.setText("Cadastro");
 
-        cadRemssLabel.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        cadRemssLabel.setForeground(new java.awt.Color(72, 57, 42));
-        cadRemssLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        cadRemssLabel.setText("Cadastro");
-
-        javax.swing.GroupLayout tabRemssCadLayout = new javax.swing.GroupLayout(tabRemssCad);
-        tabRemssCad.setLayout(tabRemssCadLayout);
-        tabRemssCadLayout.setHorizontalGroup(
-            tabRemssCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabRemssCadLayout.createSequentialGroup()
+        javax.swing.GroupLayout tabIngreCadLayout = new javax.swing.GroupLayout(tabIngreCad);
+        tabIngreCad.setLayout(tabIngreCadLayout);
+        tabIngreCadLayout.setHorizontalGroup(
+            tabIngreCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabIngreCadLayout.createSequentialGroup()
                 .addGap(83, 83, 83)
-                .addGroup(tabRemssCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabRemssCadLayout.createSequentialGroup()
-                        .addComponent(fornLabelCadRemss)
+                .addGroup(tabIngreCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabIngreCadLayout.createSequentialGroup()
+                        .addComponent(fornLabelCadIngre)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(tabRemssCadLayout.createSequentialGroup()
-                        .addGroup(tabRemssCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(tabRemssCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(voltarCadRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(tabRemssCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(quantLabelCadRemss)
-                                    .addComponent(nomeLabelCadRemss)
-                                    .addComponent(precoUniLabelCadRemss)))
-                            .addComponent(valLabelCadRemss))
-                        .addGroup(tabRemssCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(tabRemssCadLayout.createSequentialGroup()
+                    .addGroup(tabIngreCadLayout.createSequentialGroup()
+                        .addGroup(tabIngreCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tabIngreCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(voltarCadIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(tabIngreCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(quantLabelCadIngre)
+                                    .addComponent(nomeLabelCadIngre)
+                                    .addComponent(precoUniLabelCadIngre)))
+                            .addComponent(valLabelCadIngre))
+                        .addGroup(tabIngreCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tabIngreCadLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(tabRemssCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(cadastrarCadRemss, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                                    .addComponent(limparCadRemss, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(tabIngreCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(cadastrarCadIngre, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                                    .addComponent(limparCadIngre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(129, 129, 129))
-                            .addGroup(tabRemssCadLayout.createSequentialGroup()
+                            .addGroup(tabIngreCadLayout.createSequentialGroup()
                                 .addGap(19, 19, 19)
-                                .addGroup(tabRemssCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(fornCadRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(valCadRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(precoUniCadRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(tabIngreCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(fornCadIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(valCadIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(precoUniCadIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(tabRemssCadLayout.createSequentialGroup()
+                            .addGroup(tabIngreCadLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addGroup(tabRemssCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nomeCadRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(quantCadRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(tabIngreCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nomeCadIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(quantCadIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-            .addGroup(tabRemssCadLayout.createSequentialGroup()
-                .addGroup(tabRemssCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabRemssCadLayout.createSequentialGroup()
+            .addGroup(tabIngreCadLayout.createSequentialGroup()
+                .addGroup(tabIngreCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabIngreCadLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(remssCadHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(tabRemssCadLayout.createSequentialGroup()
+                        .addComponent(IngreCadHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tabIngreCadLayout.createSequentialGroup()
                         .addGap(341, 341, 341)
-                        .addComponent(cadRemssLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cadIngreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
-        tabRemssCadLayout.setVerticalGroup(
-            tabRemssCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabRemssCadLayout.createSequentialGroup()
+        tabIngreCadLayout.setVerticalGroup(
+            tabIngreCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabIngreCadLayout.createSequentialGroup()
                 .addGap(177, 177, 177)
-                .addComponent(remssCadHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(IngreCadHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cadRemssLabel)
+                .addComponent(cadIngreLabel)
                 .addGap(47, 47, 47)
-                .addGroup(tabRemssCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomeLabelCadRemss)
-                    .addComponent(nomeCadRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(tabIngreCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nomeLabelCadIngre)
+                    .addComponent(nomeCadIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
-                .addGroup(tabRemssCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(quantLabelCadRemss)
-                    .addComponent(quantCadRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(tabIngreCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(quantLabelCadIngre)
+                    .addComponent(quantCadIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
-                .addGroup(tabRemssCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(precoUniLabelCadRemss)
-                    .addComponent(precoUniCadRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(tabIngreCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(precoUniLabelCadIngre)
+                    .addComponent(precoUniCadIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
-                .addGroup(tabRemssCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(valLabelCadRemss)
-                    .addComponent(valCadRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(tabIngreCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(valLabelCadIngre)
+                    .addComponent(valCadIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
-                .addGroup(tabRemssCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fornLabelCadRemss)
-                    .addComponent(fornCadRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(tabIngreCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fornLabelCadIngre)
+                    .addComponent(fornCadIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addComponent(cadastrarCadRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cadastrarCadIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(tabRemssCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(voltarCadRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(tabRemssCadLayout.createSequentialGroup()
-                        .addComponent(limparCadRemss, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                .addGroup(tabIngreCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(voltarCadIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tabIngreCadLayout.createSequentialGroup()
+                        .addComponent(limparCadIngre, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                         .addContainerGap(100, Short.MAX_VALUE))))
         );
 
-        tabs.addTab("tab3", tabRemssCad);
+        tabs.addTab("tab3", tabIngreCad);
 
-        tabRemssAlt.setBackground(new java.awt.Color(251, 242, 212));
+        tabIngreAlt.setBackground(new java.awt.Color(251, 242, 212));
 
         remssAltHeader.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         remssAltHeader.setForeground(new java.awt.Color(67, 40, 28));
@@ -2834,91 +2832,91 @@ public class TelaPrincipal extends javax.swing.JFrame {
         remssAltLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         remssAltLabel.setText("Alterar");
 
-        javax.swing.GroupLayout tabRemssAltLayout = new javax.swing.GroupLayout(tabRemssAlt);
-        tabRemssAlt.setLayout(tabRemssAltLayout);
-        tabRemssAltLayout.setHorizontalGroup(
-            tabRemssAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabRemssAltLayout.createSequentialGroup()
+        javax.swing.GroupLayout tabIngreAltLayout = new javax.swing.GroupLayout(tabIngreAlt);
+        tabIngreAlt.setLayout(tabIngreAltLayout);
+        tabIngreAltLayout.setHorizontalGroup(
+            tabIngreAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabIngreAltLayout.createSequentialGroup()
                 .addGap(83, 83, 83)
-                .addGroup(tabRemssAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabRemssAltLayout.createSequentialGroup()
+                .addGroup(tabIngreAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabIngreAltLayout.createSequentialGroup()
                         .addComponent(fornLabelAltRemss)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(tabRemssAltLayout.createSequentialGroup()
-                        .addGroup(tabRemssAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(tabRemssAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(tabIngreAltLayout.createSequentialGroup()
+                        .addGroup(tabIngreAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tabIngreAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(voltarAltRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(tabRemssAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(tabIngreAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(quantLabelAltRemss)
                                     .addComponent(nomeLabelAltRemss)
                                     .addComponent(precoUniLabelAltRemss)))
                             .addComponent(valLabelAltRemss))
-                        .addGroup(tabRemssAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(tabRemssAltLayout.createSequentialGroup()
+                        .addGroup(tabIngreAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tabIngreAltLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(tabRemssAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(tabIngreAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(alterarRemss, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
                                     .addComponent(limparAltRemss, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(129, 129, 129))
-                            .addGroup(tabRemssAltLayout.createSequentialGroup()
+                            .addGroup(tabIngreAltLayout.createSequentialGroup()
                                 .addGap(19, 19, 19)
-                                .addGroup(tabRemssAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(tabIngreAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(fornAltRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(valAltRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(precoUniAltRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(quantAltRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(tabRemssAltLayout.createSequentialGroup()
+                            .addGroup(tabIngreAltLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(nomeAltRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-            .addGroup(tabRemssAltLayout.createSequentialGroup()
+            .addGroup(tabIngreAltLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(remssAltHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(48, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabRemssAltLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabIngreAltLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(remssAltLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(399, 399, 399))
         );
-        tabRemssAltLayout.setVerticalGroup(
-            tabRemssAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabRemssAltLayout.createSequentialGroup()
+        tabIngreAltLayout.setVerticalGroup(
+            tabIngreAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabIngreAltLayout.createSequentialGroup()
                 .addGap(177, 177, 177)
                 .addComponent(remssAltHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(remssAltLabel)
                 .addGap(47, 47, 47)
-                .addGroup(tabRemssAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(tabIngreAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nomeLabelAltRemss)
                     .addComponent(nomeAltRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
-                .addGroup(tabRemssAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(tabIngreAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(quantLabelAltRemss)
                     .addComponent(quantAltRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
-                .addGroup(tabRemssAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(tabIngreAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(precoUniLabelAltRemss)
                     .addComponent(precoUniAltRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
-                .addGroup(tabRemssAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(tabIngreAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(valLabelAltRemss)
                     .addComponent(valAltRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
-                .addGroup(tabRemssAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(tabIngreAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fornLabelAltRemss)
                     .addComponent(fornAltRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addComponent(alterarRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(tabRemssAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(tabIngreAltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(voltarAltRemss, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(tabRemssAltLayout.createSequentialGroup()
+                    .addGroup(tabIngreAltLayout.createSequentialGroup()
                         .addComponent(limparAltRemss, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                         .addContainerGap(100, Short.MAX_VALUE))))
         );
 
-        tabs.addTab("tab3", tabRemssAlt);
+        tabs.addTab("tab3", tabIngreAlt);
 
         tabVenda.setBackground(new java.awt.Color(251, 242, 212));
 
@@ -3459,19 +3457,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
         panRemessa.setBackground(new java.awt.Color(248, 242, 208));
         panRemessa.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        btnRemessa.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        btnRemessa.setForeground(new java.awt.Color(255, 102, 102));
-        btnRemessa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnRemessa.setText("Remessas");
-        btnRemessa.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnIngredientes.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        btnIngredientes.setForeground(new java.awt.Color(255, 102, 102));
+        btnIngredientes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnIngredientes.setText("Ingredientes");
+        btnIngredientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnRemessaMouseClicked(evt);
+                btnIngredientesMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnRemessaMouseEntered(evt);
+                btnIngredientesMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnRemessaMouseExited(evt);
+                btnIngredientesMouseExited(evt);
             }
         });
 
@@ -3479,11 +3477,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         panRemessa.setLayout(panRemessaLayout);
         panRemessaLayout.setHorizontalGroup(
             panRemessaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnRemessa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnIngredientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panRemessaLayout.setVerticalGroup(
             panRemessaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnRemessa, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+            .addComponent(btnIngredientes, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout buttonPanelLayout = new javax.swing.GroupLayout(buttonPanel);
@@ -3545,9 +3543,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
        
     }//GEN-LAST:event_pesquisaSelectFuncActionPerformed
 
-    private void botaoAltRemssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAltRemssActionPerformed
+    private void botaoAltIngreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAltIngreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_botaoAltRemssActionPerformed
+    }//GEN-LAST:event_botaoAltIngreActionPerformed
 
     private void btnVendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendasMouseClicked
            
@@ -3704,16 +3702,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         fornCadEstq.addItem("<Fornecedores>");
     }//GEN-LAST:event_btnEstqMouseClicked
 
-    private void btnRemessaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemessaMouseClicked
-         pesquisaSelectRemss.removeAllItems();
-         pesquisaSelectRemss.addItem("<Remessa>");
+    private void btnIngredientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngredientesMouseClicked
+         pesquisaSelectIngre.removeAllItems();
+         pesquisaSelectIngre.addItem("<Ingredientes>");
         try {
             Conexao con = new Conexao();
             Statement st = con.conexao.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM tb_remessa;");
+            ResultSet rs = st.executeQuery("SELECT * FROM tb_ingrediente;");
             while(rs.next()){
-                String name = rs.getString("nome_produto");
-                pesquisaSelectRemss.addItem(name);
+                String name = rs.getString("nome_ingrediente");
+                pesquisaSelectIngre.addItem(name);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e);
@@ -3725,7 +3723,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pesquisaSelectProd.addItem("<Produtos>");
         fornCadEstq.removeAllItems();
         fornCadEstq.addItem("<Fornecedores>");
-    }//GEN-LAST:event_btnRemessaMouseClicked
+    }//GEN-LAST:event_btnIngredientesMouseClicked
 
     private void panVendasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panVendasMouseEntered
         // TODO add your handling code here:
@@ -4046,15 +4044,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         removeHoverColor(panEstq);
     }//GEN-LAST:event_btnEstqMouseExited
 
-    private void btnRemessaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemessaMouseEntered
+    private void btnIngredientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngredientesMouseEntered
         // TODO add your handling code here:
         hoverColor(panRemessa);
-    }//GEN-LAST:event_btnRemessaMouseEntered
+    }//GEN-LAST:event_btnIngredientesMouseEntered
 
-    private void btnRemessaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemessaMouseExited
+    private void btnIngredientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngredientesMouseExited
         // TODO add your handling code here:
         removeHoverColor(panRemessa);
-    }//GEN-LAST:event_btnRemessaMouseExited
+    }//GEN-LAST:event_btnIngredientesMouseExited
 
     public void hoverColor(JPanel panel) {
         panel.setBackground(new Color(239, 224, 185));
@@ -4124,9 +4122,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_valCadProdFocusLost
 
-    private void botaoAddRemssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddRemssActionPerformed
-         fornCadRemss.removeAllItems();
-         fornCadRemss.addItem("<Fornecedor>");
+    private void botaoAddIngreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddIngreActionPerformed
+         fornCadIngre.removeAllItems();
+         fornCadIngre.addItem("<Fornecedor>");
         tabs.setSelectedIndex(13);
         try {
             Conexao con = new Conexao();
@@ -4134,7 +4132,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery("SELECT * FROM tb_fornecedor;");
             while(rs.next()){
                 String name = rs.getString("nome_fornecedor");
-                fornCadRemss.addItem(name);
+                fornCadIngre.addItem(name);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e);
@@ -4142,11 +4140,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
        
     }                                             
     
-    }//GEN-LAST:event_botaoAddRemssActionPerformed
+    }//GEN-LAST:event_botaoAddIngreActionPerformed
 
-    private void cadastrarCadRemssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCadRemssActionPerformed
+    private void cadastrarCadIngreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCadIngreActionPerformed
        
-        String data = valCadRemss.getText();
+        String data = valCadIngre.getText();
         
         String [] dataAlterada = data.split("/");
         
@@ -4155,84 +4153,84 @@ public class TelaPrincipal extends javax.swing.JFrame {
         try {
             Conexao con = new Conexao();
             Statement st = con.conexao.createStatement();
-            st.executeUpdate("INSERT INTO padaria.tb_remessa(nome_produto,"
-                    + "quantidade_remessa,precounitario_remessa,validade_remessa,"
-                    + "fk_id_fornecedor) VALUES ('"+nomeCadRemss.getText()+"',"+quantCadRemss.getText()
-            +","+precoUniCadRemss.getText()+",'"+dataNova+"','"+fornCadRemss.getSelectedIndex()+"');");
-            JOptionPane.showMessageDialog(null, "Remessa: " + nomeCadRemss.getText() + " cadastrada com sucesso!");
+            st.executeUpdate("INSERT INTO padaria.tb_ingrediente(nome_ingrediente,"
+                    + "quantidade_ingrediente,precounitario_ingrediente,validade_ingrediente,"
+                    + "fk_id_fornecedor) VALUES ('"+nomeCadIngre.getText()+"',"+quantCadIngre.getText()
+            +","+precoUniCadIngre.getText()+",'"+dataNova+"','"+fornCadIngre.getSelectedIndex()+"');");
+            JOptionPane.showMessageDialog(null, "Ingrediente: " + nomeCadIngre.getText() + " cadastrado com sucesso!");
         } catch (Exception e) {
              e.printStackTrace();
         }
         
-        nomeCadRemss.setText("");
-        quantCadRemss.setText("");
-        precoUniCadRemss.setText("");
-        valCadRemss.setText("");
-        fornCadRemss.setSelectedIndex(0);
-    }//GEN-LAST:event_cadastrarCadRemssActionPerformed
+        nomeCadIngre.setText("");
+        quantCadIngre.setText("");
+        precoUniCadIngre.setText("");
+        valCadIngre.setText("");
+        fornCadIngre.setSelectedIndex(0);
+    }//GEN-LAST:event_cadastrarCadIngreActionPerformed
 
-    private void precoUniCadRemssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precoUniCadRemssActionPerformed
+    private void precoUniCadIngreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precoUniCadIngreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_precoUniCadRemssActionPerformed
+    }//GEN-LAST:event_precoUniCadIngreActionPerformed
 
-    private void voltarCadRemssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarCadRemssActionPerformed
-        pesquisaSelectRemss.removeAllItems();
-        pesquisaSelectRemss.addItem("<Remessa>");
+    private void voltarCadIngreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarCadIngreActionPerformed
+        pesquisaSelectIngre.removeAllItems();
+        pesquisaSelectIngre.addItem("<Ingredientes>");
          try {
             Conexao con = new Conexao();
             Statement st = con.conexao.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM tb_remessa;");
+            ResultSet rs = st.executeQuery("SELECT * FROM tb_ingrediente;");
             while(rs.next()){
-                String name = rs.getString("nome_produto");
-                pesquisaSelectRemss.addItem(name);
+                String name = rs.getString("nome_ingrediente");
+                pesquisaSelectIngre.addItem(name);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e);
         }
         tabs.setSelectedIndex(12);
-    }//GEN-LAST:event_voltarCadRemssActionPerformed
+    }//GEN-LAST:event_voltarCadIngreActionPerformed
 
-    private void limparCadRemssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCadRemssActionPerformed
-        nomeCadRemss.setText("");
-        quantCadRemss.setText("");
-        precoUniCadRemss.setText("");
-        valCadRemss.setText("");
-        fornCadRemss.setSelectedIndex(0);
-    }//GEN-LAST:event_limparCadRemssActionPerformed
+    private void limparCadIngreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCadIngreActionPerformed
+        nomeCadIngre.setText("");
+        quantCadIngre.setText("");
+        precoUniCadIngre.setText("");
+        valCadIngre.setText("");
+        fornCadIngre.setSelectedIndex(0);
+    }//GEN-LAST:event_limparCadIngreActionPerformed
 
     private void pesquisaBotaoEstqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaBotaoEstqActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pesquisaBotaoEstqActionPerformed
 
-    private void pesquisaBotaoProd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaBotaoProd1ActionPerformed
+    private void pesquisaBotaoIngreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaBotaoIngreActionPerformed
        try {
          Conexao con = new Conexao();
          Statement st = con.conexao.createStatement();
          
-            if(!pesquisaIdRemss.getText().equals("") && !pesquisaNomeRemss.getText().equals("")) {
-                st.executeQuery("SELECT r.id_remessa,r.nome_produto,r.validade_remessa,r.precounitario_remessa,r.quantidade_remessa,f.nome_fornecedor "
-                 +" FROM tb_remessa r INNER JOIN tb_fornecedor f "
+            if(!pesquisaIdIngre.getText().equals("") && !pesquisaNomeIngre.getText().equals("")) {
+                st.executeQuery("SELECT r.id_ingrediente,r.nome_ingrediente,r.validade_ingrediente,r.precounitario_ingrediente,r.quantidade_ingrediente,f.nome_fornecedor "
+                 +" FROM tb_ingrediente r INNER JOIN tb_fornecedor f "
                  + "ON f.id_fornecedor=r.fk_id_fornecedor "
-                 +" WHERE r.id_remessa="+pesquisaIdRemss.getText()
-                 +" AND r.nome_produto like '%"+pesquisaNomeRemss.getText()+"%'");
+                 +" WHERE r.id_ingrediente="+pesquisaIdIngre.getText()
+                 +" AND r.nome_ingrediente like '%"+pesquisaNomeIngre.getText()+"%'");
             
-            } else if (!pesquisaIdRemss.getText().equals("")) {   
-                 st.executeQuery("SELECT r.id_remessa,r.nome_produto,r.validade_remessa,r.precounitario_remessa,r.quantidade_remessa,f.nome_fornecedor "
-                    + " FROM tb_remessa r "
+            } else if (!pesquisaIdIngre.getText().equals("")) {   
+                 st.executeQuery("SELECT r.id_ingrediente,r.nome_ingredinete,r.validade_ingrediente,r.precounitario_ingrediente,r.quantidade_ingrediente,f.nome_fornecedor "
+                    + " FROM tb_ingrediente r "
                     + " INNER JOIN tb_fornecedor f "
                     + " ON id_fornecedor= r.fk_id_fornecedor"
-                    + " WHERE r.id_remessa="+pesquisaIdRemss.getText());
+                    + " WHERE r.id_ingrediente="+pesquisaIdIngre.getText());
              
-             } else if (!pesquisaNomeRemss.getText().equals("")) {            
-                 st.executeQuery("SELECT r.id_remessa,r.nome_produto,r.validade_remessa,r.precounitario_remessa,r.quantidade_remessa,f.nome_fornecedor "
-                    + " FROM tb_remessa r "
+             } else if (!pesquisaNomeIngre.getText().equals("")) {            
+                 st.executeQuery("SELECT r.id_ingrediente,r.nome_ingrediente,r.validade_ingrediente,r.precounitario_ingrediente,r.quantidade_ingrediente,f.nome_fornecedor "
+                    + " FROM tb_ingrediente r "
                     + " INNER JOIN tb_fornecedor f "
                     + " ON f.id_fornecedor=r.fk_id_fornecedor "
-                    + " WHERE r.nome_produto like '%"+pesquisaNomeRemss.getText()+"%'");
+                    + " WHERE r.nome_ingrediente like '%"+pesquisaNomeIngre.getText()+"%'");
              
              } else {
-                 st.executeQuery("SELECT r.id_remessa,r.nome_produto,r.validade_remessa,r.precounitario_remessa,r.quantidade_remessa,f.nome_fornecedor "
-                    +" FROM tb_remessa r  "
+                 st.executeQuery("SELECT r.id_ingrediente,r.nome_ingrediente,r.validade_ingrediente,r.precounitario_ingrediente,r.quantidade_ingrediente,f.nome_fornecedor "
+                    +" FROM tb_ingrediente r  "
                     +" INNER JOIN tb_fornecedor f"
                     +" ON f.id_fornecedor=r.fk_id_fornecedor ");
              
@@ -4246,11 +4244,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
          while(rs.next()) {
                 model.addRow(new Object[] 
                 {
-                    rs.getString("id_remessa"),
-                    rs.getString("nome_produto"),
-                    rs.getString("validade_remessa"),
-                    rs.getString("precounitario_remessa"),
-                    rs.getString("quantidade_remessa"),
+                    rs.getString("id_ingrediente"),
+                    rs.getString("nome_ingrediente"),
+                    rs.getString("validade_ingrediente"),
+                    rs.getString("precounitario_ingrediente"),
+                    rs.getString("quantidade_ingrediente"),
                     rs.getString("nome_fornecedor")
                     
                 });
@@ -4262,7 +4260,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (Exception e) {
              e.printStackTrace();
         }
-    }//GEN-LAST:event_pesquisaBotaoProd1ActionPerformed
+    }//GEN-LAST:event_pesquisaBotaoIngreActionPerformed
 
     private void botaoAddFornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddFornActionPerformed
         // TODO add your handling code here:
@@ -4364,6 +4362,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel IngreCadHeader;
+    private javax.swing.JLabel IngreHeader;
+    private javax.swing.JLabel IngreID;
+    private javax.swing.JLabel IngreNome;
+    private javax.swing.JScrollPane IngreScroll;
+    private javax.swing.JLabel IngreSelect;
     private javax.swing.JLabel altEstqLabel;
     private javax.swing.JLabel altFornLabel;
     private javax.swing.JLabel altFuncHeader;
@@ -4377,36 +4381,36 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton botaoAddEstq;
     private javax.swing.JButton botaoAddForn;
     private javax.swing.JButton botaoAddFunc;
+    private javax.swing.JButton botaoAddIngre;
     private javax.swing.JButton botaoAddProd;
-    private javax.swing.JButton botaoAddRemss;
     private javax.swing.JButton botaoAltEstq;
     private javax.swing.JButton botaoAltForn;
     private javax.swing.JButton botaoAltFunc;
+    private javax.swing.JButton botaoAltIngre;
     private javax.swing.JButton botaoAltProd;
-    private javax.swing.JButton botaoAltRemss;
     private javax.swing.JButton botaoDelEstq;
     private javax.swing.JButton botaoDelForn;
     private javax.swing.JButton botaoDelFunc;
+    private javax.swing.JButton botaoDelIngre;
     private javax.swing.JButton botaoDelProd;
-    private javax.swing.JButton botaoDelRemss;
     private javax.swing.JLabel btnEstq;
     private javax.swing.JLabel btnForn;
     private javax.swing.JLabel btnFunc;
+    private javax.swing.JLabel btnIngredientes;
     private javax.swing.JLabel btnProd;
-    private javax.swing.JLabel btnRemessa;
     private javax.swing.JLabel btnVendas;
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JLabel cadFornLabel;
     private javax.swing.JLabel cadFuncHeader;
     private javax.swing.JLabel cadFuncLabel;
+    private javax.swing.JLabel cadIngreLabel;
     private javax.swing.JLabel cadProdLabel;
-    private javax.swing.JLabel cadRemssLabel;
     private javax.swing.JButton cadastrarAltEstq;
     private javax.swing.JButton cadastrarCadEstq;
     private javax.swing.JButton cadastrarCadForn;
     private javax.swing.JButton cadastrarCadFunc;
+    private javax.swing.JButton cadastrarCadIngre;
     private javax.swing.JButton cadastrarCadProd;
-    private javax.swing.JButton cadastrarCadRemss;
     private javax.swing.JTextField cargoAltFunc;
     private javax.swing.JTextField cargoCadFunc;
     private javax.swing.JLabel cargoLabel;
@@ -4443,15 +4447,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> fornAltRemss;
     private javax.swing.JComboBox<String> fornCadEstq;
     private javax.swing.JLabel fornCadHeader;
+    private javax.swing.JComboBox<String> fornCadIngre;
     private javax.swing.JComboBox<String> fornCadProd;
-    private javax.swing.JComboBox<String> fornCadRemss;
     private javax.swing.JLabel fornHeader;
     private javax.swing.JLabel fornID;
     private javax.swing.JLabel fornLabel;
     private javax.swing.JLabel fornLabelAltEstq;
     private javax.swing.JLabel fornLabelAltRemss;
     private javax.swing.JLabel fornLabelCadEstq;
-    private javax.swing.JLabel fornLabelCadRemss;
+    private javax.swing.JLabel fornLabelCadIngre;
     private javax.swing.JLabel fornLabelProdAlt;
     private javax.swing.JLabel fornNome;
     private javax.swing.JScrollPane fornScroll;
@@ -4488,8 +4492,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton limparCadEstq;
     private javax.swing.JButton limparCadForn;
     private javax.swing.JButton limparCadFunc;
+    private javax.swing.JButton limparCadIngre;
     private javax.swing.JButton limparCadProd;
-    private javax.swing.JButton limparCadRemss;
     private javax.swing.JTable listaEstq;
     private javax.swing.JTable listaForn;
     private javax.swing.JTable listaFunc;
@@ -4505,8 +4509,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField nomeCadEstq;
     private javax.swing.JTextField nomeCadForn;
     private javax.swing.JTextField nomeCadFunc;
+    private javax.swing.JTextField nomeCadIngre;
     private javax.swing.JTextField nomeCadProd;
-    private javax.swing.JTextField nomeCadRemss;
     private javax.swing.JLabel nomeLabel;
     private javax.swing.JLabel nomeLabelAltEstq;
     private javax.swing.JLabel nomeLabelAltForn;
@@ -4514,7 +4518,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel nomeLabelAltRemss;
     private javax.swing.JLabel nomeLabelCadEstq;
     private javax.swing.JLabel nomeLabelCadForn;
-    private javax.swing.JLabel nomeLabelCadRemss;
+    private javax.swing.JLabel nomeLabelCadIngre;
     private javax.swing.JLabel nomeLabelProd;
     private javax.swing.JLabel nomeLabelProdAlt;
     private javax.swing.JRadioButton outroButton;
@@ -4530,23 +4534,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton pesquisaBotaoEstq;
     private javax.swing.JButton pesquisaBotaoForn;
     private javax.swing.JButton pesquisaBotaoFunc;
+    private javax.swing.JButton pesquisaBotaoIngre;
     private javax.swing.JButton pesquisaBotaoProd;
-    private javax.swing.JButton pesquisaBotaoProd1;
     private javax.swing.JTextField pesquisaIdEstq;
     private javax.swing.JTextField pesquisaIdForn;
     private javax.swing.JTextField pesquisaIdFunc;
+    private javax.swing.JTextField pesquisaIdIngre;
     private javax.swing.JTextField pesquisaIdProd;
-    private javax.swing.JTextField pesquisaIdRemss;
     private javax.swing.JTextField pesquisaNomeEstq;
     private javax.swing.JTextField pesquisaNomeForn;
     private javax.swing.JTextField pesquisaNomeFunc;
+    private javax.swing.JTextField pesquisaNomeIngre;
     private javax.swing.JTextField pesquisaNomeProd;
-    private javax.swing.JTextField pesquisaNomeRemss;
     private javax.swing.JComboBox<String> pesquisaSelectEstq;
     private javax.swing.JComboBox<String> pesquisaSelectForn;
     private javax.swing.JComboBox<String> pesquisaSelectFunc;
+    private javax.swing.JComboBox<String> pesquisaSelectIngre;
     private javax.swing.JComboBox<String> pesquisaSelectProd;
-    private javax.swing.JComboBox<String> pesquisaSelectRemss;
     private javax.swing.JFormattedTextField precoAltEstq;
     private javax.swing.JFormattedTextField precoAltProd;
     private javax.swing.JFormattedTextField precoCadEstq;
@@ -4556,9 +4560,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel precoLabelProd;
     private javax.swing.JLabel precoLabelProdAlt;
     private javax.swing.JFormattedTextField precoUniAltRemss;
-    private javax.swing.JFormattedTextField precoUniCadRemss;
+    private javax.swing.JFormattedTextField precoUniCadIngre;
     private javax.swing.JLabel precoUniLabelAltRemss;
-    private javax.swing.JLabel precoUniLabelCadRemss;
+    private javax.swing.JLabel precoUniLabelCadIngre;
     private javax.swing.JLabel prodAltHeader;
     private javax.swing.JLabel prodCadHeader;
     private javax.swing.JLabel prodCadHeader5;
@@ -4577,22 +4581,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField quantAltProd;
     private javax.swing.JTextField quantAltRemss;
     private javax.swing.JTextField quantCadEstq;
+    private javax.swing.JTextField quantCadIngre;
     private javax.swing.JTextField quantCadProd;
-    private javax.swing.JTextField quantCadRemss;
     private javax.swing.JLabel quantLabel;
     private javax.swing.JLabel quantLabelAlt;
     private javax.swing.JLabel quantLabelAltEstq;
     private javax.swing.JLabel quantLabelAltRemss;
     private javax.swing.JLabel quantLabelCadEstq;
-    private javax.swing.JLabel quantLabelCadRemss;
+    private javax.swing.JLabel quantLabelCadIngre;
     private javax.swing.JLabel remssAltHeader;
     private javax.swing.JLabel remssAltLabel;
-    private javax.swing.JLabel remssCadHeader;
-    private javax.swing.JLabel remssHeader;
-    private javax.swing.JLabel remssID;
-    private javax.swing.JLabel remssNome;
-    private javax.swing.JScrollPane remssScroll;
-    private javax.swing.JLabel remssSelect;
     private javax.swing.JFormattedTextField salarioAltFunc;
     private javax.swing.JFormattedTextField salarioCadFunc;
     private javax.swing.JLabel salarioLabel;
@@ -4612,12 +4610,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel tabFunc;
     private javax.swing.JPanel tabFuncAlt;
     private javax.swing.JPanel tabFuncCad;
+    private javax.swing.JPanel tabIngre;
+    private javax.swing.JPanel tabIngreAlt;
+    private javax.swing.JPanel tabIngreCad;
     private javax.swing.JPanel tabProd;
     private javax.swing.JPanel tabProdAlt;
     private javax.swing.JPanel tabProdCad;
-    private javax.swing.JPanel tabRemss;
-    private javax.swing.JPanel tabRemssAlt;
-    private javax.swing.JPanel tabRemssCad;
     private javax.swing.JPanel tabVenda;
     private javax.swing.JPanel tabVendaAlt;
     private javax.swing.JTabbedPane tabs;
@@ -4641,14 +4639,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField valAltProd;
     private javax.swing.JFormattedTextField valAltRemss;
     private javax.swing.JFormattedTextField valCadEstq;
+    private javax.swing.JFormattedTextField valCadIngre;
     private javax.swing.JFormattedTextField valCadProd;
-    private javax.swing.JFormattedTextField valCadRemss;
     private javax.swing.JLabel valLabel;
     private javax.swing.JLabel valLabelAlt;
     private javax.swing.JLabel valLabelAltEstq;
     private javax.swing.JLabel valLabelAltRemss;
     private javax.swing.JLabel valLabelCadEstq;
-    private javax.swing.JLabel valLabelCadRemss;
+    private javax.swing.JLabel valLabelCadIngre;
     private javax.swing.JFormattedTextField valorVendaAlt;
     private javax.swing.JLabel valorVendaAltLabel;
     private javax.swing.JFormattedTextField valorVendaCad;
@@ -4677,7 +4675,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton voltarCadEstq;
     private javax.swing.JButton voltarCadForn;
     private javax.swing.JButton voltarCadFunc;
+    private javax.swing.JButton voltarCadIngre;
     private javax.swing.JButton voltarCadProd;
-    private javax.swing.JButton voltarCadRemss;
     // End of variables declaration//GEN-END:variables
 }
