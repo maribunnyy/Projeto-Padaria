@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
-import java.time.Month;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -4272,7 +4271,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                  +" AND r.nome_ingrediente like '%"+pesquisaNomeIngre.getText()+"%'");
             
             } else if (!pesquisaIdIngre.getText().equals("")) {   
-                 st.executeQuery("SELECT r.id_ingrediente,r.nome_ingredinete,r.validade_ingrediente,r.precounitario_ingrediente,r.quantidade_ingrediente,f.nome_fornecedor "
+                 st.executeQuery("SELECT r.id_ingrediente,r.nome_ingrediente,r.validade_ingrediente,r.precounitario_ingrediente,r.quantidade_ingrediente,f.nome_fornecedor "
                     + " FROM tb_ingrediente r "
                     + " INNER JOIN tb_fornecedor f "
                     + " ON id_fornecedor= r.fk_id_fornecedor"
