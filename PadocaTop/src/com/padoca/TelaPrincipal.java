@@ -3566,7 +3566,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoAltRemssActionPerformed
 
     private void btnVendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendasMouseClicked
-       
+           
         //Botões de remover
         funcVendaCad.removeAllItems();
         funcVendaCad.addItem("<Funcionários>");
