@@ -1580,7 +1580,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         pesquisaSelectForn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pesquisaSelectForn.setForeground(new java.awt.Color(67, 40, 28));
-        pesquisaSelectForn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pesquisaSelectForn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Fornecedores>" }));
 
         fornID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         fornID.setForeground(new java.awt.Color(67, 40, 28));
@@ -2936,17 +2936,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nome", "Valid.", "Preço", "Quant.", "ID.Forn."
+                "ID", "Nome", "Valid.", "Preço", "Quant.", "Fornecedor"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class, java.lang.Object.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         prodVendaList.setGridColor(new java.awt.Color(255, 255, 255));
         prodVendaList.setSelectionBackground(new java.awt.Color(251, 242, 192));
         prodVendaScroll.setViewportView(prodVendaList);
@@ -2954,23 +2946,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         vendaList.setForeground(new java.awt.Color(67, 40, 28));
         vendaList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID", "Valor", "ID Funcion.", "ID Prod."
+                "ID", "Valor", "Funcionario", "Produto", "Quantidade"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Integer.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         vendaList.setGridColor(new java.awt.Color(255, 255, 255));
         vendaList.setSelectionBackground(new java.awt.Color(251, 242, 192));
         vendaScroll.setViewportView(vendaList);
@@ -3583,6 +3567,43 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 String name = rs.getString("nome_funcionario");
                 funcVendaCad.addItem(name);
             }
+             st.executeQuery("SELECT p.id_produto,p.nome_produto, p.validade_produto,p.preco_produto,p.quantidade_produto,f.nome_fornecedor "
+                    +" FROM tb_produto p inner join tb_fornecedor f "
+                    +" ON f.id_fornecedor=p.fk_id_fornecedor order by p.id_produto asc; ");
+            rs = st.getResultSet();
+         
+         DefaultTableModel model = (DefaultTableModel) prodVendaList.getModel();
+         model.setNumRows(0);
+         
+        while(rs.next()){
+            model.addRow(new Object[]{
+            rs.getString("id_produto"),
+            rs.getString("nome_produto"),
+            rs.getString("validade_produto"),
+            rs.getString("preco_produto"),
+            rs.getString("quantidade_produto"),
+            rs.getString("nome_fornecedor")
+            
+            });
+        }     
+        st.executeQuery("SELECT v.id_venda,v.valor_venda,f.nome_funcionario,p.nome_produto,v.qtd_venda"
+                + " FROM tb_venda v inner join tb_funcionario f ON f.id_funcionario=v.fk_id_funcionario "
+                + " INNER JOIN tb_produto p ON p.id_produto=v.fk_id_produto ORDER BY v.id_venda asc ");
+            rs = st.getResultSet();
+         
+         model = (DefaultTableModel) vendaList.getModel();
+         model.setNumRows(0);
+         
+        while(rs.next()){
+            model.addRow(new Object[]{
+            rs.getString("id_venda"),
+            rs.getString("valor_venda"),
+            rs.getString("nome_funcionario"),
+            rs.getString("nome_produto"),
+            rs.getString("qtd_venda")
+            
+            });
+        } 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e);
         }
@@ -3738,6 +3759,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e);
         }
+        nomeCadEstq.setText("");
+        valCadEstq.setText("");
+        precoCadEstq.setText("");
+        quantCadEstq.setText("");
+        fornCadEstq.setSelectedIndex(0);
        
        
        
@@ -3772,7 +3798,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_limparCadEstqActionPerformed
 
     private void voltarCadEstqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarCadEstqActionPerformed
-        // TODO add your handling code here:
+        pesquisaSelectEstq.removeAllItems();
+        pesquisaSelectEstq.addItem("<Estoque>");
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM tb_estoque;");
+            while(rs.next()){
+                String name = rs.getString("nome_estoque");
+                pesquisaSelectEstq.addItem(name);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+        }
         tabs.setSelectedIndex(9);
         fornCadEstq.removeAllItems();
         fornCadEstq.addItem("<Fornecedores>");
@@ -3886,10 +3924,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     +" ON f.id_fornecedor=p.fk_id_fornecedor; ");
              
              }
-                     //SELECT p.id_produto,p.nome_produto, p.validade_produto,p.preco_produto,p.quantidade_produto,f.nome_fornecedor 
-                     //FROM tb_produto p 
-                     //inner join tb_fornecedor f 
-                     //ON f.id_fornecedor=p.fk_id_fornecedor;
          ResultSet rs = st.getResultSet();
          
          DefaultTableModel model = (DefaultTableModel) listaProd.getModel();
@@ -4070,7 +4104,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
         
         }
-    };       
+    };
+        
         
     SwingUtilities.invokeLater(cpfCadFuncCaretUpdate);
     }//GEN-LAST:event_cpfCadFuncCaretUpdate
@@ -4141,8 +4176,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_precoUniCadRemssActionPerformed
 
     private void voltarCadRemssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarCadRemssActionPerformed
-        pesquisaSelectProd.removeAllItems();
-        pesquisaSelectProd.addItem("<Remessa>");
+        pesquisaSelectRemss.removeAllItems();
+        pesquisaSelectRemss.addItem("<Remessa>");
          try {
             Conexao con = new Conexao();
             Statement st = con.conexao.createStatement();
@@ -4283,6 +4318,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             
         });
     }
+    
     
     public void defaultColor(JPanel panel, JPanel panel1, JPanel panel2, JPanel panel3, JPanel panel4) {
         panel.setBackground(new Color(248,242,208));
