@@ -461,7 +461,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pesquisaSelectFunc.setBackground(new java.awt.Color(248, 242, 208));
         pesquisaSelectFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pesquisaSelectFunc.setForeground(new java.awt.Color(67, 40, 28));
-        pesquisaSelectFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pesquisaSelectFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Estoque>" }));
         pesquisaSelectFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pesquisaSelectFuncActionPerformed(evt);
@@ -2997,7 +2997,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         idProdVendaCadLabel.setText("ID do Produto:");
 
         funcVendaCad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        funcVendaCad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        funcVendaCad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Funcionarios>" }));
 
         vendaCadButton.setBackground(new java.awt.Color(102, 255, 102));
         vendaCadButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -3566,15 +3566,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoAltRemssActionPerformed
 
     private void btnVendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendasMouseClicked
-        // TODO add your handling code here:
-        tabs.setSelectedIndex(15);
-        btnClicked(panVendas);
-        defaultColor(panProd, panEstq, panForn, panRemessa, panFunc);
-        
+       
+        //Botões de remover
+        funcVendaCad.removeAllItems();
+        funcVendaCad.addItem("<Funcionários>");
         pesquisaSelectProd.removeAllItems();
         pesquisaSelectProd.addItem("<Produtos>");
         fornCadEstq.removeAllItems();
         fornCadEstq.addItem("<Fornecedores>");
+        
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM tb_funcionario;");
+            while(rs.next()){
+                String name = rs.getString("nome_funcionario");
+                funcVendaCad.addItem(name);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+        }
+        tabs.setSelectedIndex(15);
+        btnClicked(panVendas);
+        defaultColor(panProd, panEstq, panForn, panRemessa, panFunc);
+        
         
     }//GEN-LAST:event_btnVendasMouseClicked
 
@@ -3598,34 +3613,67 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
         
         
-        fornCadEstq.removeAllItems();
-        fornCadEstq.addItem("<Fornecedores>");
     }//GEN-LAST:event_btnProdMouseClicked
 
     private void btnFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFuncMouseClicked
-        // TODO add your handling code here:
+        pesquisaSelectFunc.removeAllItems();
+        pesquisaSelectFunc.addItem("<Funcionários>");
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM tb_funcionario;");
+            while(rs.next()){
+                String name = rs.getString("nome_funcionario");
+                pesquisaSelectFunc.addItem(name);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+        }
+
+        
         tabs.setSelectedIndex(0);
         btnClicked(panFunc);
         defaultColor(panVendas, panEstq, panProd, panRemessa, panForn);
-        pesquisaSelectProd.removeAllItems();
-        pesquisaSelectProd.addItem("<Produtos>");
-        fornCadEstq.removeAllItems();
-        fornCadEstq.addItem("<Fornecedores>");
+        
     }//GEN-LAST:event_btnFuncMouseClicked
 
     private void btnFornMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFornMouseClicked
-        // TODO add your handling code here:
+        pesquisaSelectForn.removeAllItems();
+        pesquisaSelectForn.addItem("<Fornecedor>");
+        
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM tb_fornecedor;");
+            while(rs.next()){
+                String name = rs.getString("nome_fornecedor");
+                pesquisaSelectForn.addItem(name);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+        }
+        
         tabs.setSelectedIndex(6);
         btnClicked(panForn);
         defaultColor(panVendas, panEstq, panFunc, panRemessa,panProd);
-        pesquisaSelectProd.removeAllItems();
-        pesquisaSelectProd.addItem("<Produtos>");
-        fornCadEstq.removeAllItems();
-        fornCadEstq.addItem("<Fornecedores>");
+       
     }//GEN-LAST:event_btnFornMouseClicked
 
     private void btnEstqMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstqMouseClicked
-        // TODO add your handling code here:
+        pesquisaSelectEstq.removeAllItems();
+        pesquisaSelectEstq.addItem("<Estoque>");
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM tb_estoque;");
+            while(rs.next()){
+                String name = rs.getString("nome_estoque");
+                pesquisaSelectEstq.addItem(name);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+        }
+        
         tabs.setSelectedIndex(9);
         btnClicked(panEstq);
         defaultColor(panVendas, panProd, panFunc, panRemessa,panForn);
@@ -3636,7 +3684,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEstqMouseClicked
 
     private void btnRemessaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRemessaMouseClicked
-        
+         pesquisaSelectRemss.removeAllItems();
+         pesquisaSelectRemss.addItem("<Remessa>");
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM tb_remessa;");
+            while(rs.next()){
+                String name = rs.getString("nome_produto");
+                pesquisaSelectRemss.addItem(name);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+        }
         tabs.setSelectedIndex(12);
         btnClicked(panRemessa);
         defaultColor(panVendas, panEstq, panFunc, panForn,panProd);
@@ -4016,6 +4076,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_valCadProdFocusLost
 
     private void botaoAddRemssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddRemssActionPerformed
+         fornCadRemss.removeAllItems();
+         fornCadRemss.addItem("<Fornecedor>");
         tabs.setSelectedIndex(13);
         try {
             Conexao con = new Conexao();
@@ -4058,7 +4120,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_precoUniCadRemssActionPerformed
 
     private void voltarCadRemssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarCadRemssActionPerformed
-       tabs.setSelectedIndex(12);
+        pesquisaSelectProd.removeAllItems();
+        pesquisaSelectProd.addItem("<Remessa>");
+         try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM tb_remessa;");
+            while(rs.next()){
+                String name = rs.getString("nome_produto");
+                pesquisaSelectRemss.addItem(name);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+        }
+        tabs.setSelectedIndex(12);
     }//GEN-LAST:event_voltarCadRemssActionPerformed
 
     private void limparCadRemssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCadRemssActionPerformed
