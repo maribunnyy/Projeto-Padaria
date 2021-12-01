@@ -12,6 +12,8 @@ import java.awt.event.MouseMotionAdapter;
 import javax.swing.JPanel;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.time.Month;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -630,7 +632,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         salarioLabel.setForeground(new java.awt.Color(67, 40, 28));
         salarioLabel.setText("Salário:");
 
-        salarioCadFunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
+        salarioCadFunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("####.00"))));
         salarioCadFunc.setMinimumSize(new java.awt.Dimension(7, 23));
         salarioCadFunc.setName(""); // NOI18N
         salarioCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
@@ -3843,7 +3845,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void cadastrarCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCadFuncActionPerformed
         // TODO add your handling code here:
         String sexo = "";
-        String data = "2021-10-22";
+        String data = dataAdmCadFunc.getText();
+        
+        String [] dataAlterada = data.split("/");
+        
+        LocalDate dataNova = LocalDate.of(Integer.parseInt(dataAlterada[2]), Integer.parseInt(dataAlterada[1]), Integer.parseInt(dataAlterada[0]));
         
         
         
@@ -3862,14 +3868,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
             try {
             Conexao con = new Conexao();
             Statement st = con.conexao.createStatement();
-            st.executeUpdate("INSERT INTO tb_funcionario (nome_funcionario, salario_funcionario, cargo_funcionario, sexo, idade_funcionario, cpf, data_admissao_funcionario) VALUES ('"+nomeCadFunc.getText()+"',"+salarioCadFunc.getText().replace(",", "")+",'"+cargoCadFunc.getText()+"','"+sexo+"',"+idadeCadFunc.getText()+","+cpfCadFunc.getText()+", '"+data+"');");
+            st.executeUpdate("INSERT INTO tb_funcionario (nome_funcionario, email_funcionario, telefone_funcionario, salario_funcionario, cargo_funcionario, sexo_funcionario, idade_funcionario, data_admissao_funcionario, cpf) VALUES ('"+nomeCadFunc.getText()+"', '"+ emailCadFunc.getText() +"', '"+ telCadFunc.getText() +"', "+salarioCadFunc.getText().replace(',', '.') +", '"+cargoCadFunc.getText()+"','"+sexo+"',"+idadeCadFunc.getText()+", '"+dataNova+"', '"+cpfCadFunc.getText()+"')");
             
             
             JOptionPane.showMessageDialog(null, "Funcionario "+ nomeCadFunc.getText() +" inserido com Sucesso!"); 
             nomeCadFunc.setText("");
+            emailCadFunc.setText("");
+            telCadFunc.setText("");
             salarioCadFunc.setText("");
             cargoCadFunc.setText("");
             idadeCadFunc.setText("");
+            dataAdmCadFunc.setText("");
             cpfCadFunc.setText("");
             
          
