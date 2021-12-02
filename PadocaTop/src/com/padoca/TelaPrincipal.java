@@ -4755,6 +4755,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 dataAdmAltFunc.setText("");
                 cpfAltFunc.setText("");
                 tabs.setSelectedIndex(0);
+                
+                st.executeQuery("SELECT * FROM tb_funcionario");
+        
+                ResultSet rs = st.getResultSet();
+
+                 DefaultTableModel model = (DefaultTableModel) listaFunc.getModel();
+                 model.setNumRows(0);
+
+                 while(rs.next()) {
+                        model.addRow(new Object[] 
+                        {
+                            rs.getString("id_funcionario"),
+                            rs.getString("nome_funcionario"),
+                            rs.getString("sexo_funcionario"),
+                            rs.getString("cargo_funcionario"),
+                            rs.getString("telefone_funcionario"),
+                            rs.getString("idade_funcionario"),
+                            rs.getString("email_funcionario"),
+                            rs.getString("cpf"),
+                            "R$"+rs.getString("salario_funcionario"),
+                            rs.getString("data_admissao_funcionario")
+
+                        });
+                    }
             }
             
         } catch (Exception e) {
@@ -4916,6 +4940,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 Statement st = con.conexao.createStatement();
                 st.executeUpdate("DELETE FROM tb_venda WHERE fk_id_funcionario = '"+ model.getValueAt(selectedRow, 0) +"'");
                 st.executeUpdate("DELETE FROM tb_funcionario WHERE id_funcionario = "+ model.getValueAt(selectedRow, 0) +"");
+                st.executeQuery("SELECT * FROM tb_funcionario");
+        
+                ResultSet rs = st.getResultSet();
+
+                 
+                 model.setNumRows(0);
+
+                 while(rs.next()) {
+                        model.addRow(new Object[] 
+                        {
+                            rs.getString("id_funcionario"),
+                            rs.getString("nome_funcionario"),
+                            rs.getString("sexo_funcionario"),
+                            rs.getString("cargo_funcionario"),
+                            rs.getString("telefone_funcionario"),
+                            rs.getString("idade_funcionario"),
+                            rs.getString("email_funcionario"),
+                            rs.getString("cpf"),
+                            "R$"+rs.getString("salario_funcionario"),
+                            rs.getString("data_admissao_funcionario")
+
+                        });
+                    }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
             }
