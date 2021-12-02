@@ -4801,7 +4801,40 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_pesquisaBotaoFuncActionPerformed
 
     private void pesquisaBotaoFornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaBotaoFornActionPerformed
-       
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            if(!pesquisaNomeForn.getText().equals("") && !pesquisaIdForn.getText().equals("")) {
+                st.executeQuery("SELECT * FROM tb_fornecedor WHERE id_fornecedor="+pesquisaIdForn.getText()+""
+                +" AND nome_fornecedor LIKE '%"+pesquisaNomeForn.getText()+"%'");
+            } else if (!pesquisaNomeForn.getText().equals("")){
+                st.executeQuery("SELECT * FROM tb_fornecedor WHERE nome_fornecedor like '%"+pesquisaNomeForn.getText()+"%'");
+            } else if (!pesquisaIdForn.getText().equals("")) {
+                st.executeQuery("SELECT * FROM tb_fornecedor WHERE id_fornecedor="+pesquisaIdForn.getText());
+            } else {
+                st.executeQuery("SELECT * FROM tb_fornecedor");
+            }
+            ResultSet rs = st.getResultSet();
+         
+            DefaultTableModel model = (DefaultTableModel) listaForn.getModel();
+             model.setNumRows(0);
+         
+             while(rs.next()) {
+                model.addRow(new Object[] 
+                {
+                    rs.getString("id_fornecedor"),
+                    rs.getString("nome_fornecedor"),
+                    rs.getString("tipo_fornecedor"),
+                    rs.getString("status_fornecedor"),
+                    rs.getString("telefone_fornecedor"),
+                    rs.getString("email_fornecedor")
+                    
+                });
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+        }
         
     }//GEN-LAST:event_pesquisaBotaoFornActionPerformed
 
