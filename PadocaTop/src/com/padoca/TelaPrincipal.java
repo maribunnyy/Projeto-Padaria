@@ -26,6 +26,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     Boolean clicked = false;
     boolean b;
+    
 
     /**
      * Creates new form TelaPrincipal
@@ -1450,6 +1451,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         alterarProd.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         alterarProd.setForeground(new java.awt.Color(0, 153, 0));
         alterarProd.setText("Alterar");
+        alterarProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alterarProdActionPerformed(evt);
+            }
+        });
 
         limparAltProd.setBackground(new java.awt.Color(242, 214, 137));
         limparAltProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1477,7 +1483,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         fornAltProd.setBackground(new java.awt.Color(242, 214, 137));
         fornAltProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         fornAltProd.setForeground(new java.awt.Color(67, 40, 28));
-        fornAltProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        fornAltProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Fornecedor>" }));
 
         precoLabelProdAlt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         precoLabelProdAlt.setForeground(new java.awt.Color(67, 40, 28));
@@ -1499,6 +1505,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         nomeAltProd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         nomeAltProd.setForeground(new java.awt.Color(67, 40, 28));
         nomeAltProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        nomeAltProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomeAltProdActionPerformed(evt);
+            }
+        });
 
         altProdLabel.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         altProdLabel.setForeground(new java.awt.Color(72, 57, 42));
@@ -3093,6 +3104,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         funcVendaCad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         funcVendaCad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Funcionarios>" }));
+        funcVendaCad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                funcVendaCadActionPerformed(evt);
+            }
+        });
 
         vendaCadButton.setBackground(new java.awt.Color(102, 255, 102));
         vendaCadButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -3113,6 +3129,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         vendaDelButton.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         vendaDelButton.setForeground(new java.awt.Color(255, 51, 51));
         vendaDelButton.setText("Excluir");
+        vendaDelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vendaDelButtonActionPerformed(evt);
+            }
+        });
 
         valorVendaCadLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         valorVendaCadLabel1.setForeground(new java.awt.Color(67, 40, 28));
@@ -3131,25 +3152,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(tabVendaLayout.createSequentialGroup()
                         .addComponent(prodVendaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(tabVendaLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(vendaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(tabVendaLayout.createSequentialGroup()
-                                .addGap(209, 209, 209)
-                                .addComponent(vendaLabel))
-                            .addGroup(tabVendaLayout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(idProdVendaCadLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(vendaCadButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(idProdVendaCad, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(tabVendaLayout.createSequentialGroup()
-                                        .addComponent(vendaAltButton, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                                        .addComponent(vendaDelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(tabVendaLayout.createSequentialGroup()
                                 .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(tabVendaLayout.createSequentialGroup()
@@ -3171,7 +3174,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                         .addComponent(valorVendaCadLabel)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(qntVendaCad, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))))
+                                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(tabVendaLayout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(vendaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(tabVendaLayout.createSequentialGroup()
+                                    .addGap(209, 209, 209)
+                                    .addComponent(vendaLabel))
+                                .addGroup(tabVendaLayout.createSequentialGroup()
+                                    .addGap(27, 27, 27)
+                                    .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(idProdVendaCadLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(vendaCadButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(tabVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(idProdVendaCad, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(tabVendaLayout.createSequentialGroup()
+                                            .addComponent(vendaAltButton, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(32, 32, 32)
+                                            .addComponent(vendaDelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                     .addComponent(vendaCadHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 841, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25))
         );
@@ -3208,7 +3230,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(vendaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(prodVendaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         tabs.addTab("tab2", tabVenda);
@@ -3670,6 +3692,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoAltFuncActionPerformed
 
     private void botaoAltProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAltProdActionPerformed
+        nomeAltProd.removeAllItems();
+        nomeAltProd.addItem("<Nomes>");
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM tb_produto;");
+            while(rs.next()){
+                String name = rs.getString("nome_produto");
+                nomeAltProd.addItem(name);
+            }
+            
+            
+            
+            
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+        }
+        
         tabs.setSelectedIndex(5);
     }//GEN-LAST:event_botaoAltProdActionPerformed
 
@@ -4611,12 +4652,37 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void vendaCadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendaCadButtonActionPerformed
         // TODO add your handling code here:
+        int qtdProduto=0;
+        int qtdBox=0;
+        Boolean menoroff = true;
         try {
             Conexao con = new Conexao();
             Statement st = con.conexao.createStatement();
-            st.executeUpdate("insert into tb_venda (valor_venda, fk_id_funcionario, fk_id_produto, qtd_venda) VALUES ("+ valorVendaCad.getText() +", "+ funcVendaCad.getSelectedIndex() +", "+ idProdVendaCad.getText() +", "+ qntVendaCad.getText() +" )");
+            st.executeQuery("SELECT * FROM tb_funcionario WHERE nome_funcionario='"+funcVendaCad.getSelectedItem()+"'" );
+            
+            String id="";
+            ResultSet rs = st.getResultSet();
+            while(rs.next()){
+            id=rs.getString("id_funcionario");
+            }
+            
+            st.executeQuery("SELECT * FROM tb_produto WHERE id_produto="+idProdVendaCad.getText()+"");
+            rs = st.getResultSet();
+            while(rs.next()){
+            qtdProduto=Integer.parseInt(rs.getString("quantidade_produto"));
+            qtdBox=Integer.parseInt(qntVendaCad.getText());
+             if(qtdProduto<= 0 && qtdBox >= qtdProduto){
+             menoroff = false;
+            }
+            } 
+           
+            if(menoroff==true){
+            st.executeUpdate("insert into tb_venda (valor_venda, fk_id_funcionario, fk_id_produto, qtd_venda) VALUES ("+ valorVendaCad.getText() +", "+ id+", "+ idProdVendaCad.getText() +", "+ qntVendaCad.getText() +" )");
             String qtd = qntVendaCad.getText();
-            st.executeUpdate("Update tb_produto set quantidade_produto =  quantidade_produto - "+  qtd + " where id_produto = "+ idProdVendaCad.getText() +"");
+            st.executeUpdate("Update tb_produto set quantidade_produto =  quantidade_produto - "+  qtd + " where id_produto = "+ idProdVendaCad.getText() +"");  
+            }
+            
+            
             
             
         } catch (Exception e) {
@@ -4865,6 +4931,85 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         jLabel1.setForeground(Color.white);
     }//GEN-LAST:event_closeBtnMouseExited
+
+    private void funcVendaCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcVendaCadActionPerformed
+        
+    }//GEN-LAST:event_funcVendaCadActionPerformed
+
+    private void vendaDelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendaDelButtonActionPerformed
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Tem certeza que deseja excluir este dado?","CUIDADO!!",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+        try {
+            DefaultTableModel model = (DefaultTableModel) vendaList.getModel();
+            int selectedRow = vendaList.getSelectedRow();
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            st.executeUpdate("DELETE FROM tb_venda WHERE id_venda="+model.getValueAt(selectedRow, 0)+"");
+            st.executeQuery("SELECT v.*,f.nome_funcionario,p.nome_produto FROM tb_venda v INNER JOIN tb_funcionario f ON f.id_funcionario=v.fk_id_funcionario INNER JOIN tb_produto p ON p.id_produto=v.fk_id_produto");
+            
+            ResultSet rs = st.getResultSet();
+             model.setNumRows(0);
+         
+             while(rs.next()) {
+                model.addRow(new Object[] 
+                {
+                    rs.getString("id_venda"),
+                    rs.getString("valor_venda"),
+                    rs.getString("nome_funcionario"),
+                    rs.getString("nome_produto"),
+                    rs.getString("qtd_venda")
+                });
+             }
+      
+            
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+        }
+        }
+    }//GEN-LAST:event_vendaDelButtonActionPerformed
+
+    private void nomeAltProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeAltProdActionPerformed
+            try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            ResultSet rs = null;
+            if(nomeAltProd.getSelectedItem() != null){
+                st.executeQuery("SELECT * FROM tb_produto where nome_produto = '"+ nomeAltProd.getSelectedItem().toString() +"'");
+                rs = st.getResultSet();
+                while(rs.next()){
+                quantAltProd.setText(rs.getString("quantidade_produto"));
+                valAltProd.setText(rs.getString("validade_produto"));
+                precoAltProd.setText(rs.getString("preco_produto"));
+            }
+            st.executeQuery("SELECT * FROM tb_fornecedor ");
+            rs= st.getResultSet();
+            while(rs.next()){
+               fornAltProd.addItem(rs.getString("nome_fornecedor"));
+            }
+                
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_nomeAltProdActionPerformed
+
+    private void alterarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarProdActionPerformed
+        try {
+           
+                Conexao con = new Conexao();
+                Statement st = con.conexao.createStatement();
+                st.executeUpdate("UPDATE tb_produto SET quantidade_produto = "+ quantAltProd.getText() +", validade_produto = '"+ valAltProd.getText() +"', preco_produto = "+ precoAltProd.getText().replace(",", ".") +", fk_id_Fornecedor = "+ fornAltProd.getSelectedIndex() +" where nome_produto = '"+ nomeAltProd.getSelectedItem().toString() +"'");
+                nomeAltProd.setSelectedIndex(0);
+                quantAltProd.setText("");
+                valAltProd.setText("");
+                precoAltProd.setText("");
+                fornAltProd.setSelectedItem(0);
+                tabs.setSelectedIndex(0);
+            
+        } catch (Exception e) {
+        JOptionPane.showConfirmDialog(null, e);}
+    }//GEN-LAST:event_alterarProdActionPerformed
 
     private int x;
     private int y;
