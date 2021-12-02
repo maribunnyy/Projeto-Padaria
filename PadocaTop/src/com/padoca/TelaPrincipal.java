@@ -362,7 +362,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 204, 204));
         setMaximizedBounds(new java.awt.Rectangle(0, 0, 1146, 804));
-        setMaximumSize(new java.awt.Dimension(1146, 804));
         setName("telaPrincipal"); // NOI18N
         setUndecorated(true);
         setResizable(false);
@@ -445,8 +444,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         listaFunc.setGridColor(new java.awt.Color(255, 255, 255));
-        listaFunc.setSelectionBackground(new java.awt.Color(251, 242, 192));
-        listaFunc.setSelectionForeground(new java.awt.Color(67, 40, 28));
+        listaFunc.setSelectionBackground(new java.awt.Color(251, 132, 123));
         listaFunc.setShowGrid(false);
         funcScroll.setViewportView(listaFunc);
         if (listaFunc.getColumnModel().getColumnCount() > 0) {
@@ -489,6 +487,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pesquisaBotaoFunc.setForeground(new java.awt.Color(192, 134, 47));
         pesquisaBotaoFunc.setText("Pesquisar");
         pesquisaBotaoFunc.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        pesquisaBotaoFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesquisaBotaoFuncActionPerformed(evt);
+            }
+        });
 
         botaoAddFunc.setBackground(new java.awt.Color(102, 255, 102));
         botaoAddFunc.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -1070,8 +1073,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         listaProd.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         listaProd.setGridColor(new java.awt.Color(255, 255, 255));
-        listaProd.setSelectionBackground(new java.awt.Color(251, 242, 192));
-        listaProd.setSelectionForeground(new java.awt.Color(67, 40, 28));
+        listaProd.setSelectionBackground(new java.awt.Color(251, 132, 123));
         prodScroll.setViewportView(listaProd);
 
         botaoAddProd.setBackground(new java.awt.Color(102, 255, 102));
@@ -1579,7 +1581,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         listaForn.setGridColor(new java.awt.Color(255, 255, 255));
-        listaForn.setSelectionBackground(new java.awt.Color(251, 242, 192));
+        listaForn.setSelectionBackground(new java.awt.Color(251, 132, 123));
         fornScroll.setViewportView(listaForn);
         if (listaForn.getColumnModel().getColumnCount() > 0) {
             listaForn.getColumnModel().getColumn(0).setResizable(false);
@@ -1619,6 +1621,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pesquisaBotaoForn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         pesquisaBotaoForn.setForeground(new java.awt.Color(192, 134, 47));
         pesquisaBotaoForn.setText("Pesquisar");
+        pesquisaBotaoForn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesquisaBotaoFornActionPerformed(evt);
+            }
+        });
 
         botaoAddForn.setBackground(new java.awt.Color(102, 255, 102));
         botaoAddForn.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -2012,7 +2019,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         listaEstq.setGridColor(new java.awt.Color(255, 255, 255));
-        listaEstq.setSelectionBackground(new java.awt.Color(251, 242, 192));
+        listaEstq.setSelectionBackground(new java.awt.Color(251, 132, 123));
         estqScroll.setViewportView(listaEstq);
         if (listaEstq.getColumnModel().getColumnCount() > 0) {
             listaEstq.getColumnModel().getColumn(0).setResizable(false);
@@ -2499,7 +2506,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         listaIngre.setGridColor(new java.awt.Color(255, 255, 255));
-        listaIngre.setSelectionBackground(new java.awt.Color(251, 242, 192));
+        listaIngre.setSelectionBackground(new java.awt.Color(251, 132, 123));
         IngreScroll.setViewportView(listaIngre);
 
         botaoAddIngre.setBackground(new java.awt.Color(102, 255, 102));
@@ -2957,7 +2964,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         ));
         prodVendaList.setGridColor(new java.awt.Color(255, 255, 255));
-        prodVendaList.setSelectionBackground(new java.awt.Color(251, 242, 192));
+        prodVendaList.setSelectionBackground(new java.awt.Color(251, 132, 123));
         prodVendaScroll.setViewportView(prodVendaList);
 
         vendaList.setForeground(new java.awt.Color(67, 40, 28));
@@ -2973,7 +2980,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         ));
         vendaList.setGridColor(new java.awt.Color(255, 255, 255));
-        vendaList.setSelectionBackground(new java.awt.Color(251, 242, 192));
+        vendaList.setSelectionBackground(new java.awt.Color(251, 132, 123));
         vendaScroll.setViewportView(vendaList);
 
         vendProdLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -4508,6 +4515,53 @@ public class TelaPrincipal extends javax.swing.JFrame {
         idProdVendaCad.setText("");
         qntVendaCad.setText("");
     }//GEN-LAST:event_vendaCadButtonActionPerformed
+
+    private void pesquisaBotaoFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaBotaoFuncActionPerformed
+        try {
+        Conexao con = new Conexao();
+        Statement st = con.conexao.createStatement();  
+        if(!pesquisaNomeFunc.getText().equals("") && !pesquisaIdFunc.getText().equals("")){
+            st.executeQuery("SELECT * FROM tb_funcionario WHERE id_funcionario="+pesquisaIdFunc.getText()+""
+            + "AND nome_funcionario LIKE '%"+pesquisaNomeFunc.getText()+"%'");
+        } else if (!pesquisaNomeFunc.getText().equals("")){
+            st.executeQuery("SELECT * FROM tb_funcionario WHERE nome_funcionario like '%"+pesquisaNomeFunc.getText()+"%'");
+        } else if(!pesquisaIdFunc.getText().equals("")){
+            st.executeQuery("SELECT * FROM tb_funcionario WHERE id_funcionario="+pesquisaIdFunc.getText());
+        } else {
+            st.executeQuery("SELECT * FROM tb_funcionario");
+        }
+        ResultSet rs = st.getResultSet();
+         
+         DefaultTableModel model = (DefaultTableModel) listaFunc.getModel();
+         model.setNumRows(0);
+         
+         while(rs.next()) {
+                model.addRow(new Object[] 
+                {
+                    rs.getString("id_funcionario"),
+                    rs.getString("nome_funcionario"),
+                    rs.getString("sexo_funcionario"),
+                    rs.getString("cargo_funcionario"),
+                    rs.getString("telefone_funcionario"),
+                    rs.getString("idade_funcionario"),
+                    rs.getString("email_funcionario"),
+                    rs.getString("cpf"),
+                    "R$"+rs.getString("salario_funcionario"),
+                    rs.getString("data_admissao_funcionario")
+                    
+                });
+            }
+        
+        
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+        }
+    }//GEN-LAST:event_pesquisaBotaoFuncActionPerformed
+
+    private void pesquisaBotaoFornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaBotaoFornActionPerformed
+       
+        
+    }//GEN-LAST:event_pesquisaBotaoFornActionPerformed
 
     private int x;
     private int y;
