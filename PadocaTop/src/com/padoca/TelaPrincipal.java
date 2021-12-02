@@ -6,6 +6,7 @@
 package com.padoca;
 
 import java.awt.Color;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -428,16 +429,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 "ID", "Nome", "Sexo", "Cargo", "Telefone", "Idade", "E-Mail", "CPF", "Salário", "Data de Admissão"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
             boolean[] canEdit = new boolean [] {
-                false, true, true, true, true, true, true, true, true, true
+                false, false, false, false, false, false, false, false, false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -449,6 +443,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         funcScroll.setViewportView(listaFunc);
         if (listaFunc.getColumnModel().getColumnCount() > 0) {
             listaFunc.getColumnModel().getColumn(0).setResizable(false);
+            listaFunc.getColumnModel().getColumn(1).setResizable(false);
+            listaFunc.getColumnModel().getColumn(2).setResizable(false);
+            listaFunc.getColumnModel().getColumn(3).setResizable(false);
+            listaFunc.getColumnModel().getColumn(4).setResizable(false);
+            listaFunc.getColumnModel().getColumn(5).setResizable(false);
+            listaFunc.getColumnModel().getColumn(6).setResizable(false);
+            listaFunc.getColumnModel().getColumn(7).setResizable(false);
+            listaFunc.getColumnModel().getColumn(8).setResizable(false);
+            listaFunc.getColumnModel().getColumn(9).setResizable(false);
         }
 
         pesquisaNomeFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -643,6 +646,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cpfLabel.setForeground(new java.awt.Color(67, 40, 28));
         cpfLabel.setText("CPF:");
 
+        cpfCadFunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         cpfCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
         cpfCadFunc.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -866,7 +870,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         salarioLabelAltFunc.setForeground(new java.awt.Color(67, 40, 28));
         salarioLabelAltFunc.setText("Salário:");
 
-        salarioAltFunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
+        salarioAltFunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("####,##"))));
         salarioAltFunc.setMinimumSize(new java.awt.Dimension(7, 23));
         salarioAltFunc.setName(""); // NOI18N
         salarioAltFunc.setPreferredSize(new java.awt.Dimension(7, 23));
@@ -876,21 +880,41 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cpfLabelAltFunc.setText("CPF:");
 
         cpfAltFunc.setPreferredSize(new java.awt.Dimension(7, 23));
+        cpfAltFunc.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                cpfAltFuncCaretUpdate(evt);
+            }
+        });
 
         alterarCadFunc.setBackground(new java.awt.Color(102, 255, 102));
         alterarCadFunc.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         alterarCadFunc.setForeground(new java.awt.Color(0, 153, 0));
         alterarCadFunc.setText("Alterar");
+        alterarCadFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alterarCadFuncActionPerformed(evt);
+            }
+        });
 
         limparAltFunc.setBackground(new java.awt.Color(242, 214, 137));
         limparAltFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         limparAltFunc.setForeground(new java.awt.Color(192, 134, 47));
         limparAltFunc.setText("Limpar");
+        limparAltFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limparAltFuncActionPerformed(evt);
+            }
+        });
 
         voltarAltFunc.setBackground(new java.awt.Color(242, 214, 137));
         voltarAltFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         voltarAltFunc.setForeground(new java.awt.Color(192, 134, 47));
         voltarAltFunc.setText("Voltar");
+        voltarAltFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarAltFuncActionPerformed(evt);
+            }
+        });
 
         dataAdmLabelAltFunc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         dataAdmLabelAltFunc.setForeground(new java.awt.Color(67, 40, 28));
@@ -906,6 +930,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         nomeAltFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         nomeAltFunc.setForeground(new java.awt.Color(67, 40, 28));
         nomeAltFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        nomeAltFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomeAltFuncActionPerformed(evt);
+            }
+        });
 
         emailLabelAltFunc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         emailLabelAltFunc.setForeground(new java.awt.Color(67, 40, 28));
@@ -1063,18 +1092,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 "ID", "Nome", "Validade", "Preço", "Quant.", "Fornecedor"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
             };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         listaProd.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         listaProd.setGridColor(new java.awt.Color(255, 255, 255));
         listaProd.setSelectionBackground(new java.awt.Color(251, 132, 123));
         prodScroll.setViewportView(listaProd);
+        if (listaProd.getColumnModel().getColumnCount() > 0) {
+            listaProd.getColumnModel().getColumn(0).setResizable(false);
+            listaProd.getColumnModel().getColumn(1).setResizable(false);
+            listaProd.getColumnModel().getColumn(2).setResizable(false);
+            listaProd.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         botaoAddProd.setBackground(new java.awt.Color(102, 255, 102));
         botaoAddProd.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -1565,16 +1600,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 "ID", "Nome", "Tipo Forn.", "Status", "Telefone", "E-Mail"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
             boolean[] canEdit = new boolean [] {
-                false, true, true, true, true, false
+                false, false, false, false, false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -1585,6 +1613,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         fornScroll.setViewportView(listaForn);
         if (listaForn.getColumnModel().getColumnCount() > 0) {
             listaForn.getColumnModel().getColumn(0).setResizable(false);
+            listaForn.getColumnModel().getColumn(1).setResizable(false);
+            listaForn.getColumnModel().getColumn(2).setResizable(false);
+            listaForn.getColumnModel().getColumn(3).setResizable(false);
+            listaForn.getColumnModel().getColumn(4).setResizable(false);
+            listaForn.getColumnModel().getColumn(5).setResizable(false);
         }
 
         pesquisaNomeForn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -2011,7 +2044,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, true, true, true, true
+                false, false, false, false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -2023,6 +2056,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         estqScroll.setViewportView(listaEstq);
         if (listaEstq.getColumnModel().getColumnCount() > 0) {
             listaEstq.getColumnModel().getColumn(0).setResizable(false);
+            listaEstq.getColumnModel().getColumn(1).setResizable(false);
+            listaEstq.getColumnModel().getColumn(2).setResizable(false);
+            listaEstq.getColumnModel().getColumn(3).setResizable(false);
+            listaEstq.getColumnModel().getColumn(4).setResizable(false);
+            listaEstq.getColumnModel().getColumn(5).setResizable(false);
         }
 
         pesquisaNomeEstq.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -2497,17 +2535,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 "ID", "Nome", "Validade", "Preço", "Quant.", "Fornecedor"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
             };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         listaIngre.setGridColor(new java.awt.Color(255, 255, 255));
         listaIngre.setSelectionBackground(new java.awt.Color(251, 132, 123));
         IngreScroll.setViewportView(listaIngre);
+        if (listaIngre.getColumnModel().getColumnCount() > 0) {
+            listaIngre.getColumnModel().getColumn(0).setResizable(false);
+            listaIngre.getColumnModel().getColumn(1).setResizable(false);
+            listaIngre.getColumnModel().getColumn(2).setResizable(false);
+            listaIngre.getColumnModel().getColumn(3).setResizable(false);
+            listaIngre.getColumnModel().getColumn(4).setResizable(false);
+            listaIngre.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         botaoAddIngre.setBackground(new java.awt.Color(102, 255, 102));
         botaoAddIngre.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -2962,10 +3008,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
             new String [] {
                 "ID", "Nome", "Valid.", "Preço", "Quant.", "Fornecedor"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         prodVendaList.setGridColor(new java.awt.Color(255, 255, 255));
         prodVendaList.setSelectionBackground(new java.awt.Color(251, 132, 123));
         prodVendaScroll.setViewportView(prodVendaList);
+        if (prodVendaList.getColumnModel().getColumnCount() > 0) {
+            prodVendaList.getColumnModel().getColumn(0).setResizable(false);
+            prodVendaList.getColumnModel().getColumn(1).setResizable(false);
+            prodVendaList.getColumnModel().getColumn(2).setResizable(false);
+            prodVendaList.getColumnModel().getColumn(3).setResizable(false);
+            prodVendaList.getColumnModel().getColumn(4).setResizable(false);
+            prodVendaList.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         vendaList.setForeground(new java.awt.Color(67, 40, 28));
         vendaList.setModel(new javax.swing.table.DefaultTableModel(
@@ -2978,10 +3040,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
             new String [] {
                 "ID", "Valor", "Funcionario", "Produto", "Quantidade"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         vendaList.setGridColor(new java.awt.Color(255, 255, 255));
         vendaList.setSelectionBackground(new java.awt.Color(251, 132, 123));
         vendaScroll.setViewportView(vendaList);
+        if (vendaList.getColumnModel().getColumnCount() > 0) {
+            vendaList.getColumnModel().getColumn(0).setResizable(false);
+            vendaList.getColumnModel().getColumn(1).setResizable(false);
+            vendaList.getColumnModel().getColumn(2).setResizable(false);
+            vendaList.getColumnModel().getColumn(3).setResizable(false);
+            vendaList.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         vendProdLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         vendProdLabel.setForeground(new java.awt.Color(72, 57, 42));
@@ -3556,6 +3633,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void botaoAltFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAltFuncActionPerformed
         // TODO add your handling code here:
+        nomeAltFunc.removeAllItems();
+        nomeAltFunc.addItem("<Nomes>");
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM tb_funcionario;");
+            while(rs.next()){
+                String name = rs.getString("nome_funcionario");
+                nomeAltFunc.addItem(name);
+            }
+            
+            
+            
+            
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+        }
+        tabs.setSelectedIndex(2);
+        //DefaultTableModel model = (DefaultTableModel) listaFunc.getModel();
+        //int i = listaFunc.getSelectedRow();
+        
+        //idadeAltFunc.setText(model.getValueAt(i, 5).toString());
+        
     }//GEN-LAST:event_botaoAltFuncActionPerformed
 
     private void botaoAltProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAltProdActionPerformed
@@ -4516,6 +4617,131 @@ public class TelaPrincipal extends javax.swing.JFrame {
         qntVendaCad.setText("");
     }//GEN-LAST:event_vendaCadButtonActionPerformed
 
+    private void nomeAltFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeAltFuncActionPerformed
+        // TODO add your handling code here:
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            ResultSet rs = null;
+            if(nomeAltFunc.getSelectedItem() != null){
+                st.executeQuery("SELECT * FROM tb_funcionario where nome_funcionario = '"+ nomeAltFunc.getSelectedItem().toString() +"'");
+                rs = st.getResultSet();
+                while(rs.next()){
+                idadeAltFunc.setText(rs.getString("idade_funcionario"));
+                emailAltFunc.setText(rs.getString("email_funcionario"));
+                cargoAltFunc.setText(rs.getString("cargo_funcionario"));
+                dataAdmAltFunc.setText(rs.getString("data_admissao_funcionario"));
+                telAltFunc.setText(rs.getString("telefone_funcionario"));
+                salarioAltFunc.setText(rs.getString("salario_funcionario"));
+                cpfAltFunc.setText(rs.getString("cpf"));
+                
+                if (rs.getString("sexo_funcionario").toString() == "M"){
+                    
+                    mascButtonAltFunc.setSelected(true);
+                } else if (rs.getString("sexo_funcionario").toString() == "F"){
+                    femButtonAltFunc.setSelected(true);
+                }
+            }
+                
+                
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_nomeAltFuncActionPerformed
+
+    private void alterarCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarCadFuncActionPerformed
+        // TODO add your handling code here:
+        try {
+            String sexo = "";
+            if(mascButtonAltFunc.isSelected()){
+                sexo = "M";
+            } else if(femButtonAltFunc.isSelected()){
+                sexo = "F";
+            } else {
+                sexo = "O";
+            }
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            st.executeUpdate("UPDATE tb_funcionario SET idade_funcionario = "+ idadeAltFunc.getText() +", email_funcionario = '"+ emailAltFunc.getText() +"', cargo_funcionario = '"+ cargoAltFunc.getText() +"', data_admissao_funcionario = '"+ dataAdmAltFunc.getText() +"', telefone_funcionario = '"+ telAltFunc.getText() +"', salario_funcionario = '"+ salarioAltFunc.getText()+"', cpf = '"+ cpfAltFunc.getText() +"', sexo_funcionario = '"+ sexo +"' where nome_funcionario = '"+ nomeAltFunc.getSelectedItem().toString() +"'");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        nomeAltFunc.setSelectedIndex(0);
+        idadeAltFunc.setText("");
+        emailAltFunc.setText("");
+        telAltFunc.setText("");
+        salarioAltFunc.setText("");
+        cargoAltFunc.setText("");
+        dataAdmAltFunc.setText("");
+        cpfAltFunc.setText("");
+        mascButtonAltFunc.setSelected(false);
+        femButtonAltFunc.setSelected(false);
+        outroButtonAltFunc.setSelected(false);
+        tabs.setSelectedIndex(0);
+    }//GEN-LAST:event_alterarCadFuncActionPerformed
+
+    private void voltarAltFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarAltFuncActionPerformed
+        // TODO add your handling code here:
+        tabs.setSelectedIndex(0);
+    }//GEN-LAST:event_voltarAltFuncActionPerformed
+
+    private void limparAltFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparAltFuncActionPerformed
+        // TODO add your handling code here:
+        nomeAltFunc.setSelectedIndex(0);
+        idadeAltFunc.setText("");
+        emailAltFunc.setText("");
+        telAltFunc.setText("");
+        salarioAltFunc.setText("");
+        cargoAltFunc.setText("");
+        dataAdmAltFunc.setText("");
+        cpfAltFunc.setText("");
+        mascButtonAltFunc.setSelected(false);
+        femButtonAltFunc.setSelected(false);
+        outroButtonAltFunc.setSelected(false);
+    }//GEN-LAST:event_limparAltFuncActionPerformed
+
+    private void cpfAltFuncCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_cpfAltFuncCaretUpdate
+        // TODO add your handling code here:
+        Runnable cpfAltFuncCaretUpdate = new Runnable() {
+        @Override
+        public void run() {
+            // your highlight code
+                 if (cpfAltFunc.getText().length()> 5) {
+            /*hTerminoError.setText("Formato inválido");*/
+        }
+           if (cpfAltFunc.getText().length()< 6) {
+            /*hTerminoError.setText("");*/
+        }
+           
+        
+        
+        
+        if (cpfAltFunc.getText().length()==2 || cpfAltFunc.getText().length()==6 || cpfAltFunc.getText().length()==9) {
+            b = false;
+        }
+        if((cpfAltFunc.getText().length()==3 || cpfAltFunc.getText().length()==7 ) && b == false){  
+            cpfAltFunc.setText(cpfAltFunc.getText() + ".");
+            b = true;
+        }
+        
+        else if((cpfAltFunc.getText().length()==11) && b == false){  
+            cpfAltFunc.setText(cpfAltFunc.getText() + "-");
+            b = true;
+        }
+        
+        if((cpfAltFunc.getText().length()==15)){  
+            cpfAltFunc.setText(cpfAltFunc.getText().replaceFirst(".$",""));
+           
+        }
+        
+        }
+    };
+        
+        
+    SwingUtilities.invokeLater(cpfAltFuncCaretUpdate);
+        
+    }//GEN-LAST:event_cpfAltFuncCaretUpdate
     private void pesquisaBotaoFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaBotaoFuncActionPerformed
         try {
         Conexao con = new Conexao();
