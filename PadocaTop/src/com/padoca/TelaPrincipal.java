@@ -383,6 +383,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeBtnMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                closeBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                closeBtnMouseExited(evt);
+            }
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -522,6 +528,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         botaoDelFunc.setForeground(new java.awt.Color(255, 51, 51));
         botaoDelFunc.setText("Excluir");
         botaoDelFunc.setPreferredSize(new java.awt.Dimension(105, 27));
+        botaoDelFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoDelFuncActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout tabFuncLayout = new javax.swing.GroupLayout(tabFunc);
         tabFunc.setLayout(tabFuncLayout);
@@ -646,7 +657,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cpfLabel.setForeground(new java.awt.Color(67, 40, 28));
         cpfLabel.setText("CPF:");
 
-        cpfCadFunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         cpfCadFunc.setPreferredSize(new java.awt.Dimension(7, 23));
         cpfCadFunc.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -4458,6 +4468,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void closeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseClicked
         // TODO add your handling code here:
+        
         System.exit(0);
     }//GEN-LAST:event_closeBtnMouseClicked
 
@@ -4652,33 +4663,38 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void alterarCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarCadFuncActionPerformed
         // TODO add your handling code here:
+        boolean executar = true;
         try {
             String sexo = "";
             if(mascButtonAltFunc.isSelected()){
                 sexo = "M";
             } else if(femButtonAltFunc.isSelected()){
                 sexo = "F";
-            } else {
+            } else if (outroButtonAltFunc.isSelected()){
                 sexo = "O";
+            } else{
+                JOptionPane.showMessageDialog(null, "Faltando o sexo");
+                executar = false;
             }
-            Conexao con = new Conexao();
-            Statement st = con.conexao.createStatement();
-            st.executeUpdate("UPDATE tb_funcionario SET idade_funcionario = "+ idadeAltFunc.getText() +", email_funcionario = '"+ emailAltFunc.getText() +"', cargo_funcionario = '"+ cargoAltFunc.getText() +"', data_admissao_funcionario = '"+ dataAdmAltFunc.getText() +"', telefone_funcionario = '"+ telAltFunc.getText() +"', salario_funcionario = '"+ salarioAltFunc.getText()+"', cpf = '"+ cpfAltFunc.getText() +"', sexo_funcionario = '"+ sexo +"' where nome_funcionario = '"+ nomeAltFunc.getSelectedItem().toString() +"'");
+            if(executar == true) {
+                Conexao con = new Conexao();
+                Statement st = con.conexao.createStatement();
+                st.executeUpdate("UPDATE tb_funcionario SET idade_funcionario = "+ idadeAltFunc.getText() +", email_funcionario = '"+ emailAltFunc.getText() +"', cargo_funcionario = '"+ cargoAltFunc.getText() +"', data_admissao_funcionario = '"+ dataAdmAltFunc.getText() +"', telefone_funcionario = '"+ telAltFunc.getText() +"', salario_funcionario = '"+ salarioAltFunc.getText()+"', cpf = '"+ cpfAltFunc.getText() +"', sexo_funcionario = '"+ sexo +"' where nome_funcionario = '"+ nomeAltFunc.getSelectedItem().toString() +"'");
+                nomeAltFunc.setSelectedIndex(0);
+                idadeAltFunc.setText("");
+                emailAltFunc.setText("");
+                telAltFunc.setText("");
+                salarioAltFunc.setText("");
+                cargoAltFunc.setText("");
+                dataAdmAltFunc.setText("");
+                cpfAltFunc.setText("");
+                tabs.setSelectedIndex(0);
+            }
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        nomeAltFunc.setSelectedIndex(0);
-        idadeAltFunc.setText("");
-        emailAltFunc.setText("");
-        telAltFunc.setText("");
-        salarioAltFunc.setText("");
-        cargoAltFunc.setText("");
-        dataAdmAltFunc.setText("");
-        cpfAltFunc.setText("");
-        mascButtonAltFunc.setSelected(false);
-        femButtonAltFunc.setSelected(false);
-        outroButtonAltFunc.setSelected(false);
-        tabs.setSelectedIndex(0);
+        
     }//GEN-LAST:event_alterarCadFuncActionPerformed
 
     private void voltarAltFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarAltFuncActionPerformed
@@ -4788,6 +4804,34 @@ public class TelaPrincipal extends javax.swing.JFrame {
        
         
     }//GEN-LAST:event_pesquisaBotaoFornActionPerformed
+
+    private void botaoDelFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDelFuncActionPerformed
+        // TODO add your handling code here:
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Tem certeza que deseja excluir este dado?","CUIDADO!!",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+            try {
+                DefaultTableModel model = (DefaultTableModel) listaFunc.getModel();
+                int selectedRow = listaFunc.getSelectedRow();
+                Conexao con = new Conexao();
+                Statement st = con.conexao.createStatement();
+                st.executeUpdate("DELETE FROM tb_venda WHERE fk_id_funcionario = '"+ model.getValueAt(selectedRow, 0) +"'");
+                st.executeUpdate("DELETE FROM tb_funcionario WHERE id_funcionario = "+ model.getValueAt(selectedRow, 0) +"");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }//GEN-LAST:event_botaoDelFuncActionPerformed
+
+    private void closeBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseEntered
+        // TODO add your handling code here:
+        jLabel1.setForeground(Color.red);
+    }//GEN-LAST:event_closeBtnMouseEntered
+
+    private void closeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseExited
+        // TODO add your handling code here:
+        jLabel1.setForeground(Color.white);
+    }//GEN-LAST:event_closeBtnMouseExited
 
     private int x;
     private int y;
