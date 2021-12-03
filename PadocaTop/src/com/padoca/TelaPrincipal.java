@@ -2621,7 +2621,46 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoAddFuncActionPerformed
 
     private void voltarCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarCadFuncActionPerformed
-        // TODO add your handling code here:
+         pesquisaSelectFunc.removeAllItems();
+         pesquisaSelectFunc.addItem("<Funcionários>");
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM tb_funcionario;");
+            while(rs.next()){
+                String name = rs.getString("nome_funcionario");
+                pesquisaSelectFunc.addItem(name);
+            }
+            st.executeQuery("SELECT * FROM tb_funcionario");
+            rs = st.getResultSet();
+         
+         DefaultTableModel model = (DefaultTableModel) listaFunc.getModel();
+         model.setNumRows(0);
+         
+         while(rs.next()) {
+                model.addRow(new Object[] 
+                {
+                    rs.getString("id_funcionario"),
+                    rs.getString("nome_funcionario"),
+                    rs.getString("sexo_funcionario"),
+                    rs.getString("cargo_funcionario"),
+                    rs.getString("telefone_funcionario"),
+                    rs.getString("idade_funcionario"),
+                    rs.getString("email_funcionario"),
+                    rs.getString("cpf"),
+                    "R$"+rs.getString("salario_funcionario"),
+                    rs.getString("data_admissao_funcionario")
+                    
+                });
+            }
+        }
+         
+        
+        
+        
+         catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+        }
         tabs.setSelectedIndex(0);
     }//GEN-LAST:event_voltarCadFuncActionPerformed
 
