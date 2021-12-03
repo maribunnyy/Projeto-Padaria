@@ -2810,7 +2810,37 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoAddFornActionPerformed
 
     private void voltarCadFornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarCadFornActionPerformed
-        // TODO add your handling code here:
+            pesquisaSelectForn.removeAllItems();
+            pesquisaSelectForn.addItem("<Fornecedor>");
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM tb_fornecedor;");
+            while(rs.next()){
+                String name = rs.getString("nome_fornecedor");
+                pesquisaSelectForn.addItem(name);
+            }
+            
+            st.executeQuery("SELECT * FROM tb_fornecedor");
+            rs = st.getResultSet();
+         
+            DefaultTableModel model = (DefaultTableModel) listaForn.getModel();
+             model.setNumRows(0);
+         
+             while(rs.next()) {
+                model.addRow(new Object[] 
+                {
+                    rs.getString("id_fornecedor"),
+                    rs.getString("nome_fornecedor"),
+                    rs.getString("tipo_fornecedor"),
+                    rs.getString("status_fornecedor"),
+                    rs.getString("telefone_fornecedor"),
+                    rs.getString("email_fornecedor")
+                    
+                });
+            }
+        } catch (Exception e) {
+        }
         tabs.setSelectedIndex(4);
     }//GEN-LAST:event_voltarCadFornActionPerformed
 
