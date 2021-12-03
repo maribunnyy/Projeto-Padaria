@@ -23,7 +23,7 @@ import javax.swing.SwingUtilities;
  * @author maria.coregio
  */
 public class TelaPrincipal extends javax.swing.JFrame {
-    
+    String ultimoFuncionario;
     Boolean clicked = false;
     boolean b;
     
@@ -738,6 +738,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         botaoDelProd.setForeground(new java.awt.Color(255, 51, 51));
         botaoDelProd.setText("Excluir");
         botaoDelProd.setPreferredSize(new java.awt.Dimension(105, 27));
+        botaoDelProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoDelProdActionPerformed(evt);
+            }
+        });
 
         prodSelect.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         prodSelect.setForeground(new java.awt.Color(67, 40, 28));
@@ -2132,19 +2137,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
          model.setNumRows(0);
          
         while(rs.next()){
-            model.addRow(new Object[]{
-            rs.getString("id_produto"),
-            rs.getString("nome_produto"),
-            rs.getString("validade_produto"),
-            rs.getString("preco_produto"),
-            rs.getString("quantidade_produto"),
-            rs.getString("nome_fornecedor")
-            
-            });
+            if (Integer.parseInt(rs.getString("quantidade_produto")) != 0) {
+                model.addRow(new Object[]{
+                rs.getString("id_produto"),
+                rs.getString("nome_produto"),
+                rs.getString("validade_produto"),
+                rs.getString("preco_produto"),
+                rs.getString("quantidade_produto"),
+                rs.getString("nome_fornecedor")
+
+                });
+            }
         }     
         st.executeQuery("SELECT v.id_venda,v.valor_venda,f.nome_funcionario,p.nome_produto,v.qtd_venda"
                 + " FROM tb_venda v inner join tb_funcionario f ON f.id_funcionario=v.fk_id_funcionario "
-                + " INNER JOIN tb_produto p ON p.id_produto=v.fk_id_produto ORDER BY v.id_venda asc ");
+                + " INNER JOIN tb_produto p ON p.id_produto=v.fk_id_produto ORDER BY v.id_venda desc ");
             rs = st.getResultSet();
          
          model = (DefaultTableModel) vendaList.getModel();
@@ -2181,13 +2188,49 @@ public class TelaPrincipal extends javax.swing.JFrame {
             Conexao con = new Conexao();
             Statement st = con.conexao.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM tb_produto;");
+            
             while(rs.next()){
+                if (Integer.parseInt(rs.getString("quantidade_produto")) != 0) {
+              
                 String name = rs.getString("nome_Produto");
-                pesquisaSelectProd.addItem(name);
+                pesquisaSelectProd.addItem(name);}
             }
+            //antes
+            st.executeQuery("SELECT p.id_produto,p.nome_produto, p.validade_produto,p.preco_produto,p.quantidade_produto,f.nome_fornecedor "
+                    +" FROM tb_produto p inner join tb_fornecedor f "
+                    +" ON f.id_fornecedor=p.fk_id_fornecedor; ");
+             
+             
+          rs = st.getResultSet();
+         
+         DefaultTableModel model = (DefaultTableModel) listaProd.getModel();
+         model.setNumRows(0);
+         
+         while(rs.next()) {
+             if (Integer.parseInt(rs.getString("quantidade_produto")) != 0) {
+               
+             model.addRow(new Object[] 
+                {
+                    rs.getString("id_produto"),
+                    rs.getString("nome_produto"),
+                    rs.getString("validade_produto"),
+                    rs.getString("preco_produto"),
+                    rs.getString("quantidade_produto"),
+                    rs.getString("nome_fornecedor")
+                    
+                });
+             }}
+         
+         
+         
+         
+        
+            //depois
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e);
         }
+        
+        
         
         
     }//GEN-LAST:event_btnProdMouseClicked
@@ -2289,6 +2332,51 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pesquisaSelectProd.removeAllItems();
         pesquisaSelectProd.addItem("<Produtos>");
        
+        //antes do select da tabela
+         try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM tb_produto;");
+            while(rs.next()){
+                String name = rs.getString("nome_Produto");
+                pesquisaSelectProd.addItem(name);
+            }
+            //antes
+            st.executeQuery("SELECT p.id_produto,p.nome_produto, p.validade_produto,p.preco_produto,p.quantidade_produto,f.nome_fornecedor "
+                    +" FROM tb_produto p inner join tb_fornecedor f "
+                    +" ON f.id_fornecedor=p.fk_id_fornecedor; ");
+             
+             
+          rs = st.getResultSet();
+         
+         DefaultTableModel model = (DefaultTableModel) listaProd.getModel();
+         model.setNumRows(0);
+         
+         while(rs.next()) {
+             if (Integer.parseInt(rs.getString("quantidade_produto")) != 0) {
+               
+             model.addRow(new Object[] 
+                {
+                    rs.getString("id_produto"),
+                    rs.getString("nome_produto"),
+                    rs.getString("validade_produto"),
+                    rs.getString("preco_produto"),
+                    rs.getString("quantidade_produto"),
+                    rs.getString("nome_fornecedor")
+                    
+                });
+             }}
+         
+         
+         
+         
+        
+            //depois
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+        }
+        //depois antes do select da tabela
+        
     }//GEN-LAST:event_voltarCadProdActionPerformed
 
     private void cadastrarCadProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCadProdActionPerformed
@@ -2374,6 +2462,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
          model.setNumRows(0);
          
          while(rs.next()) {
+             if (Integer.parseInt(rs.getString("quantidade_produto")) != 0) {
                 model.addRow(new Object[] 
                 {
                     rs.getString("id_produto"),
@@ -2383,7 +2472,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     rs.getString("quantidade_produto"),
                     rs.getString("nome_fornecedor")
                     
-                });
+                });}
             }
          
          
@@ -2864,11 +2953,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             } 
             String qtd = qntVendaCad.getText();
             qtdFinal = qtdProduto - Integer.parseInt(qntVendaCad.getText());
-            if((qtdFinal ) == 0 ){
+            /*if((qtdFinal ) == 0 ){
              st.executeUpdate("DELETE FROM tb_produto WHERE id_produto ="+ Integer.parseInt(idProdVendaCad.getText()) +"");
+             st.executeUpdate("insert into tb_venda (valor_venda, fk_id_funcionario, fk_id_produto, qtd_venda) VALUES ("+ valor*Integer.parseInt(qntVendaCad.getText()) +", "+ id+", "+ idProdVendaCad.getText() +", "+ qntVendaCad.getText() +" )");
              limparDados = true;
-            }
-            else if (qtdFinal < 0) {
+            }*/
+            if (qtdFinal < 0) {
                 JOptionPane.showMessageDialog(null, "Quantidade insuficiente no estoque para realizar essa venda");
             }
             else {
@@ -2914,6 +3004,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
          model.setNumRows(0);
          
         while(rs.next()){
+            if (Integer.parseInt(rs.getString("quantidade_produto")) != 0) {
             model.addRow(new Object[]{
             rs.getString("id_produto"),
             rs.getString("nome_produto"),
@@ -2923,10 +3014,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
             rs.getString("nome_fornecedor")
             
             });
+            }
         }     
         st.executeQuery("SELECT v.id_venda,v.valor_venda,f.nome_funcionario,p.nome_produto,v.qtd_venda"
                 + " FROM tb_venda v inner join tb_funcionario f ON f.id_funcionario=v.fk_id_funcionario "
-                + " INNER JOIN tb_produto p ON p.id_produto=v.fk_id_produto ORDER BY v.id_venda asc ");
+                + " INNER JOIN tb_produto p ON p.id_produto=v.fk_id_produto ORDER BY v.id_venda desc ");
             rs = st.getResultSet();
          
          model = (DefaultTableModel) vendaList.getModel();
@@ -3132,6 +3224,43 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void qntVendaCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qntVendaCadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_qntVendaCadActionPerformed
+
+    private void botaoDelProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDelProdActionPerformed
+        // TODO add your handling code here:
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Tem certeza que deseja excluir este dado?","CUIDADO!!",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+        try {
+            DefaultTableModel model = (DefaultTableModel) listaProd.getModel();
+            int selectedRow = listaProd.getSelectedRow();
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            st.executeUpdate("DELETE FROM tb_produto WHERE id_produto="+model.getValueAt(selectedRow, 0)+"");
+            st.executeQuery("SELECT p.*,f.nome_fornecedor FROM tb_produto p INNER JOIN tb_fornecedor f ON f.id_fornecedor=p.fk_id_fornecedor");
+            
+            ResultSet rs = st.getResultSet();
+             model.setNumRows(0);
+         
+             while(rs.next()) {
+                 if (Integer.parseInt(rs.getString("quantidade_produto")) != 0) {
+              
+                model.addRow(new Object[] 
+                {
+                    rs.getString("id_produto"),
+                    rs.getString("nome_produto"),
+                    rs.getString("validade_produto"),
+                    rs.getString("preco_produto"),
+                    rs.getString("quantidade_produto"),
+                    rs.getString("nome_fornecedor")
+                });
+             }}
+      
+            
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+        }
+        }
+    }//GEN-LAST:event_botaoDelProdActionPerformed
 
     private int x;
     private int y;
