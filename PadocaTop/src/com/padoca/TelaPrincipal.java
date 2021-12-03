@@ -112,7 +112,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cadastrarCadProd = new javax.swing.JButton();
         limparCadProd = new javax.swing.JButton();
         voltarCadProd = new javax.swing.JButton();
-        tipoLabelProd = new javax.swing.JLabel();
         fornLabel = new javax.swing.JLabel();
         fornCadProd = new javax.swing.JComboBox<>();
         precoLabelProd = new javax.swing.JLabel();
@@ -122,7 +121,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         quantCadProd = new javax.swing.JTextField();
         valCadProd = new javax.swing.JFormattedTextField();
         cadProdLabel = new javax.swing.JLabel();
-        tipoCadProd = new javax.swing.JTextField();
         tabForn = new javax.swing.JPanel();
         fornScroll = new javax.swing.JScrollPane();
         listaForn = new javax.swing.JTable();
@@ -887,10 +885,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        tipoLabelProd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        tipoLabelProd.setForeground(new java.awt.Color(67, 40, 28));
-        tipoLabelProd.setText("Tipo:");
-
         fornLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         fornLabel.setForeground(new java.awt.Color(67, 40, 28));
         fornLabel.setText("Fornecedor:");
@@ -938,35 +932,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(voltarCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(fornLabel)
-                        .addComponent(tipoLabelProd)
                         .addComponent(nomeLabelProd)
                         .addComponent(precoLabelProd)))
                 .addGap(59, 59, 59)
-                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(tabProdCadLayout.createSequentialGroup()
-                        .addComponent(precoCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(559, Short.MAX_VALUE))
+                        .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nomeCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fornCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(precoCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(valLabel)
+                            .addComponent(quantLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(valCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(quantCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(tabProdCadLayout.createSequentialGroup()
-                        .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(tabProdCadLayout.createSequentialGroup()
-                                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nomeCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(fornCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tipoCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(valLabel)
-                                    .addComponent(quantLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(valCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(quantCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(tabProdCadLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(cadastrarCadProd, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                                    .addComponent(limparCadProd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(129, 129, 129))))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(cadastrarCadProd, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                            .addComponent(limparCadProd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(129, 129, 129))
             .addGroup(tabProdCadLayout.createSequentialGroup()
                 .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tabProdCadLayout.createSequentialGroup()
@@ -975,7 +963,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addGroup(tabProdCadLayout.createSequentialGroup()
                         .addGap(340, 340, 340)
                         .addComponent(cadProdLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         tabProdCadLayout.setVerticalGroup(
             tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -986,32 +974,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(cadProdLabel)
                 .addGap(39, 39, 39)
                 .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabProdCadLayout.createSequentialGroup()
-                        .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(tabProdCadLayout.createSequentialGroup()
-                                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(quantLabel)
-                                    .addComponent(quantCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(26, 26, 26)
-                                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(valLabel)
-                                    .addComponent(valCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(tabProdCadLayout.createSequentialGroup()
-                                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(nomeLabelProd)
-                                    .addComponent(nomeCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(33, 33, 33)
-                                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(tipoLabelProd)
-                                    .addComponent(tipoCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                    .addGroup(tabProdCadLayout.createSequentialGroup()
                         .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(quantLabel)
+                            .addComponent(quantCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(25, 25, 25)
+                        .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(valLabel)
+                            .addComponent(valCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(precoLabelProd)
-                            .addComponent(precoCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(49, 49, 49)
-                        .addComponent(fornLabel))
-                    .addComponent(fornCadProd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(124, 124, 124)
+                            .addComponent(precoCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(nomeLabelProd)
+                        .addComponent(nomeCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(35, 35, 35)
+                .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fornLabel)
+                    .addComponent(fornCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
                 .addComponent(cadastrarCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(tabProdCadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -2062,9 +2042,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(buttonPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                    .addComponent(panVendas, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                    .addComponent(panProd, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                    .addComponent(panFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(panVendas, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(panProd, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                     .addComponent(panForn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panRemessa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -3362,9 +3342,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel telFornLabel;
     private javax.swing.JLabel telLabelFunc;
     private javax.swing.JTextField tipoCadForn;
-    private javax.swing.JTextField tipoCadProd;
     private javax.swing.JLabel tipoLabelCadForn;
-    private javax.swing.JLabel tipoLabelProd;
     private javax.swing.JFormattedTextField valCadIngre;
     private javax.swing.JFormattedTextField valCadProd;
     private javax.swing.JLabel valLabel;
