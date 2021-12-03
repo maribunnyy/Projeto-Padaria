@@ -61,6 +61,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             rs = st.getResultSet();
             
             while(rs.next()){
+                if (Integer.parseInt(rs.getString("quantidade_produto")) != 0) {
                 modelProd.addRow(new Object[]{
             rs.getString("id_produto"),
             rs.getString("nome_produto"),
@@ -70,7 +71,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             rs.getString("nome_fornecedor")
             
             });
-            }
+            }}
                     
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
@@ -561,6 +562,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         limparCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         limparCadFunc.setForeground(new java.awt.Color(192, 134, 47));
         limparCadFunc.setText("Limpar");
+        limparCadFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limparCadFuncActionPerformed(evt);
+            }
+        });
 
         voltarCadFunc.setBackground(new java.awt.Color(242, 214, 137));
         voltarCadFunc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1242,6 +1248,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         limparCadForn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         limparCadForn.setForeground(new java.awt.Color(192, 134, 47));
         limparCadForn.setText("Limpar");
+        limparCadForn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limparCadFornActionPerformed(evt);
+            }
+        });
 
         voltarCadForn.setBackground(new java.awt.Color(242, 214, 137));
         voltarCadForn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -2064,9 +2075,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(buttonPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                    .addComponent(panVendas, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                    .addComponent(panProd, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(panFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                    .addComponent(panVendas, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                    .addComponent(panProd, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                     .addComponent(panForn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panRemessa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -3413,6 +3424,28 @@ public class TelaPrincipal extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_botaoDelIngreActionPerformed
+
+    private void limparCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCadFuncActionPerformed
+        nomeCadFunc.setText("");
+        idadeCadFunc.setText("");
+        femButton.setSelected(false);
+        mascButton.setSelected(false);
+        outroButton.setSelected(false);
+        emailCadFunc.setText("");
+        cargoCadFunc.setText("");
+        dataAdmCadFunc.setText("");
+        telCadFunc.setText("");
+        salarioCadFunc.setText("");
+        cpfCadFunc.setText("");
+    }//GEN-LAST:event_limparCadFuncActionPerformed
+
+    private void limparCadFornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparCadFornActionPerformed
+            nomeCadForn.setText("");
+            emailCadForn.setText("");
+            telCadForn.setText("");
+            tipoCadForn.setText("");
+            sttsCadForn.setText("");
+    }//GEN-LAST:event_limparCadFornActionPerformed
                                                  
 
     private int x;
