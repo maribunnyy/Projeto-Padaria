@@ -3183,9 +3183,9 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="panFunc" pref="218" max="32767" attributes="0"/>
-                      <Component id="panVendas" alignment="0" pref="218" max="32767" attributes="0"/>
-                      <Component id="panProd" alignment="0" pref="218" max="32767" attributes="0"/>
+                      <Component id="panFunc" pref="210" max="32767" attributes="0"/>
+                      <Component id="panVendas" alignment="0" pref="210" max="32767" attributes="0"/>
+                      <Component id="panProd" alignment="0" pref="210" max="32767" attributes="0"/>
                       <Component id="panForn" alignment="0" max="32767" attributes="0"/>
                       <Component id="panRemessa" alignment="0" max="32767" attributes="0"/>
                   </Group>

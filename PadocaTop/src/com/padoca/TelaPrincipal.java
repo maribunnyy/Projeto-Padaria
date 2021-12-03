@@ -2062,9 +2062,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(buttonPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                    .addComponent(panVendas, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                    .addComponent(panProd, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(panFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                    .addComponent(panVendas, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                    .addComponent(panProd, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                     .addComponent(panForn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panRemessa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -2605,8 +2605,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         String [] dataAlterada = data.split("/");
         
         LocalDate dataNova = LocalDate.of(Integer.parseInt(dataAlterada[2]), Integer.parseInt(dataAlterada[1]), Integer.parseInt(dataAlterada[0]));
-        
+        JOptionPane.showMessageDialog(null, dataNova);
         try {
+            JOptionPane.showMessageDialog(null,"antes do insert");
             Conexao con = new Conexao();
             Statement st = con.conexao.createStatement();
             st.executeUpdate("INSERT INTO padaria.tb_ingrediente(nome_ingrediente,"
@@ -2614,6 +2615,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     + "fk_id_fornecedor) VALUES ('"+nomeCadIngre.getText()+"',"+quantCadIngre.getText()
             +","+precoUniCadIngre.getText()+",'"+dataNova+"','"+fornCadIngre.getSelectedIndex()+"');");
             JOptionPane.showMessageDialog(null, "Ingrediente: " + nomeCadIngre.getText() + " cadastrado com sucesso!");
+            
         } catch (Exception e) {
              e.printStackTrace();
         }
@@ -2858,8 +2860,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void vendaCadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendaCadButtonActionPerformed
         // TODO add your handling code here:
         int qtdProduto=0;
+        int qtdFinal;
         int valor = 0;
-        Boolean menoroff = true;
+        Boolean limparDados = false;
         try {
             Conexao con = new Conexao();
             Statement st = con.conexao.createStatement();
@@ -2879,13 +2882,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 qtdProduto=Integer.parseInt(rs.getString("quantidade_produto"));
              
             } 
-            if(qtdProduto<= 0 ){
-             menoroff = false;
-             st.executeUpdate("DELETE FROM tb_produto WHERE id_produto ="+ Integer.parseInt(idProdVendaCad.getText()) +"");
-            }
-            if(menoroff==true){
-            st.executeUpdate("insert into tb_venda (valor_venda, fk_id_funcionario, fk_id_produto, qtd_venda) VALUES ("+ valor*Integer.parseInt(qntVendaCad.getText()) +", "+ id+", "+ idProdVendaCad.getText() +", "+ qntVendaCad.getText() +" )");
             String qtd = qntVendaCad.getText();
+            qtdFinal = qtdProduto - Integer.parseInt(qntVendaCad.getText());
+            if((qtdFinal ) == 0 ){
+             st.executeUpdate("DELETE FROM tb_produto WHERE id_produto ="+ Integer.parseInt(idProdVendaCad.getText()) +"");
+             limparDados = true;
+            }
+            else if (qtdFinal < 0) {
+                JOptionPane.showMessageDialog(null, "Quantidade insuficiente no estoque para realizar essa venda");
+            }
+            else {
+            limparDados = true;
+            st.executeUpdate("insert into tb_venda (valor_venda, fk_id_funcionario, fk_id_produto, qtd_venda) VALUES ("+ valor*Integer.parseInt(qntVendaCad.getText()) +", "+ id+", "+ idProdVendaCad.getText() +", "+ qntVendaCad.getText() +" )");
+            
             st.executeUpdate("Update tb_produto set quantidade_produto =  quantidade_produto - "+  qtd + " where id_produto = "+ idProdVendaCad.getText() +"");  
             }
             
@@ -2895,9 +2904,74 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        funcVendaCad.setSelectedIndex(0);
-        idProdVendaCad.setText("");
-        qntVendaCad.setText("");
+        if (limparDados == true) {
+            funcVendaCad.setSelectedIndex(0);
+            idProdVendaCad.setText("");
+            qntVendaCad.setText("");
+            JOptionPane.showMessageDialog(null, "Venda cadastrada com sucesso");
+            //começa o código de atualizar as duas tables (tudo que está entre esse comentário de início, e o comentário de término, é o código que atualiza as tabelas, portanto pode ser excluído
+                           
+        //Botões de remover
+        funcVendaCad.removeAllItems();
+        funcVendaCad.addItem("<Funcionários>");
+        pesquisaSelectProd.removeAllItems();
+        pesquisaSelectProd.addItem("<Produtos>");
+        
+        try {
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM tb_funcionario;");
+            while(rs.next()){
+                String name = rs.getString("nome_funcionario");
+                funcVendaCad.addItem(name);
+            }
+             st.executeQuery("SELECT p.id_produto,p.nome_produto, p.validade_produto,p.preco_produto,p.quantidade_produto,f.nome_fornecedor "
+                    +" FROM tb_produto p inner join tb_fornecedor f "
+                    +" ON f.id_fornecedor=p.fk_id_fornecedor order by p.id_produto asc; ");
+            rs = st.getResultSet();
+         
+         DefaultTableModel model = (DefaultTableModel) prodVendaList.getModel();
+         model.setNumRows(0);
+         
+        while(rs.next()){
+            model.addRow(new Object[]{
+            rs.getString("id_produto"),
+            rs.getString("nome_produto"),
+            rs.getString("validade_produto"),
+            rs.getString("preco_produto"),
+            rs.getString("quantidade_produto"),
+            rs.getString("nome_fornecedor")
+            
+            });
+        }     
+        st.executeQuery("SELECT v.id_venda,v.valor_venda,f.nome_funcionario,p.nome_produto,v.qtd_venda"
+                + " FROM tb_venda v inner join tb_funcionario f ON f.id_funcionario=v.fk_id_funcionario "
+                + " INNER JOIN tb_produto p ON p.id_produto=v.fk_id_produto ORDER BY v.id_venda asc ");
+            rs = st.getResultSet();
+         
+         model = (DefaultTableModel) vendaList.getModel();
+         model.setNumRows(0);
+         
+        while(rs.next()){
+            model.addRow(new Object[]{
+            rs.getString("id_venda"),
+            rs.getString("valor_venda"),
+            rs.getString("nome_funcionario"),
+            rs.getString("nome_produto"),
+            rs.getString("qtd_venda")
+            
+            });
+        } 
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+        }
+        tabs.setSelectedIndex(8);
+        btnClicked(panVendas);
+        defaultColor(panProd,panForn, panRemessa, panFunc);
+        
+            //termina o código de atualizar as duas tabelas 
+            
+        }
     }//GEN-LAST:event_vendaCadButtonActionPerformed
 
     private void pesquisaBotaoFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaBotaoFuncActionPerformed
