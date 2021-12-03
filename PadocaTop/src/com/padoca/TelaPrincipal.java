@@ -2291,6 +2291,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void botaoAddProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddProdActionPerformed
         tabs.setSelectedIndex(3);
+        fornCadProd.removeAllItems();
+        fornCadProd.addItem("<Fornecedores>");
         try {
             Conexao con = new Conexao();
             Statement st = con.conexao.createStatement();
