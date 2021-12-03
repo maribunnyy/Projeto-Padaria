@@ -27,14 +27,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     Boolean clicked = false;
     boolean b;
     
-
     /**
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
         initComponents();
         initMoving(this);
-        tabs.setSelectedIndex(9);
+        tabs.setSelectedIndex(8);
+        
     }
 
     /**
@@ -195,8 +195,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         vendaCadButton = new javax.swing.JButton();
         vendaDelButton = new javax.swing.JButton();
         qntVendaCad = new javax.swing.JFormattedTextField();
-        tabInicio = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         buttonPanel = new javax.swing.JPanel();
         panVendas = new javax.swing.JPanel();
         btnVendas = new javax.swing.JLabel();
@@ -1107,6 +1105,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         botaoDelForn.setForeground(new java.awt.Color(255, 51, 51));
         botaoDelForn.setText("Excluir");
         botaoDelForn.setPreferredSize(new java.awt.Dimension(105, 27));
+        botaoDelForn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoDelFornActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout tabFornLayout = new javax.swing.GroupLayout(tabForn);
         tabForn.setLayout(tabFornLayout);
@@ -1370,6 +1373,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         botaoDelIngre.setForeground(new java.awt.Color(255, 51, 51));
         botaoDelIngre.setText("Excluir");
         botaoDelIngre.setPreferredSize(new java.awt.Dimension(105, 27));
+        botaoDelIngre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoDelIngreActionPerformed(evt);
+            }
+        });
 
         IngreSelect.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         IngreSelect.setForeground(new java.awt.Color(67, 40, 28));
@@ -1851,32 +1859,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
 
         tabs.addTab("tab2", tabVenda);
-
-        tabInicio.setBackground(new java.awt.Color(251, 242, 212));
-
-        jLabel2.setFont(new java.awt.Font("Rockwell Condensed", 1, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(67, 40, 28));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("INICIO");
-
-        javax.swing.GroupLayout tabInicioLayout = new javax.swing.GroupLayout(tabInicio);
-        tabInicio.setLayout(tabInicioLayout);
-        tabInicioLayout.setHorizontalGroup(
-            tabInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabInicioLayout.createSequentialGroup()
-                .addGap(298, 298, 298)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(346, Short.MAX_VALUE))
-        );
-        tabInicioLayout.setVerticalGroup(
-            tabInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabInicioLayout.createSequentialGroup()
-                .addContainerGap(336, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(327, 327, 327))
-        );
-
-        tabs.addTab("tab10", tabInicio);
 
         getContentPane().add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, -29, 920, 840));
 
@@ -2674,9 +2656,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         String [] dataAlterada = data.split("/");
         
         LocalDate dataNova = LocalDate.of(Integer.parseInt(dataAlterada[2]), Integer.parseInt(dataAlterada[1]), Integer.parseInt(dataAlterada[0]));
-        JOptionPane.showMessageDialog(null, dataNova);
-        try {
-            JOptionPane.showMessageDialog(null,"antes do insert");
+        try {           
             Conexao con = new Conexao();
             Statement st = con.conexao.createStatement();
             st.executeUpdate("INSERT INTO padaria.tb_ingrediente(nome_ingrediente,"
@@ -3230,20 +3210,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         int dialogButton = JOptionPane.YES_NO_OPTION;
         int dialogResult = JOptionPane.showConfirmDialog (null, "Tem certeza que deseja excluir este dado?","CUIDADO!!",dialogButton);
         if(dialogResult == JOptionPane.YES_OPTION){
-        try {
-            DefaultTableModel model = (DefaultTableModel) listaProd.getModel();
-            int selectedRow = listaProd.getSelectedRow();
-            Conexao con = new Conexao();
-            Statement st = con.conexao.createStatement();
-            st.executeUpdate("DELETE FROM tb_produto WHERE id_produto="+model.getValueAt(selectedRow, 0)+"");
-            st.executeQuery("SELECT p.*,f.nome_fornecedor FROM tb_produto p INNER JOIN tb_fornecedor f ON f.id_fornecedor=p.fk_id_fornecedor");
+            try {
+                DefaultTableModel model = (DefaultTableModel) listaProd.getModel();
+                int selectedRow = listaProd.getSelectedRow();
+                Conexao con = new Conexao();
+                Statement st = con.conexao.createStatement();
+                st.executeUpdate("DELETE FROM tb_produto where id_produto = "+model.getValueAt(selectedRow, 0)+"");
+                st.executeQuery("SELECT p.*, f.nome_fornecedor FROM tb_produto p INNER JOIN tb_fornecedor f ON f.id_fornecedor=p.fk_id_fornecedor");
             
             ResultSet rs = st.getResultSet();
              model.setNumRows(0);
          
              while(rs.next()) {
-                 if (Integer.parseInt(rs.getString("quantidade_produto")) != 0) {
-              
                 model.addRow(new Object[] 
                 {
                     rs.getString("id_produto"),
@@ -3252,15 +3230,84 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     rs.getString("preco_produto"),
                     rs.getString("quantidade_produto"),
                     rs.getString("nome_fornecedor")
+                    
                 });
-             }}
-      
+             }
+            } catch (Exception e) {
+            }
             
-        } catch (Exception e) {
-            JOptionPane.showConfirmDialog(null, e);
-        }
         }
     }//GEN-LAST:event_botaoDelProdActionPerformed
+
+    private void botaoDelFornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDelFornActionPerformed
+        // TODO add your handling code here:
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Tem certeza que deseja excluir este dado?","CUIDADO!!",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+            try {
+                DefaultTableModel model = (DefaultTableModel) listaForn.getModel();
+                int selectedRow = listaForn.getSelectedRow();
+                Conexao con = new Conexao();
+                Statement st = con.conexao.createStatement();
+                st.executeUpdate("DELETE FROM tb_fornecedor where id_fornecedor = "+model.getValueAt(selectedRow, 0)+"");
+                st.executeQuery("SELECT * FROM tb_fornecedor");
+            
+            ResultSet rs = st.getResultSet();
+             model.setNumRows(0);
+         
+             while(rs.next()) {
+                model.addRow(new Object[] 
+                {
+                    rs.getString("id_fornecedor"),
+                    rs.getString("nome_fornecedor"),
+                    rs.getString("tipo_fornecedor"),
+                    rs.getString("status_fornecedor"),
+                    rs.getString("telefone_fornecedor"),
+                    rs.getString("email_fornecedor")
+                    
+                });
+             }
+            } catch (Exception e) {
+            }
+            
+        }
+    }//GEN-LAST:event_botaoDelFornActionPerformed
+
+    private void botaoDelIngreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDelIngreActionPerformed
+        // TODO add your handling code here:
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Tem certeza que deseja excluir este dado?","CUIDADO!!",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+            try {
+                DefaultTableModel model = (DefaultTableModel) listaIngre.getModel();
+                int selectedRow = listaIngre.getSelectedRow();
+                Conexao con = new Conexao();
+                Statement st = con.conexao.createStatement();
+                st.executeUpdate("DELETE FROM tb_ingrediente where id_ingrediente = "+model.getValueAt(selectedRow, 0)+"");
+                st.executeQuery("SELECT i.*, f.nome_fornecedor FROM tb_ingrediente i INNER JOIN tb_fornecedor f ON f.id_fornecedor = i.fk_id_fornecedor");
+            
+            ResultSet rs = st.getResultSet();
+             model.setNumRows(0);
+         
+             while(rs.next()) {
+                model.addRow(new Object[] 
+                {
+                    rs.getString("id_ingrediente"),
+                    rs.getString("nome_ingrediente"),
+                    rs.getString("validade_ingrediente"),
+                    rs.getString("preco_ingrediente"),
+                    rs.getString("quantidade_ingrediente"),
+                    rs.getString("nome_fornecedor")
+                    
+                });
+             }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+            
+        }
+    }//GEN-LAST:event_botaoDelIngreActionPerformed
+                                                 
 
     private int x;
     private int y;
@@ -3321,6 +3368,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaPrincipal().setVisible(true);
+                try {
+                } catch (Exception e) {
+                }
             }
         });
     }
@@ -3391,7 +3441,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField idadeCadFunc;
     private javax.swing.JLabel idadeLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton limparCadForn;
     private javax.swing.JButton limparCadFunc;
     private javax.swing.JButton limparCadIngre;
@@ -3461,7 +3510,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel tabFuncCad;
     private javax.swing.JPanel tabIngre;
     private javax.swing.JPanel tabIngreCad;
-    private javax.swing.JPanel tabInicio;
     private javax.swing.JPanel tabProd;
     private javax.swing.JPanel tabProdCad;
     private javax.swing.JPanel tabVenda;
