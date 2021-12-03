@@ -2848,7 +2848,7 @@
                       <Color blue="1c" green="28" red="43" type="rgb"/>
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="6" rowCount="4">
+                      <Table columnCount="6" rowCount="0">
                         <Column editable="false" title="ID" type="java.lang.Object"/>
                         <Column editable="false" title="Nome" type="java.lang.Object"/>
                         <Column editable="false" title="Valid." type="java.lang.Object"/>
@@ -2921,7 +2921,7 @@
                       <Color blue="1c" green="28" red="43" type="rgb"/>
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="5" rowCount="4">
+                      <Table columnCount="5" rowCount="0">
                         <Column editable="false" title="ID" type="java.lang.Object"/>
                         <Column editable="false" title="Valor" type="java.lang.Object"/>
                         <Column editable="false" title="Funcionario" type="java.lang.Object"/>
@@ -3109,9 +3109,9 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="panFunc" pref="210" max="32767" attributes="0"/>
-                      <Component id="panVendas" alignment="0" pref="210" max="32767" attributes="0"/>
-                      <Component id="panProd" alignment="0" pref="210" max="32767" attributes="0"/>
+                      <Component id="panFunc" pref="218" max="32767" attributes="0"/>
+                      <Component id="panVendas" alignment="0" pref="218" max="32767" attributes="0"/>
+                      <Component id="panProd" alignment="0" pref="218" max="32767" attributes="0"/>
                       <Component id="panForn" alignment="0" max="32767" attributes="0"/>
                       <Component id="panRemessa" alignment="0" max="32767" attributes="0"/>
                   </Group>

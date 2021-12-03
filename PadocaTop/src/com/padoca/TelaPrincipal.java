@@ -27,6 +27,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     Boolean clicked = false;
     boolean b;
     
+    
     /**
      * Creates new form TelaPrincipal
      */
@@ -34,7 +35,47 @@ public class TelaPrincipal extends javax.swing.JFrame {
         initComponents();
         initMoving(this);
         tabs.setSelectedIndex(8);
-        
+        DefaultTableModel modelVenda = (DefaultTableModel) vendaList.getModel();
+        DefaultTableModel modelProd = (DefaultTableModel) prodVendaList.getModel();
+        try {
+            modelProd.setNumRows(0);
+            Conexao con = new Conexao();
+            Statement st = con.conexao.createStatement();
+            st.executeQuery("SELECT v.id_venda,v.valor_venda,f.nome_funcionario,p.nome_produto,v.qtd_venda"
+                            + " FROM tb_venda v inner join tb_funcionario f ON f.id_funcionario=v.fk_id_funcionario "
+                            + " INNER JOIN tb_produto p ON p.id_produto=v.fk_id_produto ORDER BY v.id_venda desc ");
+            ResultSet rs = st.getResultSet();
+            while(rs.next()){
+                modelVenda.addRow(new Object[]{
+            rs.getString("id_venda"),
+            rs.getString("valor_venda"),
+            rs.getString("nome_funcionario"),
+            rs.getString("nome_produto"),
+            rs.getString("qtd_venda")
+            
+            });
+            }
+            st.executeQuery("SELECT p.id_produto,p.nome_produto, p.validade_produto,p.preco_produto,p.quantidade_produto,f.nome_fornecedor "
+                    +" FROM tb_produto p inner join tb_fornecedor f "
+                    +" ON f.id_fornecedor=p.fk_id_fornecedor order by p.id_produto asc; ");
+            rs = st.getResultSet();
+            
+            while(rs.next()){
+                modelProd.addRow(new Object[]{
+            rs.getString("id_produto"),
+            rs.getString("nome_produto"),
+            rs.getString("validade_produto"),
+            rs.getString("preco_produto"),
+            rs.getString("quantidade_produto"),
+            rs.getString("nome_fornecedor")
+            
+            });
+            }
+                    
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+                
+            }
     }
 
     /**
@@ -1648,10 +1689,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         prodVendaList.setForeground(new java.awt.Color(67, 40, 28));
         prodVendaList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Nome", "Valid.", "Preço", "Quant.", "Fornecedor"
@@ -1688,10 +1726,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         vendaList.setForeground(new java.awt.Color(67, 40, 28));
         vendaList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Valor", "Funcionario", "Produto", "Quantidade"
@@ -2084,7 +2119,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     rs.getString("idade_funcionario"),
                     rs.getString("email_funcionario"),
                     rs.getString("cpf"),
-                    "R$"+ rs.getString("salario_funcionario").replace(".", ","),
+                    rs.getString("salario_funcionario").replace(".", ","),
                     rs.getString("data_admissao_funcionario")
                     
                 });
@@ -2378,7 +2413,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             st.executeUpdate("INSERT INTO tb_produto(nome_produto,"
                     + "validade_produto,preco_produto,quantidade_produto,"
                     + "fk_id_fornecedor) VALUES ('"+nomeCadProd.getText()+"','"+dataNova
-            +"',"+precoCadProd.getText()+","+quantCadProd.getText()+",'"+fornCadProd.getSelectedIndex()+"');");
+            +"',"+precoCadProd.getText().replace(",", ".")+","+quantCadProd.getText()+",'"+fornCadProd.getSelectedIndex()+"');");
             JOptionPane.showMessageDialog(null, "Produto: " + nomeCadProd.getText() + " cadastrado com sucesso!");
         } catch (Exception e) {
              e.printStackTrace();
@@ -2650,7 +2685,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     rs.getString("idade_funcionario"),
                     rs.getString("email_funcionario"),
                     rs.getString("cpf"),
-                    "R$"+rs.getString("salario_funcionario"),
+                    rs.getString("salario_funcionario"),
                     rs.getString("data_admissao_funcionario")
                     
                 });
@@ -2703,7 +2738,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             st.executeUpdate("INSERT INTO padaria.tb_ingrediente(nome_ingrediente,"
                     + "quantidade_ingrediente,precounitario_ingrediente,validade_ingrediente,"
                     + "fk_id_fornecedor) VALUES ('"+nomeCadIngre.getText()+"',"+quantCadIngre.getText()
-            +","+precoUniCadIngre.getText()+",'"+dataNova+"','"+fornCadIngre.getSelectedIndex()+"');");
+            +","+precoUniCadIngre.getText().replace(",", ".")+",'"+dataNova+"','"+fornCadIngre.getSelectedIndex()+"');");
             JOptionPane.showMessageDialog(null, "Ingrediente: " + nomeCadIngre.getText() + " cadastrado com sucesso!");
             
         } catch (Exception e) {
@@ -2900,7 +2935,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     rs.getString("id_produto"),
                     rs.getString("nome_produto"),
                     rs.getString("validade_produto"),
-                    "R$"+ rs.getString("preco_produto").replace(".", ","),
+                    rs.getString("preco_produto").replace(".", ","),
                     rs.getString("quantidade_produto"),
                     rs.getString("nome_fornecedor")
                 });
@@ -2967,7 +3002,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     rs.getString("id_ingrediente"),
                     rs.getString("nome_ingrediente"),
                     rs.getString("validade_ingrediente"),
-                    "R$" + rs.getString("precounitario_ingrediente"),
+                    rs.getString("precounitario_ingrediente"),
                     rs.getString("quantidade_ingrediente"),
                     rs.getString("nome_fornecedor")
                 });
@@ -2981,7 +3016,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         int qtdProduto=0;
         int qtdFinal;
-        int valor = 0;
+        Double valor = 0.0;
         Boolean limparDados = false;
         try {
             Conexao con = new Conexao();
@@ -2998,7 +3033,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             st.executeQuery("SELECT * FROM tb_produto WHERE id_produto="+idProdVendaCad.getText()+"");
             rs = st.getResultSet();
             while(rs.next()){
-                valor = rs.getInt("preco_produto");
+                valor = rs.getDouble("preco_produto");
                 qtdProduto=Integer.parseInt(rs.getString("quantidade_produto"));
              
             } 
@@ -3014,7 +3049,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
             else {
             limparDados = true;
-            st.executeUpdate("insert into tb_venda (valor_venda, fk_id_funcionario, fk_id_produto, qtd_venda) VALUES ("+ valor*Integer.parseInt(qntVendaCad.getText()) +", "+ id+", "+ idProdVendaCad.getText() +", "+ qntVendaCad.getText() +" )");
+            st.executeUpdate("insert into tb_venda (valor_venda, fk_id_funcionario, fk_id_produto, qtd_venda) VALUES ("+ valor*Double.parseDouble(qntVendaCad.getText()) +", "+ id+", "+ idProdVendaCad.getText() +", "+ qntVendaCad.getText() +" )");
             
             st.executeUpdate("Update tb_produto set quantidade_produto =  quantidade_produto - "+  qtd + " where id_produto = "+ idProdVendaCad.getText() +"");  
             }
@@ -3127,7 +3162,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     rs.getString("idade_funcionario"),
                     rs.getString("email_funcionario"),
                     rs.getString("cpf"),
-                    "R$"+rs.getString("salario_funcionario"),
+                    rs.getString("salario_funcionario"),
                     rs.getString("data_admissao_funcionario")
                     
                 });
@@ -3207,7 +3242,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             rs.getString("idade_funcionario"),
                             rs.getString("email_funcionario"),
                             rs.getString("cpf"),
-                            "R$"+rs.getString("salario_funcionario"),
+                            rs.getString("salario_funcionario"),
                             rs.getString("data_admissao_funcionario")
 
                         });
@@ -3439,9 +3474,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaPrincipal().setVisible(true);
-                try {
-                } catch (Exception e) {
-                }
+                
+                
             }
         });
     }
