@@ -26,7 +26,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     String ultimoFuncionario;
     Boolean clicked = false;
     boolean b;
-   //socorroaaaa
+   //Agora vai time
     
     /**
      * Creates new form TelaPrincipal
